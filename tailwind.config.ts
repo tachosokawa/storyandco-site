@@ -25,6 +25,8 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-noto)', 'Noto Sans JP', 'sans-serif'],
         serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
+        poppins: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
+        arial: ['var(--font-arial)', 'Arial', 'Helvetica', 'sans-serif'],
       },
     },
   },
