@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: {
-    default: 'STORY & Co. | 体験をデザインし、人生に出会いと変化をもたらす企業',
+    default: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
     template: '%s | STORY & Co.',
   },
   description:
