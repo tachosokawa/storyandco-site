@@ -1,0 +1,412 @@
+
+#mv-text-stroke, #create-text-stroke, #contact-text-stroke {
+  -webkit-text-stroke-width: 2px; /* 枠線の幅 */
+  -webkit-text-stroke-color: #2D2A24; /* 枠線の色 */
+}
+@media screen and (max-width: 768px) {
+#mv-text-stroke, #create-text-stroke, #contact-text-stroke {
+  -webkit-text-stroke-width: 1px;
+}
+}
+
+/* 各要素に異なるアニメーションを適用し、アニメーション時間を35秒に設定 */
+#mv-colorful1 { animation: colorChange1 30s infinite; }
+#mv-colorful2 { animation: colorChange2 30s infinite; }
+#mv-colorful3 { animation: colorChange3 30s infinite; }
+#mv-colorful4 { animation: colorChange4 30s infinite; }
+#mv-colorful5 { animation: colorChange5 30s infinite; }
+#mv-colorful6 { animation: colorChange6 30s infinite; }
+#mv-colorful7 { animation: colorChange7 30s infinite; }
+#mv-colorful8 { animation: colorChange8 30s infinite; }
+#mv-colorful9 { animation: colorChange9 30s infinite; }
+#mv-colorful10 { animation: colorChange10 30s infinite; }
+#mv-colorful11 { animation: colorChange1 30s infinite; }
+#mv-colorful12 { animation: colorChange2 30s infinite; }
+#mv-colorful13 { animation: colorChange3 30s infinite; }
+#mv-colorful14 { animation: colorChange4 30s infinite; }
+#mv-colorful15 { animation: colorChange5 30s infinite; }
+#mv-colorful16 { animation: colorChange6 30s infinite; }
+#mv-colorful17 { animation: colorChange7 30s infinite; }
+#mv-colorful18 { animation: colorChange8 30s infinite; }
+#mv-colorful19 { animation: colorChange9 30s infinite; }
+#mv-colorful20 { animation: colorChange10 30s infinite; }
+#mv-colorful21 { animation: colorChange1 30s infinite; }
+#mv-colorful22 { animation: colorChange2 30s infinite; }
+#mv-colorful23 { animation: colorChange3 30s infinite; }
+#mv-colorful24 { animation: colorChange4 30s infinite; }
+#mv-colorful25 { animation: colorChange5 30s infinite; }
+
+
+#create-colorful1 { animation: colorChange1 30s infinite; }
+#create-colorful2 { animation: colorChange2 30s infinite; }
+#create-colorful3 { animation: colorChange3 30s infinite; }
+#create-colorful4 { animation: colorChange4 30s infinite; }
+#create-colorful5 { animation: colorChange5 30s infinite; }
+#create-colorful6 { animation: colorChange6 30s infinite; }
+#create-colorful7 { animation: colorChange7 30s infinite; }
+#create-colorful8 { animation: colorChange8 30s infinite; }
+#create-colorful9 { animation: colorChange9 30s infinite; }
+#create-colorful10 { animation: colorChange10 30s infinite; }
+#create-colorful11 { animation: colorChange1 30s infinite; }
+#create-colorful12 { animation: colorChange2 30s infinite; }
+#create-colorful13 { animation: colorChange3 30s infinite; }
+#create-colorful14 { animation: colorChange4 30s infinite; }
+#create-colorful15 { animation: colorChange5 30s infinite; }
+#create-colorful16 { animation: colorChange6 30s infinite; }
+#create-colorful17 { animation: colorChange7 30s infinite; }
+#create-colorful18 { animation: colorChange8 30s infinite; }
+#create-colorful19 { animation: colorChange9 30s infinite; }
+
+#contact-colorful1 { animation: colorChange1 30s infinite; }
+#contact-colorful2 { animation: colorChange2 30s infinite; }
+#contact-colorful3 { animation: colorChange3 30s infinite; }
+#contact-colorful4 { animation: colorChange4 30s infinite; }
+#contact-colorful5 { animation: colorChange5 30s infinite; }
+#contact-colorful6 { animation: colorChange6 30s infinite; }
+#contact-colorful7 { animation: colorChange7 30s infinite; }
+
+/* Animation 1 */
+@keyframes colorChange1 {
+0%   { color: #18BED7; }
+8%   { color: #FFFDF7; }
+10%  { color: #C0FF00; }
+20%  { color: #C0FF00; }
+28%  { color: #FFFDF7; }
+30%  { color: #FF4731; }
+40%  { color: #FF4731; }
+48%  { color: #FFFDF7; }
+50%  { color: #D0C5FB; }
+60%  { color: #D0C5FB; }
+68%  { color: #FFFDF7; }
+70%  { color: #18BED7; }
+80%  { color: #18BED7; }
+88%  { color: #FFFDF7; }
+90%  { color: #18BED7; }
+100% { color: #18BED7; }
+}
+
+/* Animation 2 */
+@keyframes colorChange2 {
+0%   { color: #D0C5FB; }
+8%   { color: #FFFDF7; }
+10%  { color: #18BED7; }
+20%  { color: #18BED7; }
+28%  { color: #FFFDF7; }
+30%  { color: #FFFDF7; }
+40%  { color: #FFFDF7; }
+48%  { color: #FFFDF7; }
+50%  { color: #C0FF00; }
+60%  { color: #C0FF00; }
+68%  { color: #FFFDF7; }
+70%  { color: #D0C5FB; }
+80%  { color: #D0C5FB; }
+88%  { color: #FFFDF7; }
+90%  { color: #D0C5FB; }
+100% { color: #D0C5FB; }
+}
+
+/* Animation 3 */
+@keyframes colorChange3 {
+0%   { color: #FF4731; }
+8%   { color: #FFFDF7; }
+10%  { color: #D0C5FB; }
+20%  { color: #D0C5FB; }
+28%  { color: #FFFDF7; }
+30%  { color: #C0FF00; }
+40%  { color: #C0FF00; }
+48%  { color: #FFFDF7; }
+50%  { color: #18BED7; }
+60%  { color: #18BED7; }
+68%  { color: #FFFDF7; }
+70%  { color: #FFFDF7; }
+80%  { color: #FFFDF7; }
+88%  { color: #FFFDF7; }
+90%  { color: #FF4731; }
+100% { color: #FF4731; }
+}
+
+/* Animation 4 */
+@keyframes colorChange4 {
+0%   { color: #C0FF00; }
+8%   { color: #FFFDF7; }
+10%  { color: #FF4731; }
+20%  { color: #FF4731; }
+28%  { color: #FFFDF7; }
+30%  { color: #D0C5FB; }
+40%  { color: #D0C5FB; }
+48%  { color: #FFFDF7; }
+50%  { color: #18BED7; }
+60%  { color: #18BED7; }
+68%  { color: #FFFDF7; }
+70%  { color: #FFFDF7; }
+80%  { color: #FFFDF7; }
+88%  { color: #FFFDF7; }
+90%  { color: #C0FF00; }
+100% { color: #C0FF00; }
+}
+
+/* Animation 5 */
+@keyframes colorChange5 {
+0%   { color: #18BED7; }
+8%   { color: #FFFDF7; }
+10%  { color: #C0FF00; }
+20%  { color: #C0FF00; }
+28%  { color: #FFFDF7; }
+30%  { color: #FF4731; }
+40%  { color: #FF4731; }
+48%  { color: #FFFDF7; }
+50%  { color: #D0C5FB; }
+60%  { color: #D0C5FB; }
+68%  { color: #FFFDF7; }
+70%  { color: #18BED7; }
+80%  { color: #18BED7; }
+88%  { color: #FFFDF7; }
+90%  { color: #18BED7; }
+100% { color: #18BED7; }
+}
+
+/* Animation 6 */
+@keyframes colorChange6 {
+0%   { color: #FFFDF7; }
+8%   { color: #FFFDF7; }
+10%  { color: #C0FF00; }
+20%  { color: #C0FF00; }
+28%  { color: #FFFDF7; }
+30%  { color: #FF4731; }
+40%  { color: #FF4731; }
+48%  { color: #FFFDF7; }
+50%  { color: #D0C5FB; }
+60%  { color: #D0C5FB; }
+68%  { color: #FFFDF7; }
+70%  { color: #D0C5FB; }
+80%  { color: #D0C5FB; }
+88%  { color: #FFFDF7; }
+90%  { color: #FFFDF7; }
+100% { color: #FFFDF7; }
+}
+
+/* Animation 7 */
+@keyframes colorChange7 {
+0%   { color: #18BED7; }
+8%   { color: #FFFDF7; }
+10%  { color: #FFFDF7; }
+20%  { color: #FFFDF7; }
+28%  { color: #FFFDF7; }
+30%  { color: #C0FF00; }
+40%  { color: #C0FF00; }
+48%  { color: #FFFDF7; }
+50%  { color: #FF4731; }
+60%  { color: #FF4731; }
+68%  { color: #FFFDF7; }
+70%  { color: #18BED7; }
+80%  { color: #18BED7; }
+88%  { color: #FFFDF7; }
+90%  { color: #18BED7; }
+100% { color: #18BED7; }
+}
+
+/* Animation 8 */
+@keyframes colorChange8 {
+0%   { color: #D0C5FB; }
+8%   { color: #FFFDF7; }
+10%  { color: #18BED7; }
+20%  { color: #18BED7; }
+28%  { color: #FFFDF7; }
+30%  { color: #FFFDF7; }
+40%  { color: #FFFDF7; }
+48%  { color: #FFFDF7; }
+50%  { color: #C0FF00; }
+60%  { color: #C0FF00; }
+68%  { color: #FFFDF7; }
+70%  { color: #D0C5FB; }
+80%  { color: #D0C5FB; }
+88%  { color: #FFFDF7; }
+90%  { color: #D0C5FB; }
+100% { color: #D0C5FB; }
+}
+
+/* Animation 9 */
+@keyframes colorChange9 {
+0%   { color: #FF4731; }
+8%   { color: #FFFDF7; }
+10%  { color: #D0C5FB; }
+20%  { color: #D0C5FB; }
+28%  { color: #FFFDF7; }
+30%  { color: #FFFDF7; }
+40%  { color: #FFFDF7; }
+48%  { color: #FFFDF7; }
+50%  { color: #C0FF00; }
+60%  { color: #C0FF00; }
+68%  { color: #FFFDF7; }
+70%  { color: #18BED7; }
+80%  { color: #18BED7; }
+88%  { color: #FFFDF7; }
+90%  { color: #FF4731; }
+100% { color: #FF4731; }
+}
+
+/* Animation 10 */
+@keyframes colorChange10 {
+0%   { color: #C0FF00; }
+8%   { color: #FFFDF7; }
+10%  { color: #FF4731; }
+20%  { color: #FF4731; }
+28%  { color: #FFFDF7; }
+30%  { color: #D0C5FB; }
+40%  { color: #D0C5FB; }
+48%  { color: #FFFDF7; }
+50%  { color: #18BED7; }
+60%  { color: #18BED7; }
+68%  { color: #FFFDF7; }
+70%  { color: #FFFDF7; }
+80%  { color: #FFFDF7; }
+88%  { color: #FFFDF7; }
+90%  { color: #C0FF00; }
+100% { color: #C0FF00; }
+}
+
+  #mv-news-loop-area {
+    white-space: nowrap;
+    width: fit-content;
+    min-width: 100%;
+    animation: mv-news-loop-area 30s linear infinite;
+ }
+@media screen and (max-width: 768px) {
+  #mv-news-loop-area {
+    animation: sp-mv-news-loop-area 30s linear infinite;
+ }
+}
+ @keyframes mv-news-loop-area {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+ }
+  @keyframes sp-mv-news-loop-area {
+    0% {
+        transform: translateX(90%);
+    }
+    100% {
+        transform: translateX(-110%);
+    }
+ }
+  #service-loop {
+    animation: service-loop 10s linear infinite;
+ }
+@media screen and (max-width: 768px) {
+  #service-loop {
+    animation: sp-service-loop 8s linear infinite;
+ }
+}
+ @keyframes service-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-690px);
+    }
+ }
+  @keyframes sp-service-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-327.81px);
+    }
+ }
+  #case-loop {
+    animation: case-loop 14s linear infinite;
+ }
+@media screen and (max-width: 768px) {
+  #case-loop {
+    animation: sp-case-loop 8s linear infinite;
+ }
+}
+ @keyframes case-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-407px);
+    }
+ }
+   @keyframes sp-case-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-187.36px);
+    }
+ }
+  #news-loop {
+    animation: news-loop 14s linear infinite;
+ }
+@media screen and (max-width: 768px) {
+  #news-loop {
+    animation: sp-news-loop 8s linear infinite;
+ }
+}
+ @keyframes news-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-370.3px);
+    }
+ }
+  @keyframes sp-news-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-169.5px);
+    }
+ }
+  #recruit-loop {
+    animation: recruit-loop 18s linear infinite;
+ }
+@media screen and (max-width: 768px) {
+  #recruit-loop {
+    animation: sp-recruit-loop 8s linear infinite;
+ }
+}
+ @keyframes recruit-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-738.77px);
+    }
+ }
+@keyframes sp-recruit-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-234.96px);
+    }
+ }
+
+.client-logo-item::before {
+  content: "";
+  width: 12px;
+  height: 1px;
+  background: #2d2a24;
+  position: absolute;
+  bottom: 0;
+  right: -5.5px;
+}
+
+.client-logo-item::after {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #2d2a24;
+  position: absolute;
+  bottom: -5.5px;
+  right: 0;
+}
+
+

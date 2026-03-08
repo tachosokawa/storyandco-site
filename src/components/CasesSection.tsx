@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import CommonLink from './CommonLink'
 
 type CaseItem = {
   id: string | number
@@ -21,6 +22,8 @@ const CARD_SHIFT_PERCENT = 66.6667
 
 export default function CasesSection({ cases }: CasesSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPrevHovered, setIsPrevHovered] = useState(false)
+  const [isNextHovered, setIsNextHovered] = useState(false)
   const maxIndex = Math.max(cases.length - 2, 0)
 
   const canGoPrev = currentIndex > 0
@@ -37,15 +40,15 @@ export default function CasesSection({ cases }: CasesSectionProps) {
   }
 
   return (
-    <section className="max-w-[1600px] mx-auto border-b border-[#2D2A24] overflow-hidden">
-      <div className="flex gap-8 animate-marquee whitespace-nowrap">
+    <section className="border-b border-[#2D2A24] overflow-hidden">
+      <div className="flex animate-marquee whitespace-nowrap pt-[44px] pb-[36px]">
         {['Cases', 'Cases', 'Cases', 'Cases', 'Cases', 'Cases'].map((t, i) => (
-          <span key={i} className="font-poppins font-semibold text-[96px] leading-[100%] tracking-[-4%] shrink-0">{t} ·</span>
+          <span key={i} className="font-poppins font-semibold text-[96px] leading-[100%] tracking-[-4%] shrink-0 text-[#333]">{t} ·</span>
         ))}
       </div>
 
       <div className="grid grid-cols-8">
-        <p className="col-span-8 border-y border-[#2D2A24] px-4 py-4">事例のご紹介</p>
+        <h2 className="col-span-8 border-y border-[#2D2A24] px-[40px] pt-[17px] pb-[19px] font-sans font-medium text-[16px] leading-[2] tracking-[0.04em] text-[#333]">事例のご紹介</h2>
 
         <div className="col-span-8 overflow-hidden border-b border-[#2D2A24]">
           <div
@@ -55,20 +58,22 @@ export default function CasesSection({ cases }: CasesSectionProps) {
             {cases.map((c) => (
               <div
                 key={c.id}
-                className="w-2/3 shrink-0 border-r border-[#2D2A24] overflow-hidden grid grid-cols-2"
+                className="w-2/3 shrink-0 gap-14 border-r border-[#2D2A24] overflow-hidden grid grid-cols-2 px-[40px] py-[80px] hover:bg-[#f2f0ea]"
               >
-                <div className="col-span-1 px-4 py-10">
-                  <p className="text-xs font-medium mb-2 font-bold text-[14px]">{c.category || 'コミュニティ開発'}</p>
-                  <h3 className="mt-5 font-sans font-bold text-[24px] leading-[150%] tracking-[0.04em] line-clamp-2">{c.title}</h3>
-                  <p className="mt-5 font-sans font-medium text-[16px] leading-[200%] tracking-[0.08em] text-[#2D2A24] line-clamp-3">{c.summary}</p>
-                  <button className='mt-5 py-1 px-3 border border-[#2D2A24] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#2D2A24] hover:text-[#F5F0E8] transition-colors'>AND STORY</button>
+                <div className="col-span-1 font-sans text-[#333]">
+                  <Link href="/project" className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">{c.category || 'コミュニティ開発'}</Link>
+                  <Link href="/project">
+                    <h3 className="mt-5 font-bold text-[24px] leading-[150%] tracking-[0.04em] line-clamp-2 text-[#2D2A24]">{c.title}</h3>
+                    <p className="mt-5 font-medium text-[16px] leading-[200%] tracking-[0.08em] line-clamp-3">{c.summary}</p>
+                  </Link>
+                  <button className='mt-5 pt-[5px] pb-[7px] px-[12px] border border-[#2D2A24] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFFDF7] transition-colors'>NewMake</button>
                 </div>
                 {c.thumbnail && (
-                  <div className="col-span-1 overflow-hidden py-10 pl-4 pr-10">
+                  <div className="col-span-1 overflow-hidden">
                     <img
                       src={c.thumbnail.url}
                       alt={c.title}
-                      className="w-full h-full object-cover transition-transform duration-500"
+                      className="w-full max-h-[240px] object-contain transition-transform duration-500 rounded-lg"
                     />
                   </div>
                 )}
@@ -77,38 +82,40 @@ export default function CasesSection({ cases }: CasesSectionProps) {
           </div>
         </div>
 
-        <div className="col-span-7 px-4 py-4 border-r border-[#2D2A24]">
-          <Link
-            href="/cases"
-            className="inline-flex w-full items-center gap-2 text-sm text-[#2D2A24] transition-all justify-between hover:text-[#00B8CC] transition-colors group"
-          >
-            事例をもっとみる
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        <div className="col-span-7 border-r border-[#2D2A24]">
+          <CommonLink linkText="事例をもっとみる" href="/project" className='px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'/>
         </div>
-        <div className="col-span-1 items-center justify-center flex">
-          <span className="flex">
+        <div className="col-span-1 items-center justify-end flex pr-[40px]">
+          <span className='flex border border-[#2D2A24] rounded-lg'>
             <button
-              name="prev"
+              name='prev'
               onClick={handlePrev}
               disabled={!canGoPrev}
-              className={`border-l border-t border-b border-[#2D2A24] rounded-lg px-4 py-1 hover:bg-[#2D2A24] hover:text-[#F5F0E8] rounded-tr-none rounded-br-none transition-all ${
+              onMouseEnter={() => setIsPrevHovered(true)}
+              onMouseLeave={() => setIsPrevHovered(false)}
+              className={`rounded-lg pl-[16px] pr-[20px] py-[16px] hover:bg-[#18bed7] hover:text-[#FFF] transition-all ${
                 !canGoPrev ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              &lt;
+              <img
+                src={isPrevHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
+                className={!isPrevHovered ? 'translate-x-[1px] rotate-180' : ''}
+              />
             </button>
             <button
-              name="next"
+              name='next'
               onClick={handleNext}
               disabled={!canGoNext}
-              className={`border-r border-t border-b border-[#2D2A24] rounded-lg px-4 py-1 hover:bg-[#2D2A24] hover:text-[#F5F0E8] rounded-tl-none rounded-bl-none transition-all ${
+              onMouseEnter={() => setIsNextHovered(true)}
+              onMouseLeave={() => setIsNextHovered(false)}
+              className={`rounded-lg hover:bg-[#18bed7] hover:text-[#FFFDF7] pl-[20px] pr-[16px] py-[16px]   transition-all ${
                 !canGoNext ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              &gt;
+              <img
+                src={isNextHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
+                className={isNextHovered ? 'translate-x-[1px] rotate-180' : ''}
+              />
             </button>
           </span>
         </div>

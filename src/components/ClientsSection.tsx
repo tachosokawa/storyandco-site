@@ -37,6 +37,8 @@ export default function ClientsSection() {
   const allLogos = [...clientLogos, ...clientLogos]
   const totalPages = Math.ceil(allLogos.length / ITEMS_PER_PAGE)
   const [currentPage, setCurrentPage] = useState(0)
+  const [isPrevHovered, setIsPrevHovered] = useState(false)
+  const [isNextHovered, setIsNextHovered] = useState(false)
 
   const startIndex = currentPage * ITEMS_PER_PAGE
   const endIndex = startIndex + ITEMS_PER_PAGE
@@ -54,45 +56,58 @@ export default function ClientsSection() {
   const canGoNext = currentPage < totalPages - 1
 
   return (
-    <section className="max-w-[1600px] mx-auto border-b border-[#2D2A24]">
-      <div className="px-4 border-b border-[#2D2A24] grid grid-cols-12 items-center">
-        <div className='col-span-2 py-4'>
-          <p className="text-[40px] font-medium text-[#2D2A24]">Our clients</p>
+    <section className="border-b border-[#2D2A24]">
+      <div className="px-[40px] border-b border-[#2D2A24] flex items-center justify-between h-[96px]">
+        <div className='flex items-center pr-[40px] border-r border-[#2D2A24] h-full'>
+          <p className="text-[40px] text-[#333] font-semibold font-poppins tracking-[-0.04em] leading-[1]">Our clients</p>
         </div>
-        <div className='col-span-9 border-l border-r border-[#2D2A24] h-full flex items-center justify-end pr-4 py-4'>
-          <span className='flex'>
+        <div className='flex items-center justify-end h-full'>
+          <span className='flex mr-[40px] border border-[#2D2A24] rounded-lg'>
             <button
               name='prev'
               onClick={handlePrev}
               disabled={!canGoPrev}
-              className={`border-l border-t border-b border-[#2D2A24] rounded-lg px-4 py-1 hover:bg-[#2D2A24] hover:text-[#F5F0E8] rounded-tr-none rounded-br-none transition-all ${
+              onMouseEnter={() => setIsPrevHovered(true)}
+              onMouseLeave={() => setIsPrevHovered(false)}
+              className={`rounded-lg pl-[16px] pr-[20px] py-[16px] hover:bg-[#18bed7] hover:text-[#FFF] transition-all ${
                 !canGoPrev ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              &lt;
+              <img
+                src={isPrevHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
+                className={!isPrevHovered ? 'translate-x-[1px] rotate-180' : ''}
+              />
             </button>
             <button
               name='next'
               onClick={handleNext}
               disabled={!canGoNext}
-              className={`border-r border-t border-b border-[#2D2A24] rounded-lg px-4 py-1 hover:bg-[#2D2A24] hover:text-[#F5F0E8] rounded-tl-none rounded-bl-none transition-all ${
+              onMouseEnter={() => setIsNextHovered(true)}
+              onMouseLeave={() => setIsNextHovered(false)}
+              className={`rounded-lg hover:bg-[#18bed7] hover:text-[#FFFDF7] pl-[20px] pr-[16px] py-[16px]   transition-all ${
                 !canGoNext ? 'opacity-50 cursor-not-allowed' : ''
               }`}
             >
-              &gt;
+              <img
+                src={isNextHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
+                className={isNextHovered ? 'translate-x-[1px] rotate-180' : ''}
+              />
             </button>
           </span>
-        </div>
-        <div className='col-span-1 items-center justify-center pl-4 py-4'>
-          <p>お取引企業</p>
+          <div className='w-[1px] h-full bg-[#2D2A24]'></div>
+          <p className='text-[16px] font-medium text-[#333] tracking-[0.04em] leading-[2] font-sans pl-[40px]'>お取引企業</p>
         </div>
       </div>
       <div className="overflow-hidden">
         <div className="grid grid-cols-5 items-center justify-center">
-          {displayedLogos.map((logo, i) => (
+          {displayedLogos.map((logo, i) => {
+            const isFinalRow = i >= displayedLogos.length - 5
+            const isFinalColumn = i % 5 === 4
+            const shouldRemoveClass = isFinalRow || isFinalColumn
+            return (
             <div
               key={`${logo.name}-${startIndex + i}`}
-              className="shrink-0 flex items-center justify-center col-span-1 h-[200px]"
+              className={`shrink-0 flex items-center justify-center col-span-1 h-[200px] relative ${shouldRemoveClass ? '' : 'client-logo-item'}`}
             >
               <img
                 src={`/images/clients/${logo.file}`}
@@ -100,7 +115,8 @@ export default function ClientsSection() {
                 className="max-h-65 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all"
               />
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
