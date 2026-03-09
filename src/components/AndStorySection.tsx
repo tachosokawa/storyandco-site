@@ -7,14 +7,39 @@ type ClientLogo = {
   file: string
 }
 
-type AndStorySectionProps = {
-  clientLogos: ClientLogo[]
-}
+const clientLogos: ClientLogo[] = [
+  { name: 'adidas', file: 'adidas.svg' },
+  { name: 'ADORE', file: 'adore.svg' },
+  { name: 'allbirds', file: 'allbirds.svg' },
+  { name: 'asahikawa', file: 'asahikawa.svg' },
+  { name: 'ASICS', file: 'asics.svg' },
+  { name: 'Brother', file: 'brother.svg' },
+  { name: 'Coleman', file: 'coleman.svg' },
+  { name: 'DESCENTE', file: 'descant.svg' },
+  { name: 'kakimori', file: 'kakimori.svg' },
+  { name: 'KEEN', file: 'keen.svg' },
+  { name: 'KITAGAS', file: 'kitagus.svg' },
+  { name: 'le coq sportif', file: 'lecoq.svg' },
+  { name: 'Marubeni', file: 'marubeni.svg' },
+  { name: 'MARGARET HOWELL', file: 'mh.svg' },
+  { name: 'minne', file: 'minne.svg' },
+  { name: 'NATURAL BEAUTY BASIC', file: 'naturalbasics.svg' },
+  { name: 'New Balance', file: 'newbalance.svg' },
+  { name: 'OLD ENGLAND', file: 'oldengland.svg' },
+  { name: 'Osaka Metro Group', file: 'osakametro.svg' },
+  { name: 'SMBC 三井住友カード', file: 'smbc.svg' },
+  { name: 'Teva', file: 'teva.svg' },
+  { name: '東京メトロ', file: 'tokyometro.svg' },
+  { name: '東急不動産', file: 'tokyu.svg' },
+  { name: 'WHOLE EARTH', file: 'wholeearth.svg' },
+  { name: 'SUPER SPORTS XEBIO', file: 'xebio.svg' },
+  { name: 'YKK', file: 'ykk.svg' },
+]
 
 const COLUMNS_VISIBLE = 5
 const AUTO_SLIDE_INTERVAL = 3000 // 3 seconds
 
-export default function AndStorySection({ clientLogos }: AndStorySectionProps) {
+export default function AndStorySection() {
   // Duplicate logos for seamless infinite loop
   const allLogos = [...clientLogos, ...clientLogos, ...clientLogos]
   
@@ -85,7 +110,7 @@ export default function AndStorySection({ clientLogos }: AndStorySectionProps) {
   return (
     <section className="w-full overflow-hidden p-[40px]">
       <div className="items-center justify-end flex">
-        <span className='flex border border-[#2D2A24] rounded-lg'>
+        <span className='flex border border-[#2d2a24] rounded-lg'>
             <button
               name='prev'
               onClick={handlePrev}

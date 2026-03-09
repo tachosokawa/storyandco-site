@@ -10,7 +10,7 @@ const navItems = [
   { label: '事業のこと', href: '/service' },
   { label: '事例のご紹介', href: '/cases' },
   { label: 'お知らせ', href: '/news' },
-  { label: '採用情報', href: '/recruit', external: true },
+  { label: '採用情報', href: 'https://www.wantedly.com/companies/storyandco', external: true },
 ]
 
 export function Header() {

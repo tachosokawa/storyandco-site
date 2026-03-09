@@ -1,5 +1,8 @@
-import Link from 'next/link'
+import CommonLink from '@/components/CommonLink'
 import type { Metadata } from 'next'
+import ContactSection from '@/components/ContactSection'
+import RecruitSection from '@/components/RecruitSection'
+import AndStorySection from '@/components/AndStorySection'
 
 export const metadata: Metadata = {
   title: '事業のこと',
@@ -72,60 +75,91 @@ const services = [
 export default function ServicePage() {
   return (
     <>
-      <div className="pt-[60px] pb-16 px-6 text-center border-b border-[#D0C8B8]">
-        <h1 className="font-serif text-[clamp(48px,8vw,100px)] font-bold mt-12">
-          <span className="text-[#22C55E]">S</span>
-          <span className="text-[#1A1A1A]">e</span>
-          <span className="text-[#8B5CF6]">r</span>
-          <span className="text-[#EF4444]">v</span>
-          <span className="text-[#1A1A1A]">i</span>
-          <span className="text-[#00B8CC]">c</span>
-          <span className="text-[#F59E0B]">e</span>
-          <span className="text-[#1A1A1A]">s</span>
+      <div className="pt-16 sm:pt-24 md:pt-32 lg:pt-[200px] xl:pt-[296px] pb-12 sm:pb-16 md:pb-24 lg:pb-[150px] xl:pb-[200px] text-center border-b border-[#2d2a24] px-4 sm:px-6 md:px-8 lg:px-[40px]">
+        <h1 className="font-poppins text-4xl sm:text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] text-center">
+          <span id="mv-colorful1" className="tracking-[-0.05em]">S</span>
+          <span id="mv-colorful2" className="tracking-[-0.03em]">e</span>
+          <span id="mv-colorful3">r</span>
+          <span id="mv-colorful4" className="tracking-[-0.03em]">v</span>
+          <span id="mv-colorful5" className="tracking-[-0.06em]">i</span>
+          <span id="mv-colorful6" className="tracking-[-0.03em]">c</span>
+          <span id="mv-colorful7" className="tracking-[-0.03em]">e</span>
+          <span id="mv-colorful8" className="tracking-[-0.04em]">s</span>
         </h1>
-        <p className="text-sm text-[#666] mt-2">事業のこと</p>
+        <p className="mt-5 text-base sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">事業のこと</p>
       </div>
-
-      <div className="max-w-[1200px] mx-auto px-6 py-24 space-y-24">
-        {services.map((block) => (
-          <section key={block.num} id={block.num}>
-            <div className="grid md:grid-cols-[240px_1fr] gap-12">
-              <div>
-                <p className="text-xs text-[#999] mb-1">({block.num})</p>
-                <p className="text-xs text-[#999] mb-2">{block.sub}</p>
-                <h2 className="font-bold text-xl leading-tight">{block.category}</h2>
-                <p className="text-sm text-[#666] mt-4 leading-relaxed">
-                  事業に関する説明文が入ります。事業に関する説明文が入ります。事業に関する説明文が入ります。（60字程度）
-                </p>
-              </div>
-              <div className="space-y-6">
-                {block.items.map((item) => (
-                  <div key={item.name} className="border border-[#D0C8B8] rounded-2xl p-8">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        {item.logo && (
-                          <p className="text-xs text-[#999] mb-1 font-medium tracking-wide">{item.logo}</p>
-                        )}
-                        <h3 className="font-bold text-lg">{item.name}</h3>
-                      </div>
-                    </div>
-                    <p className="text-sm text-[#666] leading-relaxed mb-6">{item.desc}</p>
-                    <Link
-                      href={item.href}
-                      className="inline-flex items-center gap-2 text-sm border-b border-[#1A1A1A] pb-0.5 hover:gap-4 transition-all"
-                    >
-                      {item.name}について知る
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
-                  </div>
-                ))}
-              </div>
+      <section className="w-full">
+        <div className='grid grid-cols-1 lg:grid-cols-5'>
+          <div className='col-span-1 lg:col-span-2 border-b lg:border-r border-[#2d2a24] p-4 md:p-6 lg:p-[40px]'>
+            <p className='font-poppins text-xs md:text-sm lg:text-[14px] font-medium text-[#333] leading-[1]'>( 01 )</p>
+            <div className='pl-0 md:pl-8 lg:pl-[120px] pt-6 md:pt-10 lg:pt-[80px] pb-6 md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans leading-[2]'>
+              <h3 className='pb-2 md:pb-3 lg:pb-4 font-bold text-xl md:text-2xl lg:text-[32px] tracking-[0.04em]'>プラットフォーム事業</h3>
+              <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
+              <p className='py-4 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>Webでは出会いと変化を生み、リアルでは販売やお直しによって価値を形にするプラットフォームを提供しています。企業・消費者・クリエイターがフラットにつながる機会を創出。顧客管理やデータ取得など多様な機能を備え、企画からお客様価値に至るまでをサポートしています。</p>
             </div>
-          </section>
-        ))}
-      </div>
+          </div>
+          <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
+            <div className='p-6 md:p-12 lg:p-[120px]'>
+              <img className="w-full max-w-[206px]" src="/images/clients/patchplay.webp" alt="PATCH&PLAY"/>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>PATCH&PLAYは、"すき"の気持ちをきっかけに、身のまわりのモノを、もう一度遊ぶようにたのしむ「ワッペンとお直しのお店」です。</p>
+            </div>
+            <CommonLink linkText="PATCH&PLAYについて知る" href="/company" />
+            <div className='p-6 md:p-12 lg:p-[120px] border-t border-[#2d2a24]'>
+              <img className="w-full max-w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY"/>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>目には見えないけれど価値がある「体験」や「コミュニティ」と出会えるWebプラットフォームです。</p>
+            </div>
+            <CommonLink linkText="AND STORYについて知る" href="/company" />
+          </div>
+          <div className='col-span-1 lg:col-span-2 border-b lg:border-r border-[#2d2a24] p-4 md:p-6 lg:p-[40px]'>
+            <p className='font-poppins text-xs md:text-sm lg:text-[14px] font-medium text-[#333] leading-[1]'>( 02 )</p>
+            <div className='pl-0 md:pl-8 lg:pl-[120px] pt-6 md:pt-10 lg:pt-[80px] pb-6 md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans leading-[2]'>
+              <h3 className='pb-2 md:pb-3 lg:pb-4 font-bold text-xl md:text-2xl lg:text-[32px] tracking-[0.04em]'>コミュニティ事業</h3>
+              <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
+              <p className='py-4 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>企業と個人の共創の場を提供し、社会課題の新たなソリューションを生み出しています。異なる視点やスキルを持つ人々が集まり、意見交換や協力して問題解決に取り組むことを支援。新しいアイデアや革新的なアプローチの促進は勿論、そこから生まれるつながりを大切にすることで、持続可能なコミュニティの形成を目指しています。</p>
+            </div>
+          </div>
+          <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
+            <div className='p-6 md:p-12 lg:p-[120px]'>
+              <img className="w-full max-w-[300px]" src="/images/clients/newmake.svg" alt="NewMake"/>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>クリエイティブの力で社会課題を解決するコミュニティです。</p>
+            </div>
+            <CommonLink linkText="NewMakeについて知る" href="/company" />
+            <div className='p-6 md:p-12 lg:p-[120px] border-t border-[#2d2a24]'>
+              <img className="w-full max-w-[300px]" src="/images/clients/hour_of_tower.svg" alt="タワーのアワー"/>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>こころとからだの健康に触れる機会を創出し、ウェルビーイングの実現をサポートするコミュニティです。</p>
+            </div>
+            <CommonLink linkText="タワーのアワーについて知る" href="/company" />
+          </div>
+          <div className='col-span-1 lg:col-span-2 lg:border-r border-[#2d2a24] p-4 md:p-6 lg:p-[40px]'>
+            <p className='font-poppins text-xs md:text-sm lg:text-[14px] font-medium text-[#333] leading-[1]'>( 03 )</p>
+            <div className='pl-0 md:pl-8 lg:pl-[120px] pt-6 md:pt-10 lg:pt-[80px] pb-6 md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans leading-[2]'>
+              <h3 className='pb-2 md:pb-3 lg:pb-4 font-bold text-xl md:text-2xl lg:text-[32px] tracking-[0.04em]'>ソリューション事業</h3>
+              <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>課題解決を提供</p>
+              <p className='py-4 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>企業の課題やニーズに応じて、最適な体験･コミュニティをデザインし、ブランドの認知からファン化までサポート。ある時は、街と人が繋がる唯一無二の交流の場を創出することで地域社会の活性化に貢献し、またある時は、ビジネスにも社会にも良いSDGs活動を、義務ではなくWillで行っていく支援をしています。</p>
+            </div>
+          </div>
+          <div className='col-span-1 lg:col-span-3'>
+            <div className='p-6 md:p-12 lg:p-[120px]'>
+              <p className='font-sans text-lg md:text-xl lg:text-[24px] font-bold leading-[2] text-[#333]'>コミュニティ開発</p>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>ブランド・サービスの認知からファン化までを行うコミュニティづくりをデザインしています。</p>
+            </div>
+            <CommonLink linkText="コミュニティ開発について知る" href="/company" />
+            <div className='p-6 md:p-12 lg:p-[120px] border-t border-[#2d2a24]'>
+              <p className='font-sans text-lg md:text-xl lg:text-[24px] font-bold leading-[2] text-[#333]'>地域・イベントプロデュース</p>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>地域資源を活かし、街と人が繋がる、その街ならではの唯一無二の出会いと交流の場を創出します。</p>
+            </div>
+            <CommonLink linkText="地域・イベントプロデュースについて知る" href="/company" />
+            <div className='p-6 md:p-12 lg:p-[120px] border-t border-[#2d2a24]'>
+              <p className='font-sans text-lg md:text-xl lg:text-[24px] font-bold leading-[2] text-[#333]'>SDGs推進支援</p>
+              <p className='pt-4 md:pt-6 lg:pt-10 font-sans text-base md:text-lg lg:text-[20px] font-medium leading-[2] text-[#333]'>やらなくてはいけないからではなく、ビジネスにも社会にも良いSDGs活動をデザインしています。</p>
+            </div>
+            <CommonLink linkText="SDGs推進支援について知る" href="/company" />
+          </div>
+        </div>
+      </section>
+      <ContactSection />
+      <RecruitSection />
+      <AndStorySection />
     </>
   )
 }
