@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import CommonLink from './CommonLink'
 
 type CaseItem = {
@@ -18,26 +18,68 @@ type CasesSectionProps = {
   cases: CaseItem[]
 }
 
-const CARD_SHIFT_PERCENT = 66.6667
+const CARD_WIDTH_PERCENT = 66.6667 // Each card is w-2/3 (66.6667%)
+const AUTO_SLIDE_INTERVAL = 4000 // 4 seconds
 
 export default function CasesSection({ cases }: CasesSectionProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  // Duplicate cases for seamless infinite loop
+  const allCases = [...cases, ...cases, ...cases]
+  const originalCaseCount = cases.length
+  
+  const [currentIndex, setCurrentIndex] = useState(originalCaseCount)
+  const [isTransitioning, setIsTransitioning] = useState(true)
   const [isPrevHovered, setIsPrevHovered] = useState(false)
   const [isNextHovered, setIsNextHovered] = useState(false)
-  const maxIndex = Math.max(cases.length - 2, 0)
-
-  const canGoPrev = currentIndex > 0
-  const canGoNext = currentIndex < maxIndex
+  const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
 
   const handlePrev = () => {
-    if (!canGoPrev) return
-    setCurrentIndex((prev) => prev - 1)
+    setCurrentIndex((prev) => {
+      if (prev <= originalCaseCount) {
+        // Jump to the end of the duplicate set (same content as start)
+        return originalCaseCount * 2 - 1
+      }
+      return prev - 1
+    })
   }
 
   const handleNext = () => {
-    if (!canGoNext) return
-    setCurrentIndex((prev) => prev + 1)
+    setCurrentIndex((prev) => {
+      return prev + 1
+    })
   }
+
+  // Handle seamless reset when reaching the boundary
+  useEffect(() => {
+    if (currentIndex >= originalCaseCount * 2) {
+      // We've scrolled past the second duplicate, reset to the first duplicate (same content)
+      setIsTransitioning(false)
+      const resetTimeout = setTimeout(() => {
+        setCurrentIndex(originalCaseCount)
+        setTimeout(() => {
+          setIsTransitioning(true)
+        }, 50)
+      }, 50)
+      return () => clearTimeout(resetTimeout)
+    }
+  }, [currentIndex, originalCaseCount])
+
+  // Auto-slide functionality - move one card at a time with seamless loop
+  useEffect(() => {
+    autoSlideRef.current = setInterval(() => {
+      setCurrentIndex((prev) => {
+        return prev + 1
+      })
+    }, AUTO_SLIDE_INTERVAL)
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current)
+      }
+    }
+  }, [])
+
+  const canGoPrev = true // Always allow prev for infinite loop
+  const canGoNext = true // Always allow next for infinite loop
 
   return (
     <section className="border-b border-[#2D2A24] overflow-hidden">
@@ -52,12 +94,12 @@ export default function CasesSection({ cases }: CasesSectionProps) {
 
         <div className="col-span-8 overflow-hidden border-b border-[#2D2A24]">
           <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${currentIndex * CARD_SHIFT_PERCENT}%)` }}
+            className={`flex ${isTransitioning ? 'transition-transform duration-500 ease-out' : ''}`}
+            style={{ transform: `translateX(-${currentIndex * CARD_WIDTH_PERCENT}%)` }}
           >
-            {cases.map((c) => (
+            {allCases.map((c, index) => (
               <div
-                key={c.id}
+                key={`${c.id}-${index}`}
                 className="w-2/3 shrink-0 gap-14 border-r border-[#2D2A24] overflow-hidden grid grid-cols-2 px-[40px] py-[80px] hover:bg-[#f2f0ea]"
               >
                 <div className="col-span-1 font-sans text-[#333]">

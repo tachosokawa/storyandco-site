@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 type ClientLogo = {
   name: string
@@ -11,31 +11,79 @@ type AndStorySectionProps = {
   clientLogos: ClientLogo[]
 }
 
-const ITEMS_PER_PAGE = 5
+const COLUMNS_VISIBLE = 5
+const AUTO_SLIDE_INTERVAL = 3000 // 3 seconds
 
 export default function AndStorySection({ clientLogos }: AndStorySectionProps) {
-  const [currentPage, setCurrentPage] = useState(0)
+  // Duplicate logos for seamless infinite loop
+  const allLogos = [...clientLogos, ...clientLogos, ...clientLogos]
+  
+  // Organize logos into columns (each column has 1 item)
+  const columns: ClientLogo[][] = []
+  for (let i = 0; i < allLogos.length; i++) {
+    columns.push([allLogos[i]])
+  }
+  
+  const originalColumnCount = clientLogos.length
+  const totalColumns = columns.length
+  
+  const [currentColumn, setCurrentColumn] = useState(originalColumnCount)
+  const [isTransitioning, setIsTransitioning] = useState(true)
   const [isPrevHovered, setIsPrevHovered] = useState(false)
   const [isNextHovered, setIsNextHovered] = useState(false)
-  const totalPages = Math.ceil(clientLogos.length / ITEMS_PER_PAGE)
-  const startIndex = currentPage * ITEMS_PER_PAGE
-  const displayedLogos = clientLogos.slice(startIndex, startIndex + ITEMS_PER_PAGE)
-
-  const canGoPrev = currentPage > 0
-  const canGoNext = currentPage < totalPages - 1
+  const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
 
   const handlePrev = () => {
-    if (!canGoPrev) return
-    setCurrentPage((prev) => prev - 1)
+    setCurrentColumn((prev) => {
+      if (prev <= originalColumnCount) {
+        // Jump to the end of the duplicate set (same content as start)
+        return originalColumnCount * 2 - 1
+      }
+      return prev - 1
+    })
   }
 
   const handleNext = () => {
-    if (!canGoNext) return
-    setCurrentPage((prev) => prev + 1)
+    setCurrentColumn((prev) => {
+      return prev + 1
+    })
   }
 
+  // Handle seamless reset when reaching the boundary
+  useEffect(() => {
+    if (currentColumn >= originalColumnCount * 2) {
+      // We've scrolled past the second duplicate, reset to the first duplicate (same content)
+      setIsTransitioning(false)
+      const resetTimeout = setTimeout(() => {
+        setCurrentColumn(originalColumnCount)
+        setTimeout(() => {
+          setIsTransitioning(true)
+        }, 50)
+      }, 50)
+      return () => clearTimeout(resetTimeout)
+    }
+  }, [currentColumn, originalColumnCount])
+
+  // Auto-slide functionality - move one column at a time with seamless loop
+  useEffect(() => {
+    autoSlideRef.current = setInterval(() => {
+      setCurrentColumn((prev) => {
+        return prev + 1
+      })
+    }, AUTO_SLIDE_INTERVAL)
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current)
+      }
+    }
+  }, [])
+
+  const canGoPrev = true // Always allow prev for infinite loop
+  const canGoNext = true // Always allow next for infinite loop
+
   return (
-    <section className="w-fulloverflow-hidden p-[40px]">
+    <section className="w-full overflow-hidden p-[40px]">
       <div className="items-center justify-end flex">
         <span className='flex border border-[#2D2A24] rounded-lg'>
             <button
@@ -70,19 +118,32 @@ export default function AndStorySection({ clientLogos }: AndStorySectionProps) {
             </button>
         </span>
       </div>
-      <div className="grid grid-cols-5 pt-[18px] pb-[80px]">
-        {displayedLogos.map((logo, i) => (
-          <div
-            key={`${logo.name}-${startIndex + i}`}
-            className="shrink-0 flex items-center justify-center col-span-1 max-h-[200px] py-[40px]"
-          >
-            <img
-              src={`/images/clients/${logo.file}`}
-              alt={logo.name}
-              className="max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
-            />
-          </div>
-        ))}
+      <div className="overflow-hidden pt-[18px] pb-[80px]">
+        <div 
+          className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
+          style={{ transform: `translateX(-${currentColumn * (100 / COLUMNS_VISIBLE)}%)` }}
+        >
+          {columns.map((columnLogos, columnIndex) => (
+            <div
+              key={columnIndex}
+              className="shrink-0 flex items-center justify-center"
+              style={{ width: `${100 / COLUMNS_VISIBLE}%` }}
+            >
+              {columnLogos.map((logo, logoIndex) => (
+                <div
+                  key={`${logo.name}-${columnIndex}-${logoIndex}`}
+                  className="w-full flex items-center justify-center max-h-[200px] py-[40px]"
+                >
+                  <img
+                    src={`/images/clients/${logo.file}`}
+                    alt={logo.name}
+                    className="max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

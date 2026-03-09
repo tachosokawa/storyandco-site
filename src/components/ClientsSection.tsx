@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const clientLogos = [
   { name: 'adidas', file: 'adidas.svg' },
@@ -31,29 +31,76 @@ const clientLogos = [
   { name: 'YKK', file: 'ykk.svg' },
 ]
 
-const ITEMS_PER_PAGE = 15
+const ROWS = 3
+const COLUMNS_VISIBLE = 5
+const AUTO_SLIDE_INTERVAL = 3000 // 3 seconds
 
 export default function ClientsSection() {
-  const allLogos = [...clientLogos, ...clientLogos]
-  const totalPages = Math.ceil(allLogos.length / ITEMS_PER_PAGE)
-  const [currentPage, setCurrentPage] = useState(0)
+  // Organize original logos into columns first
+  const originalColumns: (typeof clientLogos[number])[][] = []
+  for (let i = 0; i < clientLogos.length; i += ROWS) {
+    originalColumns.push(clientLogos.slice(i, i + ROWS))
+  }
+  const originalColumnCount = originalColumns.length
+  
+  // Duplicate columns for seamless infinite loop (need at least 2 sets)
+  const columns = [...originalColumns, ...originalColumns, ...originalColumns]
+  const totalColumns = columns.length
+  
+  const [currentColumn, setCurrentColumn] = useState(originalColumnCount)
+  const [isTransitioning, setIsTransitioning] = useState(true)
   const [isPrevHovered, setIsPrevHovered] = useState(false)
   const [isNextHovered, setIsNextHovered] = useState(false)
-
-  const startIndex = currentPage * ITEMS_PER_PAGE
-  const endIndex = startIndex + ITEMS_PER_PAGE
-  const displayedLogos = allLogos.slice(startIndex, endIndex)
+  const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
 
   const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(0, prev - 1))
+    setCurrentColumn((prev) => {
+      if (prev <= originalColumnCount) {
+        // Jump to the end of the duplicate set (same content as start)
+        return originalColumnCount * 2 - 1
+      }
+      return prev - 1
+    })
   }
 
   const handleNext = () => {
-    setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
+    setCurrentColumn((prev) => {
+      return prev + 1
+    })
   }
 
-  const canGoPrev = currentPage > 0
-  const canGoNext = currentPage < totalPages - 1
+  // Handle seamless reset when reaching the boundary
+  useEffect(() => {
+    if (currentColumn >= originalColumnCount * 2) {
+      // We've scrolled past the second duplicate, reset to the first duplicate (same content)
+      setIsTransitioning(false)
+      const resetTimeout = setTimeout(() => {
+        setCurrentColumn(originalColumnCount)
+        setTimeout(() => {
+          setIsTransitioning(true)
+        }, 50)
+      }, 50)
+      return () => clearTimeout(resetTimeout)
+    }
+  }, [currentColumn, originalColumnCount])
+
+  // Auto-slide functionality - move one column at a time with seamless loop
+  useEffect(() => {
+    autoSlideRef.current = setInterval(() => {
+      setCurrentColumn((prev) => {
+        return prev + 1
+      })
+    }, AUTO_SLIDE_INTERVAL)
+
+    return () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current)
+      }
+    }
+  }, [])
+
+  const canGoPrev = true // Always allow prev for infinite loop
+  const canGoNext = true // Always allow next for infinite loop
 
   return (
     <section className="border-b border-[#2D2A24]">
@@ -99,22 +146,39 @@ export default function ClientsSection() {
         </div>
       </div>
       <div className="overflow-hidden">
-        <div className="grid grid-cols-5 items-center justify-center">
-          {displayedLogos.map((logo, i) => {
-            const isFinalRow = i >= displayedLogos.length - 5
-            const isFinalColumn = i % 5 === 4
-            const shouldRemoveClass = isFinalRow || isFinalColumn
+        <div 
+          className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
+          style={{ transform: `translateX(-${currentColumn * (100 / COLUMNS_VISIBLE)}%)` }}
+        >
+          {columns.map((columnLogos, columnIndex) => {
             return (
-            <div
-              key={`${logo.name}-${startIndex + i}`}
-              className={`shrink-0 flex items-center justify-center col-span-1 h-[200px] relative ${shouldRemoveClass ? '' : 'client-logo-item'}`}
-            >
-              <img
-                src={`/images/clients/${logo.file}`}
-                alt={logo.name}
-                className="max-h-65 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all"
-              />
-            </div>
+              <div 
+                key={columnIndex}
+                className="flex flex-col shrink-0"
+                style={{ width: `${100 / COLUMNS_VISIBLE}%` }}
+              >
+                {Array.from({ length: ROWS }).map((_, rowIndex) => {
+                  const logo = columnLogos[rowIndex]
+                  const isFinalRow = rowIndex === ROWS - 1
+                  const isFinalColumn = columnIndex % COLUMNS_VISIBLE === COLUMNS_VISIBLE - 1
+                  const shouldRemoveClass = isFinalRow
+                  
+                  return (
+                    <div
+                      key={`${columnIndex}-${rowIndex}`}
+                      className={`shrink-0 flex items-center justify-center h-[200px] relative ${shouldRemoveClass ? '' : 'client-logo-item'}`}
+                    >
+                      {logo && (
+                        <img
+                          src={`/images/clients/${logo.file}`}
+                          alt={logo.name}
+                          className="max-h-65 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all"
+                        />
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
             )
           })}
         </div>
