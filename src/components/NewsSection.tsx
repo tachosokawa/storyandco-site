@@ -67,7 +67,7 @@ export default async function NewsSection() {
       {/* News */}
       {news.length > 0 && (
         <div>
-          {news.map((n) => (
+          {news.map((n: { id: number|string, publishedAt: string, category?: string, title: string }) => (
             <div key={n.id} className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-9 border-b border-[#2d2a24] hover:bg-[#f2f0ea] text-[#333]'>
               <div className='col-span-1 md:col-span-1 lg:col-span-3 border-r-0 md:border-r lg:border-r border-b md:border-b-0 lg:border-b-0 border-[#2d2a24] items-center justify-center flex flex-col md:flex-row gap-2 md:gap-0 px-4 md:px-6 lg:px-[40px] pt-6 md:pt-10 lg:pt-[78px] pb-6 md:pb-10 lg:pb-[82px]'>
                 <span className="font-poppins font-medium text-xs md:text-sm lg:text-[14px] text-[#2d2a24] shrink-0">
