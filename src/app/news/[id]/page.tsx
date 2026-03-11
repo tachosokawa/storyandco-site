@@ -138,6 +138,7 @@ async function getLatestNews() {
 
 export default async function NewsDetailPage({ params }: { params: { id: string } }) {
   const news = await getLatestNews()
+  console.log('news', news)
   let newsData: any = null
   try {
     newsData = await client.get({ endpoint: 'news', contentId: params.id })
