@@ -54,18 +54,8 @@ export function Header() {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
             const isHovered = hoveredItem === item.href
             const showIcon2 = isActive || isHovered
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                onMouseEnter={() => setHoveredItem(item.href)}
-                onMouseLeave={() => setHoveredItem(null)}
-                className={`text-[15px] transition-colors relative font-bold flex gap-1 ${
-                  isActive
-                    ? 'text-[#18bed7]'
-                    : 'text-[#2d2d2d] hover:text-[#18bed7]'
-                }`}
-              >
+            const linkContent = (
+              <>
                 {isActive && (
                   <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00B8CC]" />
                 )}
@@ -79,6 +69,37 @@ export function Header() {
                     height="20"
                   />
                 )}
+              </>
+            )
+            return item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setHoveredItem(item.href)}
+                onMouseLeave={() => setHoveredItem(null)}
+                className={`text-[15px] transition-colors relative font-bold flex gap-1 ${
+                  isActive
+                    ? 'text-[#18bed7]'
+                    : 'text-[#2d2d2d] hover:text-[#18bed7]'
+                }`}
+              >
+                {linkContent}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onMouseEnter={() => setHoveredItem(item.href)}
+                onMouseLeave={() => setHoveredItem(null)}
+                className={`text-[15px] transition-colors relative font-bold flex gap-1 ${
+                  isActive
+                    ? 'text-[#18bed7]'
+                    : 'text-[#2d2d2d] hover:text-[#18bed7]'
+                }`}
+              >
+                {linkContent}
               </Link>
             )
           })}
@@ -119,15 +140,27 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="lg:hidden bg-[#2d2d2d] text-white">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block px-6 py-4 text-sm border-b border-white/10 hover:bg-white/5 transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => 
+            item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-6 py-4 text-sm border-b border-white/10 hover:bg-white/5 transition-colors"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="block px-6 py-4 text-sm border-b border-white/10 hover:bg-white/5 transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <Link
             href="/contact"
             className="block px-6 py-4 text-sm hover:bg-white/5 transition-colors"
