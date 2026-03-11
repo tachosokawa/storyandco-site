@@ -138,7 +138,6 @@ async function getLatestNews() {
 
 export default async function NewsDetailPage({ params }: { params: { id: string } }) {
   const news = await getLatestNews()
-  console.log('news', news)
   let newsData: any = null
   try {
     newsData = await client.get({ endpoint: 'news', contentId: params.id })
@@ -159,7 +158,8 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
       "publishedAt":"2026-03-10",
     }
   }
-
+  
+  console.log('newsData', newsData)
   return (
     <>
       <section className="w-full mt-[96px] sm:mt-[80px] md:mt-[96px]">
