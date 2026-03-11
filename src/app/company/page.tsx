@@ -220,12 +220,12 @@ export default function CompanyPage() {
 
       {/* Company outline */}
       <section className="w-full">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-[40px] border-b border-[#2D2A24] flex flex-col sm:flex-row items-center justify-between min-h-[96px] py-4 sm:py-0 sm:h-[96px]">
-          <div className='flex items-center pr-0 sm:pr-6 md:pr-8 lg:pr-[40px] border-b sm:border-b-0 sm:border-r border-[#2D2A24] h-full w-full sm:w-auto pb-4 sm:pb-0'>
+        <div className="px-4 sm:px-6 md:px-8 lg:px-[40px] border-b border-[#2d2d2d] flex flex-col sm:flex-row items-center justify-between min-h-[96px] py-4 sm:py-0 sm:h-[96px]">
+          <div className='flex items-center pr-0 sm:pr-6 md:pr-8 lg:pr-[40px] border-b sm:border-b-0 sm:border-r border-[#2d2d2d] h-full w-full sm:w-auto pb-4 sm:pb-0'>
             <p className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-[#333] font-semibold font-poppins tracking-[-0.04em] leading-[1]">Outline</p>
           </div>
           <div className='flex items-center justify-end h-full w-full sm:w-auto pt-4 sm:pt-0'>
-            <div className='hidden sm:block w-[1px] h-full bg-[#2D2A24]'></div>
+            <div className='hidden sm:block w-[1px] h-full bg-[#2d2d2d]'></div>
             <p className='text-sm sm:text-base lg:text-[16px] font-medium text-[#333] tracking-[0.04em] leading-[2] font-sans pl-0 sm:pl-6 md:pl-8 lg:pl-[40px]'>会社概要</p>
           </div>
         </div>

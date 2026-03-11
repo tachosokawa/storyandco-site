@@ -1,7 +1,7 @@
 
 #mv-text-stroke, #create-text-stroke, #contact-text-stroke {
   -webkit-text-stroke-width: 2px; /* 枠線の幅 */
-  -webkit-text-stroke-color: #2D2A24; /* 枠線の色 */
+  -webkit-text-stroke-color: #2d2d2d; /* 枠線の色 */
 }
 @media screen and (max-width: 768px) {
 #mv-text-stroke, #create-text-stroke, #contact-text-stroke {

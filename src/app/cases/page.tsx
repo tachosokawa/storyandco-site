@@ -156,7 +156,7 @@ export default async function CasesPage() {
         </h1>
         <p className="mt-5 text-base sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">事例のご紹介</p>
       </div>
-      <TabsSection items={cases} tabs={tabs} />
+      <TabsSection items={cases} tabs={tabs} itemLink={"/cases"} />
       <ContactSection />
       <RecruitSection />
       <AndStorySection />

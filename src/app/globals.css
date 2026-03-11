@@ -43,3 +43,28 @@ body {
 .rich-content a { color: #00B8CC; text-decoration: underline; }
 .rich-content strong { font-weight: 700; }
 .rich-content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+
+/* Checkbox custom styling */
+#contact_checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #2d2a24;
+}
+
+#contact_checkbox:checked {
+  background-color: #18bed7;
+  border: 1px solid #18bed7;
+}
+
+#contact_checkbox:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M9 19l-7-7 1.41-1.41L9 16.17l11.59-11.59L22 6l-13 13z"/></svg>') no-repeat center center / contain;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}

@@ -20,7 +20,6 @@ const footerLinks = {
     { label: 'AND STORY', href: '/service/andstory' },
     { label: 'コミュニティ事業', href: '/service#community', bullet: true },
     { label: 'NewMake', href: '/service/newmake' },
-    { label: 'タワーのアワー', href: '/service/tower' },
     { label: 'ソリューション事業', href: '/service#solution', bullet: true },
     { label: 'コミュニティ開発', href: '/service/community-dev' },
     { label: '地域・イベントプロデュース', href: '/service/event' },
@@ -32,10 +31,10 @@ export function Footer() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <footer className="border-t border-[#2D2A24]">
+    <footer className="border-t border-[#2d2d2d]">
       <div className='grid grid-cols-2'>
         {/* Logo */}
-        <div className='col-span-1 border-r border-[#2D2A24] py-[80px] px-[40px]'>
+        <div className='col-span-1 border-r border-[#2d2d2d] py-[80px] px-[40px]'>
           <img src="/images/clients/footer-logo.svg" alt="logo" className='w-[68%]'/>
         </div>
         <div className='col-span-1 grid grid-cols-2  py-[80px] px-[40px]'>
@@ -82,7 +81,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="col-span-2 border-t border-[#2D2A24] py-[30px] px-[40px]">
+        <div className="col-span-2 border-t border-[#2d2d2d] py-[30px] px-[40px]">
           <p className="font-poppins font-medium text-[12px] leading-[100%] tracking-normal text-[#2d2a24]">© STORY&Co.</p>
         </div>
       </div>

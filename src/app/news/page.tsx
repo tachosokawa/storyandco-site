@@ -143,7 +143,7 @@ export default async function NewsPage() {
         </h1>
         <p className="mt-5 text-base sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">お知らせ</p>
       </div>
-      <TabsSection items={news} tabs={tabs} />
+      <TabsSection items={news} tabs={tabs} itemLink="/news"/>
       <ContactSection />
       <RecruitSection />
       <AndStorySection />

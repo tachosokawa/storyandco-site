@@ -103,13 +103,13 @@ export default function ClientsSection() {
   const canGoNext = true // Always allow next for infinite loop
 
   return (
-    <section className="border-b border-[#2D2A24]">
-      <div className="px-[40px] border-b border-[#2D2A24] flex items-center justify-between h-[96px]">
-        <div className='flex items-center pr-[40px] border-r border-[#2D2A24] h-full'>
+    <section className="border-b border-[#2d2d2d]">
+      <div className="px-[40px] border-b border-[#2d2d2d] flex items-center justify-between h-[96px]">
+        <div className='flex items-center pr-[40px] border-r border-[#2d2d2d] h-full'>
           <p className="text-[40px] text-[#333] font-semibold font-poppins tracking-[-0.04em] leading-[1]">Our clients</p>
         </div>
         <div className='flex items-center justify-end h-full'>
-          <span className='flex mr-[40px] border border-[#2D2A24] rounded-lg'>
+          <span className='flex mr-[40px] border border-[#2d2d2d] rounded-lg'>
             <button
               name='prev'
               onClick={handlePrev}
@@ -141,7 +141,7 @@ export default function ClientsSection() {
               />
             </button>
           </span>
-          <div className='w-[1px] h-full bg-[#2D2A24]'></div>
+          <div className='w-[1px] h-full bg-[#2d2d2d]'></div>
           <p className='text-[16px] font-medium text-[#333] tracking-[0.04em] leading-[2] font-sans pl-[40px]'>お取引企業</p>
         </div>
       </div>

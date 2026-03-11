@@ -13,7 +13,7 @@ interface LoadMoreLinkProps {
 export default function LoadMoreLink({ 
   linkText, 
   href = '/company',
-  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2D2A24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]',
+  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2d2d2d] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]',
   onClick
 }: LoadMoreLinkProps) {
   const [isHovered, setIsHovered] = useState(false)

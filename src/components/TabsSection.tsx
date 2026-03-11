@@ -33,7 +33,7 @@ export default function TabsSection({
   items,
   loadMoreText = "もっと事例を見る",
   itemsPerPage = 9,
-  itemLink = "/project"
+  itemLink = "#"
 }: TabsSectionProps) {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id || '')
   const [visibleCount, setVisibleCount] = useState(itemsPerPage)
@@ -56,7 +56,7 @@ export default function TabsSection({
 
   return (
     <section className='w-full'>
-      <div className='flex flex-row flex-nowrap items-center justify-center border-b border-[#2D2A24] overflow-x-auto'>
+      <div className='flex flex-row flex-nowrap items-center justify-center border-b border-[#2d2d2d] overflow-x-auto'>
         {tabs.map((tab, index) => {
           const isLast = index === tabs.length - 1
           const isActive = activeTab === tab.id
@@ -92,7 +92,7 @@ export default function TabsSection({
                 !isLastInColumnDesktop? 'lg:border-r' : ''
               }`}
             >
-              <Link href={itemLink} className="font-bold text-[14px] hover:text-[#18bed7]">
+              <Link href={`${itemLink}/${item.id}`} className="font-bold text-[14px] hover:text-[#18bed7]">
                 {item.thumbnail && (
                   <img
                     src={item.thumbnail.url}
@@ -104,7 +104,7 @@ export default function TabsSection({
                 <h3 className="mt-3 sm:mt-4 md:mt-5 font-bold text-lg sm:text-xl md:text-2xl lg:text-[24px] leading-[150%] tracking-[0.04em] line-clamp-2 text-[#2d2a24]">{item.title}</h3>
                 <p className="mt-3 sm:mt-4 md:mt-5 font-medium text-sm sm:text-[14px] md:text-[16px] leading-[200%] tracking-[0.08em] line-clamp-3 text-[#2d2a24]">{item.summary}</p>
               </Link>
-              <button className='mt-3 sm:mt-4 md:mt-5 pt-[5px] pb-[7px] px-2 sm:px-3 md:px-[12px] border border-[#2D2A24] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[10px] sm:text-[11px] md:text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFFDF7] transition-colors'>NewMake</button>
+              <button className='mt-3 sm:mt-4 md:mt-5 pt-[5px] pb-[7px] px-2 sm:px-3 md:px-[12px] border border-[#2d2d2d] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[10px] sm:text-[11px] md:text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFFDF7] transition-colors'>NewMake</button>
             </div>
           );
         })}
