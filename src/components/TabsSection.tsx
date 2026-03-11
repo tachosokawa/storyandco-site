@@ -35,44 +35,31 @@ export default function TabsSection({
   itemsPerPage = 9,
   itemLink = "#"
 }: TabsSectionProps) {
-  // Initialize with empty string to avoid hydration mismatch
-  const [activeTab, setActiveTab] = useState('')
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id || '')
   const [visibleCount, setVisibleCount] = useState(itemsPerPage)
-  const [isMounted, setIsMounted] = useState(false)
 
-  // Set initial tab only on client side after mount
-  useEffect(() => {
-    setIsMounted(true)
-    if (tabs.length > 0 && !activeTab) {
-      setActiveTab(tabs[0].id)
-    }
-  }, [tabs, activeTab])
+  const activeTabConfig = tabs.find(t => t.id === activeTab)
+  const filteredItems = !activeTabConfig?.category
+    ? items 
+    : items.filter(item => item.category === activeTabConfig.category)
+
+  const visibleItems = filteredItems.slice(0, visibleCount)
 
   // Reset visible count when tab changes
   useEffect(() => {
-    if (isMounted) {
-      setVisibleCount(itemsPerPage)
-    }
-  }, [activeTab, itemsPerPage, isMounted])
+    setVisibleCount(itemsPerPage)
+  }, [activeTab, itemsPerPage])
 
   const handleLoadMore = () => {
     setVisibleCount(prev => prev + itemsPerPage)
   }
-
-  // Ensure we have a valid activeTab before rendering (fallback for initial render)
-  const currentActiveTab = activeTab || (tabs.length > 0 ? tabs[0].id : '')
-  const activeTabConfig = tabs.find(t => t.id === currentActiveTab)
-  const filteredItems = !activeTabConfig?.category
-    ? items 
-    : items.filter(item => item.category === activeTabConfig.category)
-  const visibleItems = filteredItems.slice(0, visibleCount)
 
   return (
     <section className='w-full'>
       <div className='flex flex-row flex-nowrap items-center justify-center border-b border-[#2d2d2d] overflow-x-auto'>
         {tabs.map((tab, index) => {
           const isLast = index === tabs.length - 1
-          const isActive = currentActiveTab === tab.id
+          const isActive = activeTab === tab.id
           
           return (
             <button
