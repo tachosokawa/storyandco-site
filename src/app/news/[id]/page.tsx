@@ -7,9 +7,10 @@ import RecruitSection from '@/components/RecruitSection'
 import AndStorySection from '@/components/AndStorySection'
 
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   try {
-    const data = await client.get({ endpoint: 'news', contentId: params.id })
+    const { id } = await params
+    const data = await client.get({ endpoint: 'news', contentId: id })
     return { title: data.title }
   } catch {
     return { title: 'お知らせ' }
@@ -136,11 +137,12 @@ async function getLatestNews() {
   }
 }
 
-export default async function NewsDetailPage({ params }: { params: { id: string } }) {
+export default async function NewsDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const news = await getLatestNews()
   let newsData: any = null
   try {
-    newsData = await client.get({ endpoint: 'news', contentId: params.id })
+    newsData = await client.get({ endpoint: 'news', contentId: id })
   } catch {
     //return <div className="pt-[60px] p-24 text-center text-[#999]">記事が見つかりませんでした</div>
     newsData = {
@@ -159,7 +161,6 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
     }
   }
   
-  console.log('newsData', newsData)
   return (
     <>
       <section className="w-full mt-[96px] sm:mt-[80px] md:mt-[96px]">

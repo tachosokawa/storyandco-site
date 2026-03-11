@@ -35,8 +35,17 @@ export default function TabsSection({
   itemsPerPage = 9,
   itemLink = "#"
 }: TabsSectionProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0]?.id || '')
+  // Use a stable default value that works on both server and client
+  const defaultTabId = tabs && tabs.length > 0 ? tabs[0].id : ''
+  const [activeTab, setActiveTab] = useState(defaultTabId)
   const [visibleCount, setVisibleCount] = useState(itemsPerPage)
+
+  // Ensure activeTab is set if it's empty (client-side only)
+  useEffect(() => {
+    if (!activeTab && tabs.length > 0) {
+      setActiveTab(tabs[0].id)
+    }
+  }, [activeTab, tabs])
 
   const activeTabConfig = tabs.find(t => t.id === activeTab)
   const filteredItems = !activeTabConfig?.category
