@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 import CommonLink from './CommonLink'
-import { link } from 'fs'
 
 type SlideCardItem = {
   id: string | number
   title: string
-  category?: string
+  category?: string[]
+  serviceCategory?: string[]
   summary?: string
+  tags?: string[]
   thumbnail?: {
     url: string
   }
@@ -92,16 +93,29 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
                 className={`w-[55.38%] flex shrink-0 gap-[48px] border-r border-[#2d2d2d] overflow-hidden px-[40px] py-[80px] hover:bg-[#f2f0ea] items-start justify-items-between`}
               >
                 <div className="font-sans text-[#333] items-start justify-items-start">
-                  <Link href={linkHref+'/'+card.id} className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">{card.category || 'コミュニティ開発'}</Link>
-                  <Link href={linkHref+'/'+card.id}>
+                  <Link href={'/'+linkHref+'/'+card.id} className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">
+                    {(() => {
+                      const categories = linkHref === 'cases' ? card.serviceCategory : card.category
+                      return Array.isArray(categories) && categories.length > 0 ? categories.join(' | ') : ''
+                    })()}
+                  </Link>
+                  <Link href={'/'+linkHref+'/'+card.id}>
                     <h3 className="mt-5 font-bold text-[24px] leading-[150%] tracking-[0.04em] line-clamp-2 text-[#2d2d2d]">{card.title}</h3>
                     <p className="mt-5 font-medium text-[16px] leading-[200%] tracking-[0.08em] line-clamp-3">{card.summary}</p>
                   </Link>
-                  <button className='mt-5 pt-[5px] pb-[7px] px-[12px] border border-[#2d2d2d] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFFDF7] transition-colors'>NewMake</button>
+                  {card.tags && card.tags.length > 0 && card.tags.map((tag, tagIndex) => (
+                    <Link 
+                      key={tagIndex}
+                      href={`/${linkHref}/category/${tag==="NewMake" ? "newmake" : tag ==="STORY&Co" ? "story" : tag==="PATCH&PLAY" ? "patchandplay" : tag==="CRAFC" ? "crafc" : tag==="AND STORY" ? "andstory" : tag}`} 
+                      className='mt-5 pt-[3px] pb-[5px] px-[12px] mr-[15px] border border-[#2d2d2d] rounded-lg font-["FOT-Cezanne_ProN"] font-semibold text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFFDF7] transition-colors'
+                    >
+                      {tag}
+                    </Link>
+                  ))}
                 </div>
                 {card.thumbnail && (
                   <div className="overflow-hidden items-start justify-items-start flex-shrink-0">
-                    <Link href={linkHref+'/'+card.id}>
+                    <Link href={'/'+linkHref+'/'+card.id}>
                       <img
                         src={card.thumbnail.url}
                         alt={card.title}
@@ -116,7 +130,7 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
         </div>
 
         <div className="col-span-8 border-r border-[#2d2d2d]">
-          <CommonLink linkText={linkText} href={linkHref} className='px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'/>
+          <CommonLink linkText={linkText} href={'/'+linkHref} className='px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'/>
         </div>
         <div className="col-span-1 items-center justify-end flex pr-[40px]">
           <span className='flex border border-[#2d2d2d] rounded-lg'>
