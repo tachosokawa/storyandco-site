@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 }
 
 const tabs = [
-  { id: 'all', label: 'すべて', category: null },
-  { id: 'informations', label: 'インフォメーション', category: 'お知らせ' },
-  { id: 'reports', label: 'プレスリリース', category: 'プレスリリース' },
-  { id: 'medias', label: 'メディア掲載', category: 'メディア掲載' },
-  { id: 'events', label: 'イベント', category: 'イベント' },
+  { id: 'all', label: 'すべて', category: null, minWidth: '86.6px' },
+  { id: 'informations', label: 'インフォメーション', category: 'お知らせ', minWidth: '166px' },
+  { id: 'reports', label: 'プレスリリース', category: 'プレスリリース', minWidth: '140px' },
+  { id: 'medias', label: 'メディア掲載', category: 'メディア掲載', minWidth: '126px' },
+  { id: 'events', label: 'イベント', category: 'イベント', minWidth: '100px' },
 ]
 
 async function getNews() {
