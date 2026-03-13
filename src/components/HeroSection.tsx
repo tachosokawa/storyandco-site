@@ -80,8 +80,7 @@ export default function HeroSection() {
           </p>
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
-            <a href={current ? `/news/${current.id}` : '#'} className='block w-full font-bold text-xs cursor-pointer px-3 truncate hover:text-[#18bed7]'>{current ? current.title : ''}</a>
-          </div>
+           <a href={current ? `/news/${current.id}` : '#'} className='block w-full font-bold text-sm cursor-pointer px-3 truncate hover:text-[#18bed7]'>
           </div>
       </div>
     </section>
