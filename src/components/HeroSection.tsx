@@ -66,7 +66,7 @@ export default async function HeroSection() {
 </p>
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
-            <a href={latestNews ? `/news/${latestNews.id}` : '#'} id="mv-news-loop-area" className='font-bold text-xs md:text-[16px] whitespace-nowrap hover:text-[#18bed7]'>
+           <a href={latestNews ? `/news/${latestNews.id}` : '#'} id="mv-news-loop-area" className='block font-bold text-xs md:text-[16px] whitespace-nowrap hover:text-[#18bed7]'>
   {latestNews ? `${latestNews.title}　${latestNews.title}　${latestNews.title}` : ''}
 </a>
           </div>
