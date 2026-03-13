@@ -17,12 +17,12 @@ export default function ServicesSection() {
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
           <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] md:border-b border-[#2d2a24]'>
-            <img className="w-full w-[120px] md:w-[206px]" src="/images/clients/patchplay.webp" alt="PATCH&PLAY"/>
+            <img className="md:w-full w-[120px] md:w-[206px]" src="/images/clients/patchplay.webp" alt="PATCH&PLAY"/>
             <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>PATCH&PLAYは、"すき"の気持ちをきっかけに、身のまわりのモノを、もう一度遊ぶようにたのしむ「ワッペンとお直しのお店」です。</p>
           </div>
           <CommonLink linkText="PATCH&PLAYについて知る" href="/company" />
           <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t md:border-b border-[#2d2a24]'>
-            <img className="w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY"/>
+            <img className="md:w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY"/>
             <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>目には見えないけれど価値がある「体験」や「コミュニティ」と出会えるWebプラットフォームです。</p>
           </div>
           <CommonLink linkText="AND STORYについて知る" href="/company" />
@@ -37,12 +37,12 @@ export default function ServicesSection() {
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
           <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] md:border-b border-[#2d2a24]'>
-            <img className="w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/newmake.svg" alt="NewMake"/>
+            <img className="md:w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/newmake.svg" alt="NewMake"/>
             <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>クリエイティブの力で社会課題を解決するコミュニティです。</p>
           </div>
           <CommonLink linkText="NewMakeについて知る" href="/company" />
           <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t border-[#2d2a24] md:border-b'>
-            <img className="w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/hour_of_tower.svg" alt="タワーのアワー"/>
+            <img className="md:w-full w-[150px] md:w-[300px] h-auto" src="/images/clients/hour_of_tower.svg" alt="タワーのアワー"/>
             <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>こころとからだの健康に触れる機会を創出し、ウェルビーイングの実現をサポートするコミュニティです。</p>
           </div>
           <CommonLink linkText="タワーのアワーについて知る" href="/company" />
