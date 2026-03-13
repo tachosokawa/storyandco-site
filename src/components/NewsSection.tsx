@@ -14,6 +14,9 @@ async function getLatestNews() {
     const data = await client.get({
       endpoint: 'news',
       queries: { limit: 5, orders: '-publishedAt' },
+      customRequestInit: {
+        cache: 'no-store'
+      }
     })
     return data.contents
   } catch {

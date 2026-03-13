@@ -29,6 +29,9 @@ async function getMembers(): Promise<MemberItem[]> {
     const data = await client.get({
       endpoint: 'members',
       queries: { orders: 'publishedAt' },
+      customRequestInit: {
+        cache: 'no-store'
+      }
     })
     return data.contents
   } catch {
@@ -64,6 +67,9 @@ async function getCompany(): Promise<CompanyItem | null> {
     const { client } = await import('@/lib/microcms')
     const data = await client.get({
       endpoint: 'company',
+      customRequestInit: {
+        cache: 'no-store'
+      }
     })
     return data
   } catch {
@@ -233,12 +239,10 @@ export default async function CompanyPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {members.map((m, index) => {
-            let limitLastRowMobile = members.length % 1
-            let limitLastRowTablet = members.length % 2
-            let limitLastRowDesktop = members.length % 4
-            const isLastRowMobile = index >= members.length - limitLastRowMobile
-            const isLastRowTablet = index >= members.length - limitLastRowTablet
-            const isLastRowDesktop = index >= members.length - limitLastRowDesktop
+            const totalItems = members.length
+            const isLastRowMobile = index >= totalItems - (totalItems % 1 || 1)
+            const isLastRowTablet = index >= totalItems - (totalItems % 2 || 2)
+            const isLastRowDesktop = index >= totalItems - (totalItems % 4 || 4)
             return (
             <div key={m.name} className={`flex flex-col items-center text-left p-[20px] sm:p-6 md:p-8 lg:p-[40px] border-r border-[#2d2a24] ${isLastRowMobile ? '' : 'border-b'} ${isLastRowTablet ? 'sm:border-b-0' : 'sm:border-b'} ${isLastRowDesktop ? 'lg:border-b-0' : 'lg:border-b'}`}>
               <div className="w-full">

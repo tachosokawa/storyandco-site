@@ -27,6 +27,9 @@ async function getLatestCases(): Promise<CaseItem[]> {
     const data = await client.get({
       endpoint: 'cases',
       queries: { limit: 6, orders: '-publishedAt' },
+      customRequestInit: {
+        cache: 'no-store'
+      }
     })
     return data.contents
   } catch {

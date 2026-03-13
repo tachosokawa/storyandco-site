@@ -54,23 +54,6 @@ export function Header() {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
             const isHovered = hoveredItem === item.href
             const showIcon2 = isActive || isHovered
-            const linkContent = (
-              <>
-                {isActive && (
-                  <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00B8CC]" />
-                )}
-                {item.label}
-                {item.external && (
-                  <Image 
-                    className="border-none" 
-                    src={showIcon2 ? "/images/clients/menuicon2.svg" : "/images/clients/menuicon1.svg"} 
-                    alt="About Us" 
-                    width="20" 
-                    height="20"
-                  />
-                )}
-              </>
-            )
             return item.external ? (
               <a
                 key={item.href}
@@ -85,7 +68,19 @@ export function Header() {
                     : 'text-[#2d2a24] hover:text-[#18bed7]'
                 }`}
               >
-                {linkContent}
+                {isActive && (
+                  <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00B8CC]" />
+                )}
+                {item.label}
+                {item.external && (
+                  <Image 
+                    className="border-none" 
+                    src={showIcon2 ? "/images/clients/menuicon2.svg" : "/images/clients/menuicon1.svg"} 
+                    alt="About Us" 
+                    width="20" 
+                    height="20"
+                  />
+                )}
               </a>
             ) : (
               <Link
@@ -99,7 +94,19 @@ export function Header() {
                     : 'text-[#2d2a24] hover:text-[#18bed7]'
                 }`}
               >
-                {linkContent}
+                {isActive && (
+                  <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00B8CC]" />
+                )}
+                {item.label}
+                {item.external && (
+                  <Image 
+                    className="border-none" 
+                    src={showIcon2 ? "/images/clients/menuicon2.svg" : "/images/clients/menuicon1.svg"} 
+                    alt="About Us" 
+                    width="20" 
+                    height="20"
+                  />
+                )}
               </Link>
             )
           })}

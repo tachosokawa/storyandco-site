@@ -25,7 +25,7 @@ export default function CommonButton({
         className="inline-flex w-full items-center transition-colors group transition-all justify-between font-bold"
       >
         {buttonText}
-        <img src={isHovered ? "/images/clients/arrow-long-right-white.svg" : "/images/clients/arrow-long-right.svg"} alt="arrow"/>
+        <img src={isHovered ? "/images/clients/arrow-long-right-white.svg" : "/images/clients/arrow-long-right.svg"} alt="arrow" className='w-[16px] md:w-[20px]'/>
       </button>
     </div>
   )

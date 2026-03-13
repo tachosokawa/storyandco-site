@@ -195,13 +195,3 @@ body {
     margin-bottom: 2rem;
   }
 }
-
-/* Hide scrollbar on mobile for ClientsSection */
-.scrollbar-hide-mobile::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide-mobile {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
