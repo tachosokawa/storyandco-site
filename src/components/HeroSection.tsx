@@ -82,7 +82,7 @@ export default function HeroSection() {
           <div className="flex-1 overflow-hidden">
             <a
               href={current ? `/news/${current.id}` : '#'}
-              className='block font-bold text-xs md:text-[16px] truncate px-3 md:px-4 hover:text-[#18bed7] transition-colors duration-300'
+              className='block font-bold text-xs md:text-[16px] px-3 md:px-4 hover:text-[#18bed7] transition-colors duration-300'
             >
               {current ? current.title : ''}
             </a>
