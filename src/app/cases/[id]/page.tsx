@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 type CaseItem = {
   id: string | number
+  publishDate: string  //
   title: string
   category?: string[]
   serviceCategory?: string[]
