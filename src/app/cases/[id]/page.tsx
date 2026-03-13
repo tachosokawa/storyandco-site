@@ -108,7 +108,6 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
                   <p className="font-sans text-[12px] md:text-[14px] text-[#2d2a24] font-medium leading-[1]">
                     {new Date(caseData.publishDate).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
                   </p>
-                  <p>{JSON.stringify(caseData.publishDate)}</p>
                   <span className="inline">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                   {(caseData.tags && caseData.tags.length > 0 && caseData.tags.map((tag: string, tagIndex: number) => (
                     <Link 
