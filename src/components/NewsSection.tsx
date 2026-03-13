@@ -2,7 +2,7 @@ import NewsSectionClient from './NewsSectionClient'
 
 interface NewsItem {
   id: number | string
-  publishedAt: string
+  publishDate: string
   category?: string
   title: string
   tags?: string[]
@@ -13,7 +13,7 @@ async function getLatestNews() {
     const { client } = await import('@/lib/microcms')
     const data = await client.get({
       endpoint: 'news',
-      queries: { limit: 5, orders: '-publishedAt' },
+      queries: { limit: 5, orders: '-publishDate' },
       customRequestInit: {
         cache: 'no-store'
       }
