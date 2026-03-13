@@ -1,5 +1,20 @@
-export default function HeroSection() {
-  return (
+import { client } from '@/lib/microcms'
+
+async function getLatestNewsForHero() {
+  try {
+    const data = await client.getList({
+      endpoint: 'news',
+      queries: { limit: 1, orders: '-publishedAt' },
+      customRequestInit: { cache: 'no-store' }
+    })
+    return data.contents[0] || null
+  } catch {
+    return null
+  }
+}
+
+export default async function HeroSection() {
+  const latestNews = await getLatestNewsForHero()
     <section className="relative flex flex-col justify-center overflow-hidden pb-[27px] md:pb-0">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-[#00B8CC] blur-3xl" />
@@ -45,10 +60,14 @@ export default function HeroSection() {
           <span className="text-[12px] md:inline md:text-[16px]">Scroll down to explore</span>
         </div>
         <div className="inline-flex items-center border-l border-t border-b border-[#2d2a24] rounded-tl-lg rounded-bl-lg h-[50px] md:h-[74px] w-full md:w-[55%] ml-0 md:ml-auto mt-[20px] md:mt-0">
-          <p className='px-3 md:px-[24px] font-bold text-sm md:text-[16px] whitespace-nowrap'>2026.01.07</p>
+          <p className='px-3 md:px-[24px] font-bold text-sm md:text-[16px] whitespace-nowrap'>
+  {latestNews ? new Date(latestNews.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.') : ''}
+</p>
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
-            <p id="mv-news-loop-area" className='font-bold text-xs md:text-[16px] whitespace-nowrap'>重要なお知らせなどの最新ニュースが一件入ります。重要なお知らせなどの最新ニュースが一件入ります。重要なお知らせなどの最新ニュースが一件入ります。</p>
+            <p id="mv-news-loop-area" className='font-bold text-xs md:text-[16px] whitespace-nowrap'>
+  {latestNews ? `${latestNews.title}　${latestNews.title}　${latestNews.title}` : ''}
+</p>
           </div>
         </div>
       </div>
