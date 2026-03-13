@@ -24,7 +24,7 @@ async function getNews() {
   try {
     const data = await client.getList({ 
       endpoint: 'news', 
-      queries: { limit: 20, orders: '-publishedAt' },
+      queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {
         cache: 'no-store'
       }
