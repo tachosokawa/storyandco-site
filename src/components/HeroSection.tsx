@@ -84,6 +84,8 @@ export default function HeroSection() {
       {current ? current.title : ''}
             </a>
           </div>
+          </div>
+      </div>
     </section>
   )
 }
