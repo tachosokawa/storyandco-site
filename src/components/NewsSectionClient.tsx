@@ -4,9 +4,6 @@ import Link from 'next/link'
 import { useState, useMemo } from 'react'
 import CommonLink from '@/components/CommonLink'
 import type { NewsItem } from './NewsSection'
-
-type TabId = 'all' | 'informations' | 'reports' | 'medias' | 'events'
-
 const tabs = [
   { id: 'all', label: 'すべて', category: null, minWidth: '86.6px' },
   { id: 'informations', label: 'お知らせ', category: 'お知らせ', minWidth: '120px' },
@@ -16,7 +13,7 @@ const tabs = [
 ]
 
 export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
-  const [activeTab, setActiveTab] = useState<TabId>('all')
+  const [activeTab, setActiveTab] = useState('all')
 
   // Filter news based on active tab
   const filteredNews = useMemo(() => {
