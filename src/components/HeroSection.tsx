@@ -15,6 +15,7 @@ async function getLatestNewsForHero() {
 
 export default async function HeroSection() {
   const latestNews = await getLatestNewsForHero()
+  return (
     <section className="relative flex flex-col justify-center overflow-hidden pb-[27px] md:pb-0">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-[#00B8CC] blur-3xl" />
