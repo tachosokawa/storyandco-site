@@ -81,7 +81,9 @@ export default function HeroSection() {
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
             <a href={current ? `/news/${current.id}` : '#'} className='block font-bold text-xs'>
-      </div>
+      {current ? current.title : ''}
+            </a>
+          </div>
     </section>
   )
 }
