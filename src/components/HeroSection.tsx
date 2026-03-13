@@ -1,20 +1,34 @@
-import { client } from '@/lib/microcms'
+'use client'
 
-async function getLatestNewsForHero() {
-  try {
-    const data = await client.getList({
-      endpoint: 'news',
-      queries: { limit: 1, orders: '-publishedAt' },
-      customRequestInit: { cache: 'no-store' }
-    })
-    return data.contents[0] || null
-  } catch {
-    return null
-  }
+import { useEffect, useState } from 'react'
+
+type NewsItem = {
+  id: string
+  publishedAt: string
+  title: string
 }
 
-export default async function HeroSection() {
-  const latestNews = await getLatestNewsForHero()
+export default function HeroSection() {
+  const [newsList, setNewsList] = useState<NewsItem[]>([])
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    fetch('/api/hero-news')
+      .then(res => res.json())
+      .then(data => setNewsList(data))
+      .catch(() => {})
+  }, [])
+
+  useEffect(() => {
+    if (newsList.length === 0) return
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % newsList.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [newsList])
+
+  const current = newsList[currentIndex]
+
   return (
     <section className="relative flex flex-col justify-center overflow-hidden pb-[27px] md:pb-0">
       <div className="absolute inset-0 opacity-10">
@@ -62,13 +76,16 @@ export default async function HeroSection() {
         </div>
         <div className="inline-flex items-center border-l border-t border-b border-[#2d2a24] rounded-tl-lg rounded-bl-lg h-[50px] md:h-[74px] w-full md:w-[55%] ml-0 md:ml-auto mt-[20px] md:mt-0">
           <p className='px-3 md:px-[24px] font-bold text-sm md:text-[16px] whitespace-nowrap'>
-  {latestNews ? new Date(latestNews.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.') : ''}
-</p>
+            {current ? new Date(current.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.') : ''}
+          </p>
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
-           <a href={latestNews ? `/news/${latestNews.id}` : '#'} id="mv-news-loop-area" className='block font-bold text-xs md:text-[16px] whitespace-nowrap hover:text-[#18bed7]'>
-  {latestNews ? `${latestNews.title}　${latestNews.title}　${latestNews.title}` : ''}
-</a>
+            
+              href={current ? `/news/${current.id}` : '#'}
+              className='block font-bold text-xs md:text-[16px] truncate px-3 md:px-4 hover:text-[#18bed7] transition-colors duration-300'
+            >
+              {current ? current.title : ''}
+            </a>
           </div>
         </div>
       </div>
