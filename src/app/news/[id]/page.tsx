@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 interface NewsItem {
   id: number | string
-  publishedAt: string
+  publishDate: string
   category?: string[]
   serviceCategory?: string[]
   title: string
@@ -42,7 +42,7 @@ async function getLatestNews() {
     const { client } = await import('@/lib/microcms')
     const data = await client.get({
       endpoint: 'news',
-      queries: { limit: 20, orders: '-publishedAt' },
+      queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {
         cache: 'no-store'
       }
@@ -106,7 +106,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
                 <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em] mt-2 sm:mt-4 md:mt-[20px] mb-9 md:mb-[40px]">{newsData.title}</h2>
                 <div className="flex flex-wrap items-center mb-10 gap-2">
                   <p className="font-sans text-[12px] sm:text-sm md:text-[14px] text-[#2d2a24] font-medium leading-[1]">
-                    {new Date(newsData.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                    {new Date(newsData.publishDate).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
                   </p>
                   {newsData.tags && newsData.tags.length > 0 && (
                     <>
