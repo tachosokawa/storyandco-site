@@ -1,8 +1,8 @@
 export default function CreateYourOwnStorySection() {
   return (
-    <section className="pt-16 md:pt-24 lg:pt-[200px] pb-16 md:pb-24 lg:pb-[240px] w-full text-center border-b border-[#2d2a24] px-4 md:px-6 lg:px-0">
-      <p className='font-sans font-bold text-xl md:text-2xl lg:text-[32px] leading-[2] tracking-[0.04em] text-center text-[#333]'>あなただけの物語を。</p>
-      <h1 className="mt-4 md:mt-6 lg:mt-8 font-poppins text-4xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[160px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-4%] text-center">
+    <section className="pt-[120px] md:pt-24 lg:pt-[200px] pb-[160px] md:pb-24 lg:pb-[240px] w-full text-center border-b border-[#2d2a24] px-[20px] md:px-6 lg:px-0">
+      <p className='font-sans font-bold text-[22px] md:text-2xl lg:text-[32px] leading-[2] tracking-[0.04em] text-center text-[#333]'>あなただけの物語を。</p>
+      <h1 className="mt-4 md:mt-6 lg:mt-8 font-poppins text-[56px] sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[160px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-4%] text-left md:text-center">
         <span id="create-colorful1">C</span>
         <span id="create-colorful2">r</span>
         <span id="create-colorful3">e</span>

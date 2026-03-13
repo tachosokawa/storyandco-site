@@ -31,13 +31,13 @@ export function Footer() {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <footer className="border-t border-[#2d2d2d]">
+    <footer className="border-t border-[#2d2a24]">
       <div className='grid grid-cols-2'>
         {/* Logo */}
-        <div className='col-span-1 border-r border-[#2d2d2d] py-[80px] px-[40px]'>
-          <img src="/images/clients/footer-logo.svg" alt="logo" className='w-[68%]'/>
+        <div className='col-span-2 md:col-span-1 border-b md:border-b-0 md:border-r border-[#2d2a24] py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
+          <img src="/images/clients/footer-logo.svg" alt="logo" className='w-[352px] md:w-[68%]'/>
         </div>
-        <div className='col-span-1 grid grid-cols-2  py-[80px] px-[40px]'>
+        <div className='col-span-2 md:col-span-1 grid grid-cols-2  py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
           {/* Main links */}
           <div className='col-span-1'>
             <ul className="space-y-4">
@@ -45,7 +45,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link 
                     href={item.href} 
-                    className="flex items-center gap-2 font-sans font-bold text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
+                    className="flex items-center gap-2 font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
                     onMouseEnter={() => item.label === '採用情報' && setIsHovered(true)}
                     onMouseLeave={() => item.label === '採用情報' && setIsHovered(false)}
                   >
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`font-sans font-bold text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] transition-colors ${
+                    className={`font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] transition-colors ${
                       item.bullet ? 'flex items-center gap-2 hover:cursor-text' : 'hover:text-[#18bed7] '
                     }`}
                   >
@@ -81,8 +81,8 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="col-span-2 border-t border-[#2d2d2d] py-[30px] px-[40px]">
-          <p className="font-poppins font-medium text-[12px] leading-[100%] tracking-normal text-[#2d2a24]">© STORY&Co.</p>
+        <div className="col-span-2 border-t border-[#2d2a24] py-[28px] md:py-[30px] px-[20px] md:px-[40px]">
+          <p className="font-poppins font-medium text-[14px] md:text-[12px] leading-[100%] tracking-normal text-[#2d2a24]">© STORY&Co.</p>
         </div>
       </div>
     </footer>

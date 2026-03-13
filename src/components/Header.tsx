@@ -32,11 +32,11 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full px-[40px] ${
-        scrolled ? 'bg-[#fffdf7] border-b border-[#2d2d2d]' : 'bg-[#fffdf7] border-b border-[#2d2d2d]'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full px-[20px] md:px-[40px] ${
+        scrolled ? 'bg-[#fffdf7] border-b border-[#2d2a24]' : 'bg-[#fffdf7] border-b border-[#2d2a24]'
       }`}
     >
-      <div className="flex items-center justify-between h-[95px]">
+      <div className="flex items-center justify-between h-[63px] md:h-[95px]">
         
           {/* Logo */}
           <Link 
@@ -49,7 +49,7 @@ export function Header() {
           </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden w-full lg:flex items-center gap-14 justify-end border-l border-r border-[#2d2d2d] ml-[40px] mr-8 pr-10 h-[95px]">
+        <nav className="hidden h-[63px] ml-[20px] w-full lg:flex items-center gap-14 justify-end border-l border-r border-[#2d2a24] md:ml-[40px] mr-8 pr-10 md:h-[95px]">
           {navItems.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
             const isHovered = hoveredItem === item.href
@@ -82,7 +82,7 @@ export function Header() {
                 className={`text-[15px] transition-colors relative font-bold flex gap-1 ${
                   isActive
                     ? 'text-[#18bed7]'
-                    : 'text-[#2d2d2d] hover:text-[#18bed7]'
+                    : 'text-[#2d2a24] hover:text-[#18bed7]'
                 }`}
               >
                 {linkContent}
@@ -96,7 +96,7 @@ export function Header() {
                 className={`text-[15px] transition-colors relative font-bold flex gap-1 ${
                   isActive
                     ? 'text-[#18bed7]'
-                    : 'text-[#2d2d2d] hover:text-[#18bed7]'
+                    : 'text-[#2d2a24] hover:text-[#18bed7]'
                 }`}
               >
                 {linkContent}
@@ -109,7 +109,7 @@ export function Header() {
         <div className="lg:flex items-center gap-2 pl-2">
           <Link
             href="/contact"
-            className="flex items-center gap-3 border border-[#2d2d2d] rounded-lg px-5 py-2 text-sm font-medium hover:bg-[#18bed7] hover:text-white transition-colors overflow-hidden h-[55px] w-[242px]"
+            className="hidden md:flex items-center gap-3 border border-[#2d2a24] rounded-lg px-5 py-2 text-sm font-medium hover:bg-[#18bed7] hover:text-white transition-colors overflow-hidden h-[55px] w-[242px]"
           >
             <span className="text-[15px] font-bold animate-marquee whitespace-nowrap">
               お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
@@ -131,15 +131,15 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
-          <span className={`block w-6 h-0.5 bg-[#2d2d2d] transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-[#2d2d2d] transition-all ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-[#2d2d2d] transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-[#2d2a24] transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-[#2d2a24] transition-all ${menuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-[#2d2a24] transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#2d2d2d] text-white">
+        <div className="lg:hidden bg-[#2d2a24] text-white">
           {navItems.map((item) => 
             item.external ? (
               <a
@@ -175,6 +175,6 @@ export function Header() {
 
 function StoryLogo({ isHovered }: { isHovered: boolean }) {
   return (
-    <Image src={isHovered ? "/images/clients/logo2.svg" : "/images/clients/logo1.svg"} alt="About Us" width="200" height="26"/>
+    <Image src={isHovered ? "/images/clients/logo2.svg" : "/images/clients/logo1.svg"} alt="About Us" width="162" height="21" className='md:w-[200px] md:h-[26px]'/>
   )
 }

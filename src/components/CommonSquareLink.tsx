@@ -12,7 +12,7 @@ interface CommonSquareLinkProps {
 export default function CommonSquareLink({ 
   linkText, 
   href = '/company',
-  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2d2d2d] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'
+  className = 'px-[20px] md:px-[40px] pt-[24px] md:pt-[28px] pb-[25px] md:pb-[30px] border-t border-[#2d2a24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[14px] md:text-[16px]'
 }: CommonSquareLinkProps) {
   const [isHovered, setIsHovered] = useState(false)
   return (

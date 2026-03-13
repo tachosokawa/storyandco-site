@@ -45,12 +45,12 @@ export default async function HomePage() {
       <ServicesSection />
       <CreateYourOwnStorySection />
       <section className="w-full overflow-hidden">
-        <div className="flex gap-4 md:gap-6 lg:gap-8 animate-marquee whitespace-nowrap pt-[44px] pb-[36px]">
+        <div className="flex gap-4 md:gap-6 lg:gap-8 animate-marquee whitespace-nowrap py-[31px] md:pt-[44px] md:pb-[36px]">
           {['Cases', 'Cases', 'Cases', 'Cases', 'Cases', 'Cases'].map((t, i) => (
-            <span key={i} className="font-poppins font-semibold text-[96px] leading-[100%] tracking-[-4%] shrink-0 text-[#333]">{t} ·</span>
+            <span key={i} className="font-poppins font-semibold text-[48px] md:text-[96px] leading-[100%] tracking-[-4%] shrink-0 text-[#333]">{t} ·</span>
           ))}
         </div>
-        <h2 className="border-y border-[#2d2d2d] px-[40px] pt-[17px] pb-[19px] font-sans font-medium text-[16px] leading-[2] tracking-[0.04em] text-[#333]">事例のご紹介</h2>
+        <h2 className="border-y border-[#2d2a24] px-[20px] md:px-[40px] pt-[12px] md:pt-[17px] pb-[16px] md:pb-[19px] font-sans font-medium text-[12px] md:text-[16px] leading-[2] tracking-[0.04em] text-[#333]">事例のご紹介</h2>
       </section>
       <SlideCardsSectionClient slideCards={cases} linkHref="cases" linkText="事例をもっとみる" />
       <NewsSection />

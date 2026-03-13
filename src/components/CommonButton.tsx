@@ -11,7 +11,7 @@ interface CommonButtonProps {
 export default function CommonButton({ 
   buttonText, 
   type,
-  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2d2d2d] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'
+  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2d2a24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]'
 }: CommonButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
   return (

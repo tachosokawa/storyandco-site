@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const tabs = [
   { id: 'all', label: 'すべて', category: null },
-  { id: 'informations', label: 'インフォメーション', category: 'インフォメーション' },
+  { id: 'informations', label: 'インフォメーション', category: 'お知らせ' },
   { id: 'reports', label: 'プレスリリース', category: 'プレスリリース' },
   { id: 'medias', label: 'メディア掲載', category: 'メディア掲載' },
   { id: 'events', label: 'イベント', category: 'イベント' },

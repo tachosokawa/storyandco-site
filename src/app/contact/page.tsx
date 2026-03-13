@@ -90,12 +90,12 @@ export default function ContactPage() {
               をご覧ください。
             </p>
             <label className="flex items-center gap-3 font-sans font-medium text-sm md:text-base lg:text-[16px] leading-[2] tracking-[0.04em] text-[#2d2a24] mt-4 md:mt-5 text-left mx-auto px-4 md:px-0 mb-[80px] cursor-pointer">
-              <input type="checkbox" id="contact_checkbox" required className="relative w-[32px] h-[32px] accent-[#18bed7] border-1 border-[#2d2d2d] bg-[#FFF] cursor-pointer" />
+              <input type="checkbox" id="contact_checkbox" required className="relative w-[32px] h-[32px] accent-[#18bed7] border-1 border-[#2d2a24] bg-[#FFF] cursor-pointer" />
               プライバシーポリシーに同意して送信する
             </label>
           </div>
 
-          <CommonButton buttonText="送信する" type="submit" className='px-[40px] pt-[28px] pb-[30px] border-y border-[#2d2d2d] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]' />
+          <CommonButton buttonText="送信する" type="submit" className='px-[40px] pt-[28px] pb-[30px] border-y border-[#2d2a24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]' />
           <p className="font-sans font-medium text-sm md:text-base lg:text-[16px] leading-[2] tracking-[0.04em] text-[#2d2a24] mt-3 md:mt-5 text-left mx-auto px-4 md:px-0 mb-4">確認画面は表示されません。上記内容にて送信されますのでご注意ください。</p>
         </form>
       </div>

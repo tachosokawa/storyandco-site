@@ -36,7 +36,8 @@ const clientLogos: ClientLogo[] = [
   { name: 'YKK', file: 'ykk.svg' },
 ]
 
-const COLUMNS_VISIBLE = 5
+const COLUMNS_VISIBLE_DESKTOP = 5
+const COLUMNS_VISIBLE_MOBILE = 2.5
 const AUTO_SLIDE_INTERVAL = 3000 // 3 seconds
 
 export default function AndStorySection() {
@@ -52,11 +53,20 @@ export default function AndStorySection() {
   const originalColumnCount = clientLogos.length
   const totalColumns = columns.length
   
+  const [columnsVisible, setColumnsVisible] = useState(COLUMNS_VISIBLE_DESKTOP)
   const [currentColumn, setCurrentColumn] = useState(originalColumnCount)
   const [isTransitioning, setIsTransitioning] = useState(true)
   const [isPrevHovered, setIsPrevHovered] = useState(false)
   const [isNextHovered, setIsNextHovered] = useState(false)
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const scrollbarRef = useRef<HTMLDivElement>(null)
+  const [showScrollbar, setShowScrollbar] = useState(false)
+  const [scrollbarWidth, setScrollbarWidth] = useState(0)
+  const THUMB_WIDTH = 12 // Fixed thumb width in pixels
 
   const handlePrev = () => {
     setCurrentColumn((prev) => {
@@ -89,8 +99,28 @@ export default function AndStorySection() {
     }
   }, [currentColumn, originalColumnCount])
 
-  // Auto-slide functionality - move one column at a time with seamless loop
+  // Check if we're on mobile and set columns visible accordingly
   useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      setColumnsVisible(mobile ? COLUMNS_VISIBLE_MOBILE : COLUMNS_VISIBLE_DESKTOP)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile)
+    }
+  }, [])
+
+  // Auto-slide functionality - move one column at a time with seamless loop (desktop only)
+  useEffect(() => {
+    if (isMobile) {
+      return // Don't auto-slide on mobile
+    }
+
     autoSlideRef.current = setInterval(() => {
       setCurrentColumn((prev) => {
         return prev + 1
@@ -102,14 +132,124 @@ export default function AndStorySection() {
         clearInterval(autoSlideRef.current)
       }
     }
-  }, [])
+  }, [isMobile])
+
+  // Track scroll position for mobile scrollbar
+  useEffect(() => {
+    if (!isMobile || !scrollContainerRef.current) return
+
+    const container = scrollContainerRef.current
+    const updateScrollProgress = () => {
+      const scrollLeft = container.scrollLeft
+      const scrollWidth = container.scrollWidth
+      const clientWidth = container.clientWidth
+      const maxScroll = scrollWidth - clientWidth
+      const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0
+      setScrollProgress(progress)
+      
+      // Update scrollbar width for thumb positioning
+      if (scrollbarRef.current) {
+        setScrollbarWidth(scrollbarRef.current.offsetWidth)
+      }
+      
+      // Show scrollbar only if content is scrollable
+      setShowScrollbar(scrollWidth > clientWidth)
+    }
+
+    container.addEventListener('scroll', updateScrollProgress)
+    const resizeObserver = new ResizeObserver(updateScrollProgress)
+    resizeObserver.observe(container)
+    
+    // Also observe scrollbar width changes
+    let scrollbarResizeObserver: ResizeObserver | null = null
+    if (scrollbarRef.current) {
+      scrollbarResizeObserver = new ResizeObserver(updateScrollProgress)
+      scrollbarResizeObserver.observe(scrollbarRef.current)
+    }
+    
+    updateScrollProgress() // Initial calculation
+
+    return () => {
+      container.removeEventListener('scroll', updateScrollProgress)
+      resizeObserver.disconnect()
+      if (scrollbarResizeObserver) {
+        scrollbarResizeObserver.disconnect()
+      }
+    }
+  }, [isMobile])
+
+  // Track scrollbar width when it becomes available
+  useEffect(() => {
+    if (!isMobile || !showScrollbar || !scrollbarRef.current) return
+
+    const updateScrollbarWidth = () => {
+      if (scrollbarRef.current) {
+        setScrollbarWidth(scrollbarRef.current.offsetWidth)
+      }
+    }
+
+    updateScrollbarWidth()
+    const resizeObserver = new ResizeObserver(updateScrollbarWidth)
+    resizeObserver.observe(scrollbarRef.current)
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [isMobile, showScrollbar])
+
+  // Handle scrollbar drag (mouse and touch)
+  const handleScrollbarStart = (clientX: number) => {
+    if (!isMobile || !scrollContainerRef.current || !scrollbarRef.current) return
+    
+    setIsDragging(true)
+    const scrollbar = scrollbarRef.current
+    const container = scrollContainerRef.current
+    const scrollbarRect = scrollbar.getBoundingClientRect()
+    const startX = clientX
+    const startScrollLeft = container.scrollLeft
+    const scrollWidth = container.scrollWidth
+    const clientWidth = container.clientWidth
+    const maxScroll = scrollWidth - clientWidth
+    const scrollbarWidth = scrollbarRect.width
+
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      const currentX = 'touches' in e ? e.touches[0].clientX : e.clientX
+      const deltaX = currentX - startX
+      const scrollRatio = maxScroll / (scrollbarWidth - THUMB_WIDTH)
+      const newScrollLeft = startScrollLeft + deltaX * scrollRatio
+      container.scrollLeft = Math.max(0, Math.min(maxScroll, newScrollLeft))
+    }
+
+    const handleEnd = () => {
+      setIsDragging(false)
+      document.removeEventListener('mousemove', handleMove as EventListener)
+      document.removeEventListener('mouseup', handleEnd)
+      document.removeEventListener('touchmove', handleMove as EventListener)
+      document.removeEventListener('touchend', handleEnd)
+    }
+
+    document.addEventListener('mousemove', handleMove as EventListener)
+    document.addEventListener('mouseup', handleEnd)
+    document.addEventListener('touchmove', handleMove as EventListener, { passive: false })
+    document.addEventListener('touchend', handleEnd)
+  }
+
+  const handleScrollbarMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault()
+    handleScrollbarStart(e.clientX)
+  }
+
+  const handleScrollbarTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault()
+    handleScrollbarStart(e.touches[0].clientX)
+  }
 
   const canGoPrev = true // Always allow prev for infinite loop
   const canGoNext = true // Always allow next for infinite loop
 
   return (
-    <section className="w-full overflow-hidden p-[40px]">
-      <div className="items-center justify-end flex">
+    <section className="w-full overflow-hidden md:p-[40px]">
+      <div className="hidden md:flex items-center justify-end flex">
         <span className='flex border border-[#2d2a24] rounded-lg'>
             <button
               name='prev'
@@ -143,26 +283,30 @@ export default function AndStorySection() {
             </button>
         </span>
       </div>
-      <div className="overflow-hidden pt-[18px] pb-[80px]">
+      <div 
+        ref={scrollContainerRef}
+        className="overflow-x-auto overflow-y-hidden md:overflow-hidden pt-[40px] md:pt-[18px] pb-[20px] md:pb-[80px] scrollbar-hide-mobile"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
         <div 
-          className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-in-out' : ''}`}
-          style={{ transform: `translateX(-${currentColumn * (100 / COLUMNS_VISIBLE)}%)` }}
+          className={`flex ${isMobile ? '' : (isTransitioning ? 'transition-transform duration-1000 ease-in-out' : '')}`}
+          style={isMobile ? {} : { transform: `translateX(-${currentColumn * (100 / columnsVisible)}%)` }}
         >
           {columns.map((columnLogos, columnIndex) => (
             <div
               key={columnIndex}
               className="shrink-0 flex items-center justify-center"
-              style={{ width: `${100 / COLUMNS_VISIBLE}%` }}
+              style={{ width: `${100 / columnsVisible}%` }}
             >
               {columnLogos.map((logo, logoIndex) => (
                 <div
                   key={`${logo.name}-${columnIndex}-${logoIndex}`}
-                  className="w-full flex items-center justify-center max-h-[200px] py-[40px]"
+                  className="w-[152px] md:w-full flex items-center justify-center min-h-[100px] max-h-[200px] md:py-[40px]"
                 >
                   <img
                     src={`/images/clients/${logo.file}`}
                     alt={logo.name}
-                    className="max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
+                    className="max-w-[112px] md:max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
                   />
                 </div>
               ))}
@@ -170,6 +314,28 @@ export default function AndStorySection() {
           ))}
         </div>
       </div>
+      {/* Custom scrollbar for mobile only */}
+      {isMobile && showScrollbar && (
+        <div className="md:hidden px-[20px] py-[34px] border-t border-[#2d2a24]">
+          <div 
+            ref={scrollbarRef}
+            className="relative h-[1px] bg-[#2d2a24] rounded-full cursor-pointer select-none"
+            onMouseDown={handleScrollbarMouseDown}
+            onTouchStart={handleScrollbarTouchStart}
+          >
+            <div
+              className={`absolute aspect-square bg-[#2d2a24] rounded-full ${isDragging ? '' : 'transition-all duration-100'}`}
+              style={{
+                top:'-5px',
+                width: `${THUMB_WIDTH}px`,
+                left: scrollbarWidth > 0 
+                  ? `${scrollProgress * (scrollbarWidth - THUMB_WIDTH)}px`
+                  : '0px',
+              }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

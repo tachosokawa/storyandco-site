@@ -73,7 +73,7 @@ export default function TabsSection({
   
   return (
     <section className='w-full'>
-      <div className='flex flex-row flex-nowrap items-center justify-center border-b border-[#2d2d2d] overflow-x-auto'>
+      <div className='flex flex-row flex-nowrap items-center justify-center border-b border-[#2d2a24] overflow-x-auto'>
         {tabs.map((tab, index) => {
           const isLast = index === tabs.length - 1
           const isActive = activeTab === tab.id
@@ -130,7 +130,7 @@ export default function TabsSection({
                 <Link 
                   key={tagIndex}
                   href={`${itemLink === 'cases' ? '/cases' : '/news'}/category/${tag==="NewMake" ? "newmake" : tag ==="STORY&Co" ? "story" : tag==="PATCH&PLAY" ? "patchandplay" : tag==="CRAFC" ? "crafc" : tag==="AND STORY" ? "andstory" : tag}`} 
-                  className='mt-3 sm:mt-4 md:mt-5 pt-[3px] pb-[5px] px-[12px] mr-[15px] sm:px-3 md:px-[12px] border border-[#2d2d2d] rounded-lg 
+                  className='mt-3 sm:mt-4 md:mt-5 pt-[3px] pb-[5px] px-[12px] mr-[15px] sm:px-3 md:px-[12px] border border-[#2d2a24] rounded-lg 
                       font-sans font-medium text-[10px] sm:text-[11px] md:text-[12px] leading-[100%] tracking-[0.
                       08em] hover:bg-[#18bed7] hover:text-[#FFF] transition-colors'
                 >
