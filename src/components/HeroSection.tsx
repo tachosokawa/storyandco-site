@@ -77,7 +77,7 @@ export default function HeroSection() {
         </div>
         <div className="inline-flex items-center border-l border-t border-b border-[#2d2a24] rounded-tl-lg rounded-bl-lg h-[50px] md:h-[74px] w-full md:w-[55%] ml-0 md:ml-auto mt-[20px] md:mt-0">
           <p className='px-3 md:px-[24px] font-bold text-sm md:text-[16px] whitespace-nowrap'>
-            {current ? new Date(current.publishedAt).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.') : ''}
+            {current ? new Date(current.publishDate).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.') : ''}
           </p>
           <div className='border-r border-[#2d2a24] h-full'></div>
           <div className="flex-1 overflow-hidden">
