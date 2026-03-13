@@ -7,12 +7,12 @@ import type { NewsItem } from './NewsSection'
 
 type TabId = 'all' | 'informations' | 'reports' | 'medias' | 'events'
 
-const tabs: { id: TabId; label: string; category: string | null }[] = [
-  { id: 'all', label: 'すべて', category: null },
-  { id: 'informations', label: 'お知らせ', category: 'お知らせ' },
-  { id: 'reports', label: 'プレス', category: 'プレスリリース' },
-  { id: 'medias', label: 'メディア', category: 'メディア掲載' },
-  { id: 'events', label: 'イベント', category: 'イベント' },
+const tabs = [
+  { id: 'all', label: 'すべて', category: null, minWidth: '86.6px' },
+  { id: 'informations', label: 'お知らせ', category: 'お知らせ', minWidth: '120px' },
+  { id: 'reports', label: 'プレス', category: 'プレスリリース', minWidth: '100px' },
+  { id: 'medias', label: 'メディア', category: 'メディア掲載', minWidth: '120px' },
+  { id: 'events', label: 'イベント', category: 'イベント', minWidth: '100px' },
 ]
 
 export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
