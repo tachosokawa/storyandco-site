@@ -12,14 +12,27 @@ export async function POST(req: Request) {
       from: 'STORY&Co. <onboarding@resend.dev>',
       to: 'takuhosokawa@gmail.com',
       subject: `【STORY&Co.】新しいお問い合わせが届きました`,
-      html: `
-        <p><strong>お名前：</strong>${name}</p>
-        <p><strong>フリガナ：</strong>${kana}</p>
-        <p><strong>メール：</strong>${email}</p>
-        <p><strong>電話番号：</strong>${tel || 'なし'}</p>
-        <p><strong>会社名：</strong>${company || 'なし'}</p>
-        <p><strong>種別：</strong>${category}</p>
-        <p><strong>内容：</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
+       html: `
+        <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#333;">
+          <h2 style="font-size:18px;font-weight:bold;margin-bottom:32px;">新しいお問い合わせが届きました</h2>
+          ${[
+            ['Name', name],
+            ['KanaName', kana],
+            ['Email', email],
+            ['tel', tel || 'なし'],
+            ['companyName', company || 'なし'],
+            ['Options 1', category],
+          ].map(([label, value]) => `
+            <div style="border-bottom:1px solid #eee;padding:16px 0;">
+              <p style="font-size:12px;color:#999;margin:0 0 8px;">${label}</p>
+              <p style="font-size:16px;margin:0;">${value}</p>
+            </div>
+          `).join('')}
+          <div style="border-bottom:1px solid #eee;padding:16px 0;">
+            <p style="font-size:12px;color:#999;margin:0 0 8px;">Message</p>
+            <p style="font-size:16px;margin:0;white-space:pre-wrap;">${message}</p>
+          </div>
+        </div>
       `,
     })
     return NextResponse.json({ success: true })
