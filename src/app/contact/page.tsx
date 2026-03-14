@@ -43,7 +43,7 @@ export default function ContactPage() {
 
       <div className="max-w-[760px] mx-auto py-16">
         <p className="font-sans font-medium text-[16px] md:text-base lg:text-[16px] leading-[2] tracking-[0.04em] text-[#2d2a24] mt-4 md:mt-5 text-left mx-auto px-4 md:px-0 mb-12">
-          少しでもご興味持っていただけましたら、何ができるかもこちらで考えてみますので、まずはお問い合わせいただけると幸いです。
+          少しでもご興味持っていただけましたら、まずはお問い合わせください。
         </p>
 
         {sent ? (
@@ -54,11 +54,11 @@ export default function ContactPage() {
         ) : (
           <form className="space-y-8 px-[20px]" onSubmit={handleSubmit}>
             {[
-              { label: 'お名前', id: 'name', placeholder: '山田 太郎', required: true },
-              { label: 'フリガナ', id: 'kana', placeholder: 'ヤマダ タロウ', required: true },
-              { label: 'メールアドレス', id: 'email', placeholder: 'sample@storyandco.co', required: true, type: 'email' },
-              { label: '電話番号', id: 'tel', placeholder: '03-0000-0000', type: 'tel' },
-              { label: '会社・組織名', id: 'company', placeholder: '株式会社ストーリーアンドカンパニー' },
+              { label: 'お名前', id: 'name', placeholder: '松岡 正剛', required: true },
+              { label: 'フリガナ', id: 'kana', placeholder: 'マツオカ セイゴウ', required: true },
+              { label: 'メールアドレス', id: 'email', placeholder: 'monogatari@storyandco.co', required: true, type: 'email' },
+              { label: '電話番号', id: 'tel', placeholder: '00-0000-0000', type: 'tel' },
+              { label: '会社・組織名', id: 'company', placeholder: '株式会社モノガタリ' },
             ].map((field) => (
               <div key={field.id}>
                 <label htmlFor={field.id} className="font-sans block text-[13px] font-bold text-[#2d2a24] leading-[2] tracking-[0.04em] mb-3">
@@ -85,12 +85,13 @@ export default function ContactPage() {
                 className="w-full border-b border-[#D0C8B8] bg-transparent pb-[32px] text-[16px] font-sana text-medium focus:outline-none focus:border-[#1A1A1A] transition-colors"
               >
                 <option value="">選択してください</option>
-                <option>AND STORYについて</option>
-                <option>NewMakeについて</option>
-                <option>コミュニティ開発・ソリューションについて</option>
-                <option>採用について</option>
-                <option>取材・メディアについて</option>
-                <option>その他</option>
+              　<option>お仕事のご相談・ご依頼</option>
+              　<option>PATCH&PLAYについて</option>
+              　<option>NewMakeについて</option>
+              　<option>取材・メディアについて</option>
+              　<option>採用について</option>
+              　<option>一緒に何かやりたい</option>
+              　<option>その他</option>
               </select>
             </div>
 
