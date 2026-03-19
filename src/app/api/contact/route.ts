@@ -1,13 +1,15 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+export const runtime = 'nodejs'
 
 export async function POST(req: Request) {
-  const body = await req.json()
-  const { name, kana, email, tel, company, category, message } = body
-
   try {
+    const body = await req.json()
+    const { name, kana, email, tel, company, category, message } = body
+
+    const resend = new Resend(process.env.RESEND_API_KEY)
+
     await resend.emails.send({
       from: 'STORY&Co. <onboarding@resend.dev>',
       to: 'takuhosokawa@gmail.com',
@@ -36,7 +38,8 @@ export async function POST(req: Request) {
       `,
     })
     return NextResponse.json({ success: true })
-  } catch {
+  } catch (error) {
+    console.error('Contact form error:', error)
     return NextResponse.json({ success: false }, { status: 500 })
   }
 }

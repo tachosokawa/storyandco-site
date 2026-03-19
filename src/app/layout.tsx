@@ -5,6 +5,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://storyandco.co'),
   title: {
     default: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
     template: '%s | STORY & Co.',

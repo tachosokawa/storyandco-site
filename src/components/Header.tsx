@@ -77,8 +77,9 @@ export function Header() {
                     className="border-none" 
                     src={showIcon2 ? "/images/clients/menuicon2.svg" : "/images/clients/menuicon1.svg"} 
                     alt="About Us" 
-                    width="20" 
-                    height="20"
+                    width={20} 
+                    height={20}
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 )}
               </a>
@@ -103,8 +104,9 @@ export function Header() {
                     className="border-none" 
                     src={showIcon2 ? "/images/clients/menuicon2.svg" : "/images/clients/menuicon1.svg"} 
                     alt="About Us" 
-                    width="20" 
-                    height="20"
+                    width={20} 
+                    height={20}
+                    style={{ width: 'auto', height: 'auto' }}
                   />
                 )}
               </Link>
