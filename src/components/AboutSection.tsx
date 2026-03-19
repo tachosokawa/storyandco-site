@@ -11,7 +11,7 @@ export default function AboutSection() {
           <div className='border-b border-[#2d2a24] pt-3 md:pt-[17px] pb-3 md:pb-[19px] px-4 md:px-[40px] lg:px-[40px]'>
             <p className="text-sm md:text-base lg:text-[16px] font-medium text-[#333] tracking-[0.04em] font-sans" style={{ lineHeight: '2' }}>会社のこと</p>
           </div>
-          <div className='border-b border-[#2d2a24] py-8 md:py-12 lg:py-[80px] px-4 md:px-6 lg:px-[40px] text-[#333]'>
+          <div className='border-b border-[#2d2a24] py-8 md:py-12 lg:py-[115px] px-4 md:px-6 lg:px-[40px] text-[#333]'>
             <p className="text-lg md:text-xl lg:text-[24px] font-bold mb-4 md:mb-6 lg:mb-8" style={{ lineHeight: '2' }}>
               体験をデザインすることで人生に出会いと変化をもたらし、新しい物語を生み出す企業です。
             </p>
@@ -21,7 +21,7 @@ export default function AboutSection() {
           <CompanyLink className='border-b border-[#2d2a24] md:border-b-0'/>
         </div>
         <div className="flex items-center justify-center py-[80px] px-[20px] md:p-[40px] lg:p-[40px] col-span-1 lg:col-span-5 md:col-span-5">
-          <img src="/images/clients/about.webp" alt="About Us" height="auto"/>
+          <img src="/images/clients/about.webp" alt="About Us" className='md:w-[846px] w-full' height="auto"/>
         </div>
       </div>
     </section>

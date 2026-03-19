@@ -6,6 +6,7 @@ import ContactSection from '@/components/ContactSection'
 import RecruitSection from '@/components/RecruitSection'
 import AndStorySection from '@/components/AndStorySection'
 import { processBodyHTML } from '@/lib/html-processor'
+import Image from "next/image";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   try {
@@ -78,9 +79,16 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
             <div className="w-full md:col-span-2 md:border-r border-b-0 border-[#2d2a24] px-[20px] py-[40px] sm:px-6 md:px-[80px] sm:pt-12 md:pt-[80px] md:pb-[260px] font-sans text-[#333] text-sm sm:text-base md:text-[16px] leading-[1.4] order-2 md:order-1">
               {/* Hero image */}
               {caseData.thumbnail && (
-                <div className="aspect-[16/9] rounded-lg md:rounded-xl overflow-hidden bg-[#E5DFD4] mb-6 sm:mb-8">
-                  <img src={caseData.thumbnail.url} alt={caseData.title} className="w-full h-full object-cover" />
-                </div>
+                <Image 
+                  src={`${caseData.thumbnail.url}?w=1920&q=100`}
+                  alt={caseData.title}
+                  width={1920}
+                  height={1440}
+                  quality={100}
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 66vw, 1200px"
+                  priority
+                  unoptimized={true}
+                  className="w-full rounded-lg mb-6 sm:mb-8" />
               )}
               <p className="font-medium leading-[2] tracking-[0.08em] mt-10 text-[14px] md:text-[16px] md:mt-[80px] text-[#2d2a24]">{caseData.excerpt}</p>
 

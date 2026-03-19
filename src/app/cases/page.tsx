@@ -26,7 +26,7 @@ type CaseItem = {
 async function getLatestCases(): Promise<CaseItem[]> {
   try {
     const { client } = await import('@/lib/microcms')
-    const data = await client.get({
+    const data = await client.getList({
       endpoint: 'cases',
       queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {

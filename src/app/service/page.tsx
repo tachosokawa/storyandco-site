@@ -103,12 +103,12 @@ export default function ServicePage() {
               <img className="md:w-full w-[120px] md:w-[206px] md:max-w-[206px] h-auto" src="/images/clients/patchplay.webp" alt="PATCH&PLAY"/>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>PATCH&PLAYは、"すき"の気持ちをきっかけに、身のまわりのモノを、もう一度遊ぶようにたのしむ「ワッペンとお直しのお店」です。</p>
             </div>
-            <CommonLink linkText="PATCH&PLAYについて知る" href="/company" />
+            <CommonLink linkText="PATCH&PLAYについて知る" href="/service/patchandplay" />
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t md:border-b border-[#2d2a24]'>
               <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY"/>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>目には見えないけれど価値がある「体験」や「コミュニティ」と出会えるWebプラットフォームです。</p>
             </div>
-            <CommonLink linkText="AND STORYについて知る" href="/company" />
+            <CommonLink linkText="AND STORYについて知る" href="/service/andstory" />
           </div>
           <div className='col-span-1 lg:col-span-2 border-b lg:border-r md:border-b border-[#2d2a24] pt-[64px] pb-[80px] md:pt-6 lg:pt-[40px] px-[20px] md:px-[40px] lg:px-[40px]'>
             <p className='font-poppins text-[14px] md:text-sm lg:text-[14px] font-medium text-[#333] leading-[1]'>( 02 )</p>
@@ -118,17 +118,14 @@ export default function ServicePage() {
               <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業と個人の共創の場を提供し、社会課題の新たなソリューションを生み出しています。異なる視点やスキルを持つ人々が集まり、意見交換や協力して問題解決に取り組むことを支援。新しいアイデアや革新的なアプローチの促進は勿論、そこから生まれるつながりを大切にすることで、持続可能なコミュニティの形成を目指しています。</p>
             </div>
           </div>
-          <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
-            <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] md:border-b border-[#2d2a24]'>
+          <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24] flex flex-col'>
+            <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:px-[120px] lg:pt-[120px] lg:pb-[250px] md:border-b border-[#2d2a24] flex-1'>
               <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/newmake.svg" alt="NewMake"/>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>クリエイティブの力で社会課題を解決するコミュニティです。</p>
             </div>
-            <CommonLink linkText="NewMakeについて知る" href="/company" />
-            <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t border-[#2d2a24] md:border-b'>
-              <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/hour_of_tower.svg" alt="タワーのアワー"/>
-              <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>こころとからだの健康に触れる機会を創出し、ウェルビーイングの実現をサポートするコミュニティです。</p>
+            <div className='mt-auto'>
+              <CommonLink linkText="NewMakeについて知る" href="/service/newmake" />
             </div>
-            <CommonLink linkText="タワーのアワーについて知る" href="/company" />
           </div>
           <div className='col-span-1 lg:col-span-2 border-b lg:border-r border-[#2d2a24] pt-[64px] pb-[80px] md:pt-6 lg:pt-[40px] px-[20px] md:px-[40px] lg:px-[40px]'>
             <p className='font-poppins text-[14px] md:text-sm lg:text-[14px] font-medium text-[#333] leading-[1]'>( 03 )</p>
@@ -143,17 +140,17 @@ export default function ServicePage() {
               <p className='font-sans text-[18px] md:text-xl lg:text-[24px] font-bold text-[#333]' style={{ lineHeight: '2' }}>コミュニティ開発</p>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>ブランド・サービスの認知からファン化までを行うコミュニティづくりをデザインしています。</p>
             </div>
-            <CommonLink linkText="コミュニティ開発について知る" href="/company" />
+            <CommonLink linkText="コミュニティ開発について知る" href="/service/community-dev" />
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t md:border-b border-[#2d2a24]'>
               <p className='font-sans text-[18px] md:text-xl lg:text-[24px] font-bold text-[#333]' style={{ lineHeight: '2' }}>地域・イベントプロデュース</p>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>地域資源を活かし、街と人が繋がる、その街ならではの唯一無二の出会いと交流の場を創出します。</p>
             </div>
-            <CommonLink linkText="地域・イベントプロデュースについて知る" href="/company" />
+            <CommonLink linkText="地域・イベントプロデュースについて知る" href="/service/event" />
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t border-[#2d2a24] md:border-b'>
               <p className='font-sans text-[18px] md:text-xl lg:text-[24px] font-bold text-[#333]' style={{ lineHeight: '2' }}>SDGs推進支援</p>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>やらなくてはいけないからではなく、ビジネスにも社会にも良いSDGs活動をデザインしています。</p>
             </div>
-            <CommonLink linkText="SDGs推進支援について知る" href="/company" />
+            <CommonLink linkText="SDGs推進支援について知る" href="/service/sdgs" />
           </div>
         </div>
       </section>
