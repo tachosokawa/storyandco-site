@@ -227,8 +227,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </p>
             </div>
             {/* Right column: image */}
-            <div className="px-[20px] sm:px-6 md:px-0 py-8 md:py-12">
-              <div className="relative aspect-[16/9] md:aspect-auto md:h-full">
+            <div className="py-8 md:py-12 px-[20px] sm:px-6 md:px-[40px]">
+              <div className="relative aspect-[16/9] md:aspect-auto md:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/collab.webp"
                   alt="企業・ブランドとのコラボレーション"
@@ -239,6 +239,40 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   className="object-cover"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Collaboration section (newmake only) */}
+      {slug === 'newmake' && (
+        <section className="w-full border-b border-[#2d2a24]">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+            {/* Left column: image */}
+            <div className="py-8 md:py-12 px-[20px] sm:px-6 md:px-[40px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+              <div className="relative aspect-[16/9] md:aspect-auto md:h-full overflow-hidden rounded-lg">
+                <Image
+                  src="/newmake-collab.webp"
+                  alt="コラボレーション企業を募集中！"
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
+            </div>
+            {/* Right column: text */}
+            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px] flex flex-col justify-center">
+              <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                コラボレーションをご検討中の企業ご担当者さまへ
+              </p>
+              <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em] mt-4 md:mt-6">
+                コラボレーション企業を募集中！
+              </h2>
+              <p className="font-sans text-[12px] md:text-[16px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-6 md:mt-[40px]">
+                NewMakeでは、企業とクリエイターが共に社会課題を解決する新たな価値創造の場を提供しています。初めてのコラボレーションでもご安心ください。私たちの専門チームが企画から実施までを全面的にサポートし、貴社のビジョンに最適なプランをご提案します。まずはお気軽にお問い合わせください。
+              </p>
             </div>
           </div>
         </section>
