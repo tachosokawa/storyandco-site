@@ -365,7 +365,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="px-8 py-4">
+              <div className="p-6 md:p-10">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/sdgs-case-result.webp"
@@ -463,7 +463,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="px-8 py-4">
+              <div className="p-6 md:p-10">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/event-case-result.webp"
@@ -561,7 +561,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="px-8 py-4">
+              <div className="p-6 md:p-10">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/community-case-result.webp"
