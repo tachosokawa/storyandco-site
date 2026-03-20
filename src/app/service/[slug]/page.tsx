@@ -174,6 +174,40 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </section>
       )}
 
+      {/* Two images section */}
+      {(serviceData.image1 || serviceData.image2) && (
+        <section className="w-full border-b border-[#2d2a24]">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {serviceData.image1 && (
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${serviceData.image1.url}?w=1920&q=100`}
+                  alt={serviceData.image1.alt || serviceData.title}
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
+            )}
+            {serviceData.image2 && (
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${serviceData.image2.url}?w=1920&q=100`}
+                  alt={serviceData.image2.alt || serviceData.title}
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* Collaboration section (patchandplay only) */}
       {slug === 'patchandplay' && (
         <section className="w-full border-b border-[#2d2a24]">
