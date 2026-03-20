@@ -49,7 +49,7 @@ export function Header() {
           </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden h-[63px] ml-[20px] w-full lg:flex items-center gap-14 justify-end border-l border-r border-[#2d2a24] md:ml-[40px] mr-8 pr-10 md:h-[95px]">
+        <nav className="hidden h-[63px] ml-[20px] w-full menu:flex items-center gap-14 justify-end border-l border-r border-[#2d2a24] md:ml-[40px] mr-8 pr-10 md:h-[95px]">
           {navItems.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
             const isHovered = hoveredItem === item.href
@@ -115,7 +115,7 @@ export function Header() {
         </nav>
 
         {/* Contact button */}
-        <div className="lg:flex items-center gap-2 pl-2">
+        <div className="hidden menu:flex items-center gap-2 pl-2">
           <Link
             href="/contact"
             className="hidden md:flex items-center gap-3 border border-[#2d2a24] rounded-lg px-5 py-2 text-sm font-medium hover:bg-[#18bed7] hover:text-white transition-colors overflow-hidden h-[55px] w-[242px]"
@@ -136,7 +136,7 @@ export function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="menu:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
@@ -148,7 +148,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#2d2a24] text-white">
+        <div className="menu:hidden bg-[#2d2a24] text-white">
           {navItems.map((item) => 
             item.external ? (
               <a
@@ -172,9 +172,46 @@ export function Header() {
           )}
           <Link
             href="/contact"
-            className="block px-6 py-4 text-sm hover:bg-white/5 transition-colors"
+            className="block px-6 py-4 text-sm border-b border-white/10 hover:bg-white/5 transition-colors overflow-hidden"
           >
-            お問い合わせ
+            <div className="flex animate-marquee whitespace-nowrap">
+              <span className="text-[15px] font-bold shrink-0">
+                お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+              </span>
+              <span className="text-[15px] font-bold shrink-0">
+                お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+                &nbsp;&nbsp;お問い合わせ&nbsp;&nbsp;<span className="inline-block w-1.5 h-1.5 rounded-full bg-current mx-1 align-middle" />
+              </span>
+            </div>
           </Link>
         </div>
       )}

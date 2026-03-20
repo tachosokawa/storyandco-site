@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'menu': '1340px',
+      },
       colors: {
         brand: {
           bg: '#F5F0E8',
