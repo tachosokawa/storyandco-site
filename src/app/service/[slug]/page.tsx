@@ -227,16 +227,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </p>
             </div>
             {/* Right column: image */}
-            <div className="relative py-8 md:py-12">
-              <Image
-                src="/collab.webp"
-                alt="企業・ブランドとのコラボレーション"
-                fill
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                unoptimized={true}
-                className="h-full object-cover"
-              />
+            <div className="px-[20px] sm:px-6 md:px-0 py-8 md:py-12">
+              <div className="relative aspect-[16/9] md:aspect-auto md:h-full">
+                <Image
+                  src="/collab.webp"
+                  alt="企業・ブランドとのコラボレーション"
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </section>
