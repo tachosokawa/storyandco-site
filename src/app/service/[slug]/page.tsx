@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <section className="w-full border-t border-b border-[#2d2a24]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {serviceData.image1 && (
-              <div className="p-4 md:p-8 bg-[#FAF9F5] border-r border-[#2d2a24]">
+              <div className="p-6 md:p-12 bg-[#FAF9F5] border-r border-[#2d2a24]">
                 <div className="relative aspect-square">
                   <Image
                     src={`${serviceData.image1.url}?w=1920&q=100`}
@@ -196,7 +196,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               </div>
             )}
             {serviceData.image2 && (
-              <div className="p-4 md:p-8 bg-[#FAF9F5]">
+              <div className="p-6 md:p-12 bg-[#FAF9F5]">
                 <div className="relative aspect-square">
                   <Image
                     src={`${serviceData.image2.url}?w=1920&q=100`}
@@ -295,7 +295,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1: Poster image */}
-              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-14">
                 <div className="relative aspect-[3/4]">
                   <Image
                     src="/sdgs-case-poster.webp"
@@ -365,7 +365,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="p-6 md:p-10">
+              <div className="p-8 md:p-14">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/sdgs-case-result.webp"
@@ -396,7 +396,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1: Poster image */}
-              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-14">
                 <div className="relative aspect-square">
                   <Image
                     src="/event-case-poster.webp"
@@ -463,7 +463,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="p-6 md:p-10">
+              <div className="p-8 md:p-14">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/event-case-result.webp"
@@ -494,7 +494,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1: Poster image */}
-              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-14">
                 <div className="relative aspect-[3/2]">
                   <Image
                     src="/community-case-poster.webp"
@@ -561,7 +561,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="p-6 md:p-10">
+              <div className="p-8 md:p-14">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/community-case-result.webp"
