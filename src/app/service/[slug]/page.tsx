@@ -290,7 +290,19 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </section>
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
-              {/* Card 1: Project */}
+              {/* Card 1: Poster image */}
+              <div className="relative aspect-[3/4] bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <Image
+                  src="/sdgs-case-poster.webp"
+                  alt="100 My Licca"
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  unoptimized={true}
+                  className="object-contain"
+                />
+              </div>
+              {/* Card 2: Background */}
               <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
                 <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
                   プロジェクト名
@@ -309,15 +321,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 >
                   サービスサイトへ →
                 </a>
-              </div>
-              {/* Card 2: Background */}
-              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
-                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
-                  プロジェクトの背景
-                </p>
-                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
-                  着なくなった服でも想い出がこもっていて捨てられない。そんな服をリカちゃんのお洋服として仕立て直すことで、ずっと大切に置いておける存在とするプロジェクト
-                </p>
+                <div className="mt-6">
+                  <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                    プロジェクトの背景
+                  </p>
+                  <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                    着なくなった服でも想い出がこもっていて捨てられない。そんな服をリカちゃんのお洋服として仕立て直すことで、ずっと大切に置いておける存在とするプロジェクト
+                  </p>
+                </div>
               </div>
               {/* Card 3: Challenge */}
               <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px]">
@@ -340,15 +351,122 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
                   100名の枠は即日完売し、東京開催でありながらも地方からも参加いただく熱量の高いプロジェクトに。また2回の展覧会では合計5500名の方々にご来場いただきました。
                 </p>
-              </div>
-              {/* Right: Link */}
-              <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[60px] flex items-center">
                 <a
                   href="/cases/LICCA_ID"
-                  className="font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
                 >
                   事例詳細を見る →
                 </a>
+              </div>
+              {/* Right: Result image */}
+              <div className="p-8">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                  <Image
+                    src="/sdgs-case-result.webp"
+                    alt="100 My Licca 実施結果"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized={true}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Success case section (event only) */}
+      {slug === 'event' && (
+        <>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px]">
+              <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em]">
+                成功事例の紹介
+              </h2>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {/* Card 1: Poster image */}
+              <div className="relative aspect-[3/4] bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <Image
+                  src="/event-case-poster.webp"
+                  alt="しぶやさくらまつり 2024"
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  unoptimized={true}
+                  className="object-contain"
+                />
+              </div>
+              {/* Card 2: Project + Background */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  プロジェクト名
+                </p>
+                <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-[#2d2a24] leading-[1.6] tracking-[0.04em] mt-4">
+                  しぶやさくらまつり 2024
+                </h3>
+                <a
+                  href="https://www.sakura.andstory.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  サービスサイトへ →
+                </a>
+                <div className="mt-6">
+                  <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                    プロジェクトの背景
+                  </p>
+                  <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                    Shibuya Sakura Stageの「多様性が活きる」という思想に基づき、地域・テナント・クリエイター・メディアを巻き込み、施設全体を使った新しい祭りを実施。イベントスペースや広場、デジタルサイネージなどを活用し、「しぶや」へ集う人々の多様な「好き」で彩りを演出いたしました。
+                  </p>
+                </div>
+              </div>
+              {/* Card 3: Challenge */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  課題
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  歩行者ネットワークが整備され、回遊性とアクセスが向上した渋谷区桜丘エリア。変化するからこそ、渋谷での巡り合いを楽しんでもらいたいという想いからプロジェクトが始まりました。地元の方々が大切にしてきた華やかな桜のもと、桜丘エリアならではの多様な「好き」が集まるカルチャーを守りつつも次世代に継承する企画をお届けするべく、弊社のリソースを活かしたコンテンツ制作を実施する運びとなりました。
+                </p>
+              </div>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Left: Result */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  実施結果
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  コンテンツの1つ「なんかちょっと、の招待状（インスタレーション・アート）」では、招待状の設置から2-3日で在庫切れとなり、計8640枚が配布されました。また、訪れる人々に「めぐり歩いて楽しい」体験を提供し、従来の物販中心の購買型から、体験型・滞在型の新しい施設を生み出すことに寄与。ファンのコミュニティを形成することで、街全体の持続的なにぎわいを創出いたしました。
+                </p>
+                <a
+                  href="#"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  事例詳細を見る →
+                </a>
+              </div>
+              {/* Right: Result image */}
+              <div className="p-8">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                  <Image
+                    src="/event-case-result.webp"
+                    alt="しぶやさくらまつり 2024 実施結果"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized={true}
+                    className="object-cover"
+                  />
+                </div>
               </div>
             </div>
           </section>
