@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <section className="w-full border-b border-[#2d2a24]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {serviceData.image1 && (
-              <div className="relative aspect-[4/3] bg-[#FAF9F5]">
+              <div className="relative aspect-square">
                 <Image
                   src={`${serviceData.image1.url}?w=1920&q=100`}
                   alt={serviceData.image1.alt || serviceData.title}
@@ -189,12 +189,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   unoptimized={true}
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
             )}
             {serviceData.image2 && (
-              <div className="relative aspect-[4/3] bg-[#FAF9F5]">
+              <div className="relative aspect-square">
                 <Image
                   src={`${serviceData.image2.url}?w=1920&q=100`}
                   alt={serviceData.image2.alt || serviceData.title}
@@ -202,7 +202,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   unoptimized={true}
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
             )}
