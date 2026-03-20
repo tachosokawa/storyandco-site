@@ -142,7 +142,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </div>
 
           {/* Right column: main visual (full bleed) */}
-          <div className="relative min-h-[300px] md:min-h-[500px]">
+          <div className="relative min-h-[300px] md:min-h-[450px] max-h-[450px] md:max-h-none overflow-hidden">
             {serviceData.mainImage && (
               <Image
                 src={`${serviceData.mainImage.url}?w=1920&q=100`}
@@ -152,7 +152,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
                 unoptimized={true}
-                className="object-cover"
+                className="object-cover object-top"
               />
             )}
           </div>
@@ -170,6 +170,40 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 dangerouslySetInnerHTML={{ __html: processBodyHTML(serviceData.body) }}
               />
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Two images section */}
+      {(serviceData.image1 || serviceData.image2) && (
+        <section className="w-full border-b border-[#2d2a24]">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            {serviceData.image1 && (
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${serviceData.image1.url}?w=1920&q=100`}
+                  alt={serviceData.image1.alt || serviceData.title}
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
+            )}
+            {serviceData.image2 && (
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={`${serviceData.image2.url}?w=1920&q=100`}
+                  alt={serviceData.image2.alt || serviceData.title}
+                  fill
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized={true}
+                  className="object-cover"
+                />
+              </div>
+            )}
           </div>
         </section>
       )}
