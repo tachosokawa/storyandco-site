@@ -141,19 +141,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             )}
           </div>
 
-          {/* Right column: main visual */}
-          <div className="flex items-center justify-center p-[20px] md:p-[80px]">
+          {/* Right column: main visual (full bleed) */}
+          <div className="relative min-h-[300px] md:min-h-[500px]">
             {serviceData.mainImage && (
               <Image
                 src={`${serviceData.mainImage.url}?w=1920&q=100`}
                 alt={serviceData.title}
-                width={1920}
-                height={1440}
+                fill
                 quality={100}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
                 unoptimized={true}
-                className="w-full h-auto rounded-lg"
+                className="object-cover"
               />
             )}
           </div>
@@ -171,6 +170,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 dangerouslySetInnerHTML={{ __html: processBodyHTML(serviceData.body) }}
               />
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Collaboration section (patchandplay only) */}
+      {slug === 'patchandplay' && (
+        <section className="w-full border-b border-[#2d2a24]">
+          <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px]">
+            <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+              コラボレーションをご検討中の企業ご担当者さまへ
+            </p>
+            <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em] mt-4 md:mt-6">
+              企業・ブランドとのコラボレーション
+            </h2>
+            <p className="font-sans text-[12px] md:text-[16px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-6 md:mt-[40px]">
+              PATCH&PLAYでは、企業・ブランド・自治体の皆さまと共に、サステナビリティやアップサイクル文化を発信するコラボレーション企画を提供しています。限定パッチや刺繡アイテムの共同制作、POP-UP・展示の共同開催、ブランドやイベントテーマに合わせたデザイン提案など、世界観や素材を生かした多様なプロモーションが可能です。CSRキャンペーンとの連動や商業施設での展示など、企画内容や展開方法を目的に合わせた最適なかたちでご提案します。さらに、NewMakeとの連動によって、企業が伝えたいメッセージをより創造的に届ける設計も可能です。
+            </p>
           </div>
         </section>
       )}
