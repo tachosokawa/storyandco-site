@@ -142,7 +142,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </div>
 
           {/* Right column: main visual (full bleed) */}
-          <div className="relative min-h-[300px] md:min-h-[450px] max-h-[450px] md:max-h-none overflow-hidden">
+          <div className="relative min-h-[300px] md:min-h-[450px] max-h-[500px] overflow-hidden">
             {serviceData.mainImage && (
               <Image
                 src={`${serviceData.mainImage.url}?w=1920&q=100`}
