@@ -291,16 +291,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1: Poster image */}
-              <div className="relative aspect-[3/4] bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24]">
-                <Image
-                  src="/sdgs-case-poster.webp"
-                  alt="100 My Licca"
-                  fill
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  unoptimized={true}
-                  className="object-contain"
-                />
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src="/sdgs-case-poster.webp"
+                    alt="100 My Licca"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized={true}
+                    className="object-contain"
+                  />
+                </div>
               </div>
               {/* Card 2: Background */}
               <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
@@ -359,7 +361,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="p-8">
+              <div className="px-8 py-4">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/sdgs-case-result.webp"
@@ -390,16 +392,18 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className="w-full border-b border-[#2d2a24]">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Card 1: Poster image */}
-              <div className="relative aspect-[3/4] bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24]">
-                <Image
-                  src="/event-case-poster.webp"
-                  alt="しぶやさくらまつり 2024"
-                  fill
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  unoptimized={true}
-                  className="object-contain"
-                />
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+                <div className="relative aspect-square">
+                  <Image
+                    src="/event-case-poster.webp"
+                    alt="しぶやさくらまつり 2024"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized={true}
+                    className="object-contain"
+                  />
+                </div>
               </div>
               {/* Card 2: Project + Background */}
               <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
@@ -455,11 +459,109 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
               {/* Right: Result image */}
-              <div className="p-8">
+              <div className="px-8 py-4">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
                   <Image
                     src="/event-case-result.webp"
                     alt="しぶやさくらまつり 2024 実施結果"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized={true}
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* Success case section (community only) */}
+      {slug === 'community' && (
+        <>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px]">
+              <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em]">
+                成功事例の紹介
+              </h2>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {/* Card 1: Poster image */}
+              <div className="bg-[#FAF9F5] border-b md:border-b-0 md:border-r border-[#2d2a24] p-8 md:p-12">
+                <div className="relative aspect-[3/2]">
+                  <Image
+                    src="/community-case-poster.webp"
+                    alt="クラフコ"
+                    fill
+                    quality={100}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized={true}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              {/* Card 2: Project + Background */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  プロジェクト名
+                </p>
+                <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-[#2d2a24] leading-[1.6] tracking-[0.04em] mt-4">
+                  クラフコ
+                </h3>
+                <a
+                  href="https://www.crafco.andstory.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  サービスサイトへ →
+                </a>
+                <div className="mt-6">
+                  <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                    プロジェクトの背景
+                  </p>
+                  <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                    Craft×Communityを由来とし、コスプレ服を作りたい、服をオシャレにメイクしたい、子ども服を作りたいなど、様々なものづくりのニーズを抱えた人たちが、交流しながらものづくりに挑戦できる場所を無料で提供。新たにものづくりに挑戦する人を支援することで、さらなるものづくり市場の拡大に貢献するプロジェクトです。
+                  </p>
+                </div>
+              </div>
+              {/* Card 3: Challenge */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  課題
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  現代社会において、地域コミュニティの衰退や情報格差が広がる中、消費者が「繋がり」を感じることがますます難しくなっています。クラフコは新たな町おこし・地域活性化を目指し、物作りを楽しむ人たちが互いに繋がり合える場所を提供することで、コミュニティを創生し、地方社会の活性化や課題解決に貢献することを目指しています。
+                </p>
+              </div>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Left: Result */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  実施結果
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  プロジェクト開始から1年で会員数150名を突破。「幼稚園のバザー制作など、気軽に集まって一緒に教え合いながら作れてありがたい」「家で1人でYouTubeを見ながら作っていたけど、みんなと作れて楽しい」など、コミュニティの繋がりを感じる温かなお声をいただいております。2024年4月からは全国6店舗への拡大を実施し、今後もさらに増加予定です。
+                </p>
+                <a
+                  href="#"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  事例詳細を見る →
+                </a>
+              </div>
+              {/* Right: Result image */}
+              <div className="px-8 py-4">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                  <Image
+                    src="/community-case-result.webp"
+                    alt="クラフコ 実施結果"
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
