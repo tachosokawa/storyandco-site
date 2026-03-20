@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <section className="w-full border-t border-b border-[#2d2a24]">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {serviceData.image1 && (
-              <div className="p-4 md:p-8 bg-[#FAF9F5]">
+              <div className="p-4 md:p-8 bg-[#FAF9F5] border-r border-[#2d2a24]">
                 <div className="relative aspect-square">
                   <Image
                     src={`${serviceData.image1.url}?w=1920&q=100`}
