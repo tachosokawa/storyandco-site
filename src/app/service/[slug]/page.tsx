@@ -146,7 +146,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {serviceData.mainImage && (
               <div className="relative w-full aspect-[16/9]">
                 <Image
-                  src={`${serviceData.mainImage.url}?w=1920&q=100`}
+                  src={`${serviceData.mainImage.url}?w=1200&q=80`}
                   alt={serviceData.title}
                   fill
                   quality={100}
@@ -184,7 +184,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <div className="p-6 md:p-12 bg-[#FAF9F5] border-r border-[#2d2a24]">
                 <div className="relative aspect-square">
                   <Image
-                    src={`${serviceData.image1.url}?w=1920&q=100`}
+                    src={`${serviceData.image1.url}?w=800&q=80`}
                     alt={serviceData.image1.alt || serviceData.title}
                     fill
                     quality={100}
@@ -199,7 +199,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <div className="p-6 md:p-12 bg-[#FAF9F5]">
                 <div className="relative aspect-square">
                   <Image
-                    src={`${serviceData.image2.url}?w=1920&q=100`}
+                    src={`${serviceData.image2.url}?w=800&q=80`}
                     alt={serviceData.image2.alt || serviceData.title}
                     fill
                     quality={100}
