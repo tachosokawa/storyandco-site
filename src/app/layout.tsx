@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
+import { Noto_Sans_JP, Poppins, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import './styles.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+
+const noto = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto', display: 'swap' })
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-poppins', display: 'swap' })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://storyandco.co'),
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ko" className={`${noto.variable} ${poppins.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body>
         <Header />
         <main>{children}</main>
