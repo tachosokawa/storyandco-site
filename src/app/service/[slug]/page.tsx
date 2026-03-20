@@ -93,7 +93,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 className="mt-6 md:mt-[40px] max-w-[200px] md:max-w-[300px] h-auto"
               />
             ) : (
-              <h2 className="font-sans font-bold text-[24px] md:text-[32px] text-[#2d2a24] leading-[2] tracking-[0.04em] mt-6 md:mt-[40px]">{serviceData.title}</h2>
+              <h2 className="font-sans font-bold text-[30px] md:text-[48px] text-[#2d2a24] leading-[1.4] tracking-[0.04em] mt-6 md:mt-[40px]">{serviceData.title}</h2>
             )}
             {serviceData.description && (
               <p className="font-sans text-[12px] md:text-[16px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-6 md:mt-[40px]">{serviceData.description}</p>
@@ -276,6 +276,83 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </div>
           </div>
         </section>
+      )}
+
+      {/* Success case section (sdgs only) */}
+      {slug === 'sdgs' && (
+        <>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px]">
+              <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em]">
+                成功事例の紹介
+              </h2>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-3">
+              {/* Card 1: Project */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  プロジェクト名
+                </p>
+                <h3 className="font-sans font-bold text-[20px] md:text-[24px] text-[#2d2a24] leading-[1.6] tracking-[0.04em] mt-4">
+                  100 My Licca
+                </h3>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  ご自宅に眠っているお洋服でリカちゃんのお洋服づくりを体験
+                </p>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  サービスサイトへ →
+                </a>
+              </div>
+              {/* Card 2: Background */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  プロジェクトの背景
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  着なくなった服でも想い出がこもっていて捨てられない。そんな服をリカちゃんのお洋服として仕立て直すことで、ずっと大切に置いておける存在とするプロジェクト
+                </p>
+              </div>
+              {/* Card 3: Challenge */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[40px] md:py-[60px]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  課題
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  新しい商品を作って売るというPRだけでなく、これまで培ってきた歴史やブランドを活かして双方向型のプロモーションを展開したい
+                </p>
+              </div>
+            </div>
+          </section>
+          <section className="w-full border-b border-[#2d2a24]">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Left: Result */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[60px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+                <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
+                  実施結果
+                </p>
+                <p className="font-sans text-[12px] md:text-[14px] font-medium text-[#333] leading-[2] tracking-[0.08em] mt-4">
+                  100名の枠は即日完売し、東京開催でありながらも地方からも参加いただく熱量の高いプロジェクトに。また2回の展覧会では合計5500名の方々にご来場いただきました。
+                </p>
+              </div>
+              {/* Right: Link */}
+              <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[60px] flex items-center">
+                <a
+                  href="/cases/LICCA_ID"
+                  className="font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                >
+                  事例詳細を見る →
+                </a>
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {relatedCases.length > 0 && (
