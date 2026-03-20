@@ -52,7 +52,7 @@ const services = [
     items: [
       {
         name: 'コミュニティ開発',
-        href: '/service/community-dev',
+        href: '/service/community',
         logo: null,
         desc: 'コミュニティ開発についての短い説明文が入ります。短い説明文が入ります。（50字程度）',
       },
@@ -140,7 +140,7 @@ export default function ServicePage() {
               <p className='font-sans text-[18px] md:text-xl lg:text-[24px] font-bold text-[#333]' style={{ lineHeight: '2' }}>コミュニティ開発</p>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>ブランド・サービスの認知からファン化までを行うコミュニティづくりをデザインしています。</p>
             </div>
-            <CommonLink linkText="コミュニティ開発について知る" href="/service/community-dev" />
+            <CommonLink linkText="コミュニティ開発について知る" href="/service/community" />
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t md:border-b border-[#2d2a24]'>
               <p className='font-sans text-[18px] md:text-xl lg:text-[24px] font-bold text-[#333]' style={{ lineHeight: '2' }}>地域・イベントプロデュース</p>
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>地域資源を活かし、街と人が繋がる、その街ならではの唯一無二の出会いと交流の場を創出します。</p>

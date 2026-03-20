@@ -21,7 +21,7 @@ const footerLinks = {
     { label: 'コミュニティ事業', href: '/service#community', bullet: true },
     { label: 'NewMake', href: '/service/newmake' },
     { label: 'ソリューション事業', href: '/service#solution', bullet: true },
-    { label: 'コミュニティ開発', href: '/service/community-dev' },
+    { label: 'コミュニティ開発', href: '/service/community' },
     { label: '地域・イベントプロデュース', href: '/service/event' },
     { label: 'SDGs推進支援', href: '/service/sdgs' },
   ],
