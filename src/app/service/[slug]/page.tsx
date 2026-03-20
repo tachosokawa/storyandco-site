@@ -121,9 +121,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 )}
               </div>
               <div className="w-full py-[40px] md:py-[40px] px-[20px] md:px-[80px] border-b border-[#2d2a24] md:border-b-0">
-                {serviceData.logoImage && (
+                {serviceData.logo && (
                   <img
-                    src={serviceData.logoImage.url}
+                    src={serviceData.logo.url}
                     alt={serviceData.title}
                     className="max-w-[200px] h-auto"
                   />
