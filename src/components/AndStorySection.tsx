@@ -1,39 +1,66 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 type ClientLogo = {
-  name: string
-  file: string
+  href: string
+  src: string
 }
 
 const clientLogos: ClientLogo[] = [
-  { name: 'adidas', file: 'adidas.svg' },
-  { name: 'ADORE', file: 'adore.svg' },
-  { name: 'allbirds', file: 'allbirds.svg' },
-  { name: 'asahikawa', file: 'asahikawa.svg' },
-  { name: 'ASICS', file: 'asics.svg' },
-  { name: 'Brother', file: 'brother.svg' },
-  { name: 'Coleman', file: 'coleman.svg' },
-  { name: 'DESCENTE', file: 'descant.svg' },
-  { name: 'kakimori', file: 'kakimori.svg' },
-  { name: 'KEEN', file: 'keen.svg' },
-  { name: 'KITAGAS', file: 'kitagus.svg' },
-  { name: 'le coq sportif', file: 'lecoq.svg' },
-  { name: 'Marubeni', file: 'marubeni.svg' },
-  { name: 'MARGARET HOWELL', file: 'mh.svg' },
-  { name: 'minne', file: 'minne.svg' },
-  { name: 'NATURAL BEAUTY BASIC', file: 'naturalbasics.svg' },
-  { name: 'New Balance', file: 'newbalance.svg' },
-  { name: 'OLD ENGLAND', file: 'oldengland.svg' },
-  { name: 'Osaka Metro Group', file: 'osakametro.svg' },
-  { name: 'SMBC 三井住友カード', file: 'smbc.svg' },
-  { name: 'Teva', file: 'teva.svg' },
-  { name: '東京メトロ', file: 'tokyometro.svg' },
-  { name: '東急不動産', file: 'tokyu.svg' },
-  { name: 'WHOLE EARTH', file: 'wholeearth.svg' },
-  { name: 'SUPER SPORTS XEBIO', file: 'xebio.svg' },
-  { name: 'YKK', file: 'ykk.svg' },
+  {
+    href: 'https://www.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_4b6c0fda-09b7-4afa-87c9-aabe213364cc.svg'
+  },
+  {
+    href: 'https://www.instagram.com/newmakelabo/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_7c7a7258-b924-4c57-a9b7-ec372dab4e89.svg'
+  },
+  {
+    href: 'https://www.towernohour.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_d7f4958d-704f-45e9-82ce-7ffea5812f77.svg'
+  },
+  {
+    href: 'https://www.crafco.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_f78102da-054d-4c80-b243-2602b9a9c8a1.svg'
+  },
+  {
+    href: 'https://aeruosaka.com/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_96a46bd7-775e-461f-8f7b-16e0ab3bd9f8.svg'
+  },
+  {
+    href: 'https://andstory.co/users/1370',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_1453165e-0420-4f22-ba2c-4a7169af36d8.svg'
+  },
+  {
+    href: 'https://marubeni.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_cbda36ae-ac29-4dcb-9800-0efb01ec9d15.svg'
+  },
+  {
+    href: 'https://aete.co.jp/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_f688e22d-f4fb-4b95-99b3-7d1b2a562383.svg'
+  },
+  {
+    href: 'https://www.sdgs.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_5b39c0f9-d966-415d-a066-dd2cbebc6e3a.svg'
+  },
+  {
+    href: 'https://storyandco.co/news/pr001',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_682ed816-72a0-4cbe-9f9d-3d6efa07034a.svg'
+  },
+  {
+    href: 'https://www.instagram.com/shibuyamatsuri/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_cf265f8c-ffc3-49dc-8368-d0f006dcfc21.svg'
+  },
+  {
+    href: 'https://www.instagram.com/zuborun/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_daa70db9-1cbd-424b-8e6a-f8f3d80179fa.svg'
+  },
+  {
+    href: 'https://tokyo.andstory.co/',
+    src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_ee07fb3f-60fb-4064-9cc6-a015c3d4767f.svg'
+  },
 ]
 
 const COLUMNS_VISIBLE_DESKTOP = 5
@@ -300,14 +327,16 @@ export default function AndStorySection() {
             >
               {columnLogos.map((logo, logoIndex) => (
                 <div
-                  key={`${logo.name}-${columnIndex}-${logoIndex}`}
+                  key={`${logo.href}-${columnIndex}-${logoIndex}`}
                   className="w-[152px] md:w-full flex items-center justify-center min-h-[100px] max-h-[200px] md:py-[40px]"
                 >
-                  <img
-                    src={`/images/clients/${logo.file}`}
-                    alt={logo.name}
-                    className="max-w-[112px] md:max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
-                  />
+                  <Link href={logo.href} target='_blank'>
+                    <img
+                      src={logo.src}
+                      alt={logo.href}
+                      className="max-w-[112px] md:max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
+                    />
+                  </Link>
                 </div>
               ))}
             </div>
