@@ -15,6 +15,14 @@ export default function CommonSquareLink({
   className = 'px-[20px] md:px-[40px] pt-[24px] md:pt-[28px] pb-[25px] md:pb-[30px] border-t border-[#2d2a24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[14px] md:text-[16px]'
 }: CommonSquareLinkProps) {
   const [isHovered, setIsHovered] = useState(false)
+  
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href === '/recruit') {
+      e.preventDefault()
+      window.location.href = 'https://www.wantedly.com/companies/storyandco'
+    }
+  }
+
   return (
     <div 
       className={className}
@@ -23,6 +31,7 @@ export default function CommonSquareLink({
     >
       <Link
         href={href}
+        onClick={handleClick}
         className="inline-flex w-full items-center transition-colors group transition-all justify-between font-bold"
       >
         {linkText}
