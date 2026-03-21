@@ -251,9 +251,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       {/* Collaboration section (newmake only) */}
       {slug === 'newmake' && (
         <section className="w-full border-b border-[#2d2a24]">
-          <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
-            {/* Left column: image */}
-            <div className="py-8 md:py-12 px-[20px] sm:px-6 md:px-[40px] border-b md:border-b-0 md:border-r border-[#2d2a24]">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-2 items-stretch">
+            {/* Left column (mobile: bottom): image */}
+            <div className="py-8 md:py-12 px-[20px] sm:px-6 md:px-[40px] md:border-r border-[#2d2a24]">
               <div className="relative aspect-[16/9] md:aspect-auto md:h-full overflow-hidden rounded-lg">
                 <Image
                   src="/newmake-collab.webp"
@@ -266,8 +266,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 />
               </div>
             </div>
-            {/* Right column: text */}
-            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px] flex flex-col justify-center">
+            {/* Right column (mobile: top): text */}
+            <div className="px-[20px] py-[40px] sm:px-6 md:px-[80px] md:py-[80px] flex flex-col justify-center border-b md:border-b-0">
               <p className="font-sans text-[12px] md:text-[14px] text-[#333] font-bold tracking-[0.08em] leading-[2]">
                 コラボレーションをご検討中の企業ご担当者さまへ
               </p>
