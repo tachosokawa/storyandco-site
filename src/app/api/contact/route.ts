@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY)
 
     await resend.emails.send({
-      from: 'STORY&Co. <onboarding@resend.dev>',
+      from: 'STORY&Co. <support@storyandco.co>',
       to: 'support@storyandco.co',
       subject: `【STORY&Co.】新しいお問い合わせが届きました`,
        html: `
