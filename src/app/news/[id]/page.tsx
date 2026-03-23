@@ -122,7 +122,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
                       {newsData.tags.map((tag: string, tagIndex: number) => (
                     <Link 
                       key={tagIndex}
-                      href={`/cases/category/${tag==="NewMake" ? "newmake" : tag ==="STORY&Co" ? "story" : tag==="PATCH&PLAY" ? "patchandplay" : tag==="CRAFC" ? "crafc" : tag==="AND STORY" ? "andstory" : tag}`} 
+                      href={`/news/category/${tag==="NewMake" ? "newmake" : tag ==="STORY&Co" ? "story" : tag==="PATCH&PLAY" ? "patchandplay" : tag==="CRAFC" ? "crafc" : tag==="AND STORY" ? "andstory" : tag}`} 
                       className='border border-[#2d2a24] md:px-[12px] md:py-[6px] rounded-lg font-poppins font-medium text-[12px] pt-[5px] pb-[7px] px-[12px] md:text-[12px] leading-[100%] tracking-[0.08em] hover:bg-[#18bed7] hover:text-[#FFF] transition-colors'
                     >
                         {tag}
