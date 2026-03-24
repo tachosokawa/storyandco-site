@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Noto_Sans_JP, Poppins, Playfair_Display } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import './styles.css'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+
+const GA_ID = 'G-LDN8ZQJN0R'
 
 const noto = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto', display: 'swap' })
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-poppins', display: 'swap' })
@@ -69,6 +72,20 @@ const websiteJsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className={`${noto.variable} ${poppins.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `}
+        </Script>
+      </head>
       <body>
         <script
           type="application/ld+json"
