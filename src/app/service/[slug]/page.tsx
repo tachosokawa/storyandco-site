@@ -320,7 +320,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   ご自宅に眠っているお洋服でリカちゃんのお洋服づくりを体験
                 </p>
                 <a
-                  href="#"
+                  href="https://www.andstory.co/communities/7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
@@ -456,7 +456,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   コンテンツの1つ「なんかちょっと、の招待状（インスタレーション・アート）」では、招待状の設置から2-3日で在庫切れとなり、計8640枚が配布されました。また、訪れる人々に「めぐり歩いて楽しい」体験を提供し、従来の物販中心の購買型から、体験型・滞在型の新しい施設を生み出すことに寄与。ファンのコミュニティを形成することで、街全体の持続的なにぎわいを創出いたしました。
                 </p>
                 <a
-                  href="#"
+                  href="https://www.tokyu-land.co.jp/news/2024/001172.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
                 >
                   事例詳細を見る →
@@ -554,10 +556,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   プロジェクト開始から1年で会員数150名を突破。「幼稚園のバザー制作など、気軽に集まって一緒に教え合いながら作れてありがたい」「家で1人でYouTubeを見ながら作っていたけど、みんなと作れて楽しい」など、コミュニティの繋がりを感じる温かなお声をいただいております。2024年4月からは全国6店舗への拡大を実施し、今後もさらに増加予定です。
                 </p>
                 <a
-                  href="#"
+                  href="https://www.crafco.andstory.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
                 >
-                  事例詳細を見る →
+                  サービスサイトへ →
                 </a>
               </div>
               {/* Right: Result image */}
