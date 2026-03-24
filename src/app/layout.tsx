@@ -23,17 +23,61 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     url: 'https://storyandco.co',
     siteName: 'STORY & Co.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
+    description:
+      'STORY&Co.は体験をデザインすることで人生に出会いと変化をもたらす企業です。AND STORY・NewMake・PATCH&PLAYなどの事業を展開しています。',
+  },
+  alternates: {
+    canonical: 'https://storyandco.co',
   },
   icons: {
     icon: '/favicon.png',
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '株式会社STORY&Co.',
+  alternateName: 'ストーリーアンドカンパニー',
+  url: 'https://storyandco.co',
+  logo: 'https://storyandco.co/favicon.png',
+  description:
+    'STORY&Co.は体験をデザインすることで人生に出会いと変化をもたらす企業です。',
+  sameAs: [
+    'https://www.wantedly.com/companies/storyandco',
+    'https://www.instagram.com/newmakelabo/',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    url: 'https://storyandco.co/contact',
+    availableLanguage: 'Japanese',
+  },
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'STORY & Co.',
+  url: 'https://storyandco.co',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className={`${noto.variable} ${poppins.variable} ${playfair.variable}`} suppressHydrationWarning>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />

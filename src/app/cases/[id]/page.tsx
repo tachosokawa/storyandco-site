@@ -18,7 +18,15 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         next: { revalidate: 60 }
       }
     })
-    return { title: data.title, description: data.summary }
+    return {
+      title: data.title,
+      description: data.summary,
+      openGraph: {
+        title: data.title,
+        description: data.summary,
+        ...(data.thumbnail?.url ? { images: [{ url: data.thumbnail.url }] } : {}),
+      },
+    }
   } catch {
     return { title: '事例詳細' }
   }
