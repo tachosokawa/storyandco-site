@@ -358,7 +358,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   100名の枠は即日完売し、東京開催でありながらも地方からも参加いただく熱量の高いプロジェクトに。また2回の展覧会では合計5500名の方々にご来場いただきました。
                 </p>
                 <a
-                  href="/cases/LICCA_ID"
+                  href="/cases/imz-wknv49"
                   className="mt-6 inline-block font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
                 >
                   事例詳細を見る →
