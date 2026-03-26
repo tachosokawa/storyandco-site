@@ -101,13 +101,27 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
               <p className="font-medium leading-[2] tracking-[0.08em] mt-10 text-[14px] md:text-[16px] md:mt-[80px] text-[#2d2a24]">{caseData.excerpt}</p>
 
               {/* Rich text content - HTML rendered correctly */}
-              {caseData.body && (
-                <div
-                  id="detail_body"
-                  className="font-sans"
-                  dangerouslySetInnerHTML={{ __html: processBodyHTML(caseData.body) }}
-                />
-              )}
+              {caseData.body && (() => {
+                // Remove duplicate first paragraph if it matches excerpt
+                let bodyHtml = caseData.body
+                if (caseData.excerpt) {
+                  const excerptText = caseData.excerpt.trim()
+                  const firstPMatch = bodyHtml.match(/^(\s*<p[^>]*>([\s\S]*?)<\/p>)/)
+                  if (firstPMatch) {
+                    const firstPText = firstPMatch[2].replace(/<[^>]+>/g, '').trim()
+                    if (firstPText === excerptText) {
+                      bodyHtml = bodyHtml.slice(firstPMatch[0].length)
+                    }
+                  }
+                }
+                return (
+                  <div
+                    id="detail_body"
+                    className="font-sans"
+                    dangerouslySetInnerHTML={{ __html: processBodyHTML(bodyHtml) }}
+                  />
+                )
+              })()}
 
             </div>
 

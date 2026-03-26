@@ -182,7 +182,8 @@ body {
 }
 
 #detail_body img{
-  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
   border-radius: 0.75rem;
   overflow: hidden;
   background-color: #E5DFD4;
