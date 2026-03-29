@@ -9,6 +9,8 @@ import TabsSection from '@/components/TabsSection'
 export const metadata: Metadata = {
   title: '事例のご紹介',
   description: 'STORY&Co.の事例紹介。コミュニティ開発・地域イベントプロデュース・SDGs推進支援などの実績をご紹介します。',
+  alternates: { canonical: '/cases' },
+  openGraph: { url: '/cases' },
 }
 
 type CaseItem = {

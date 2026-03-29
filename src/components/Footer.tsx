@@ -10,7 +10,7 @@ const footerLinks = {
     { label: '事業のこと', href: '/service' },
     { label: '事例のご紹介', href: '/cases' },
     { label: 'お知らせ', href: '/news' },
-    { label: '採用情報', href: '/recruit' },
+    { label: '採用情報', href: 'https://www.wantedly.com/companies/storyandco', external: true },
     { label: 'お問い合わせ', href: '/contact' },
     { label: 'プライバシーポリシー', href: '/privacy' },
   ],
@@ -43,20 +43,30 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.main.map((item) => (
                 <li key={item.href}>
-                  <Link 
-                    href={item.href} 
-                    className="flex items-center gap-2 font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
-                    onMouseEnter={() => item.label === '採用情報' && setIsHovered(true)}
-                    onMouseLeave={() => item.label === '採用情報' && setIsHovered(false)}
-                  >
-                    {item.label} {item.label === '採用情報' && (
-                      <img 
-                        src={isHovered ? "/images/clients/arrow-square-blue.svg" : "/images/clients/arrow-square.svg"} 
-                        alt="arrow" 
-                        className="w-4 h-4" 
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                    >
+                      {item.label}
+                      <img
+                        src={isHovered ? "/images/clients/arrow-square-blue.svg" : "/images/clients/arrow-square.svg"}
+                        alt="外部リンク"
+                        className="w-4 h-4"
                       />
-                    )}
-                  </Link>
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -21,9 +21,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
       title: data.title,
       description: data.summary,
+      alternates: { canonical: `/cases/${id}` },
       openGraph: {
         title: data.title,
         description: data.summary,
+        url: `/cases/${id}`,
         ...(data.thumbnail?.url ? { images: [{ url: data.thumbnail.url }] } : {}),
       },
     }

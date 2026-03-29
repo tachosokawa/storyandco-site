@@ -1,38 +1,117 @@
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'プライバシーポリシー' }
+export const metadata: Metadata = {
+  title: 'プライバシーポリシー',
+  description: 'STORY&Co.のプライバシーポリシー。個人情報の取り扱いについて。',
+  alternates: { canonical: '/privacy' },
+  openGraph: { url: '/privacy' },
+}
 
 export default function PrivacyPage() {
   return (
     <>
-      <div className="pt-[60px] pb-16 px-6 text-center border-b border-[#D0C8B8]">
-        <h1 className="font-serif text-[clamp(32px,5vw,72px)] font-bold mt-12">
-          <span className="text-[#8B5CF6]">P</span>
-          <span className="text-[#EF4444]">r</span>
-          <span className="text-[#00B8CC]">i</span>
-          <span className="text-[#1A1A1A]">v</span>
-          <span className="text-[#22C55E]">a</span>
-          <span className="text-[#1A1A1A]">cy </span>
-          <span className="text-[#F59E0B]">p</span>
-          <span className="text-[#EF4444]">o</span>
-          <span className="text-[#1A1A1A]">l</span>
-          <span className="text-[#8B5CF6]">i</span>
-          <span className="text-[#22C55E]">c</span>
-          <span className="text-[#1A1A1A]">y</span>
+      <div className="pt-[160px] pb-[96px] sm:pt-24 md:pt-32 lg:pt-[200px] xl:pt-[256px] sm:pb-16 md:pb-24 lg:pb-[150px] xl:pb-[200px] text-center border-b border-[#2d2a24] px-[20px] sm:px-6 md:px-8 lg:px-[40px]">
+        <h1 className="font-poppins text-[36px] sm:text-5xl md:text-7xl lg:text-[90px] xl:text-[120px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] text-center">
+          <span id="mv-colorful1" className="tracking-[-0.04em]">P</span>
+          <span id="mv-colorful2" className="tracking-[-0.03em]">r</span>
+          <span id="mv-colorful3" className="tracking-[-0.06em]">i</span>
+          <span id="mv-colorful4" className="tracking-[-0.04em]">v</span>
+          <span id="mv-colorful5" className="tracking-[-0.04em]">a</span>
+          <span id="mv-colorful6" className="tracking-[-0.04em]">c</span>
+          <span id="mv-colorful7" className="tracking-[-0.04em]">y</span>
         </h1>
-        <p className="text-sm text-[#666] mt-2">プライバシーポリシー</p>
+        <p className="mt-4 text-[18px] sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">プライバシーポリシー</p>
       </div>
 
-      <div className="max-w-[800px] mx-auto px-6 py-16 text-sm text-[#444] leading-relaxed">
-        <p className="mb-8">補足が入ります。補足が入ります。補足が入ります。補足が入ります。補足が入ります。補足が入ります。補足が入ります。補足が入ります。（60字程度）</p>
+      <div className="max-w-[760px] mx-auto px-[20px] py-16 font-sans text-[14px] md:text-[16px] text-[#2d2a24] leading-[2] tracking-[0.04em]">
+        <p className="mb-12 font-medium">
+          株式会社STORY&Co.（以下、「当社」といいます。）は、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）におけるプライバシー情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
+        </p>
 
-        <h2 className="font-bold text-base mb-4">タイトル（H2）</h2>
-        <p className="mb-8">プライバシーポリシーの本文が入ります。プライバシーポリシーの本文が入ります。プライバシーポリシーの本文が入ります。</p>
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第1条（プライバシー情報）</h2>
+        <p className="mb-4">
+          プライバシー情報のうち「個人情報」とは、個人情報保護法にいう「個人情報」を指すものとし、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日、住所、電話番号、連絡先その他の記述等により特定の個人を識別できる情報を指します。
+        </p>
+        <p className="mb-8">
+          プライバシー情報のうち「履歴情報および特性情報」とは、上記に定める「個人情報」以外のものをいい、ご利用いただいたサービスやご購入いただいた商品、ご覧になったページや広告の履歴、ユーザーが検索された検索キーワード、ご利用日時、ご利用の方法、ご利用環境、郵便番号や性別、職業、年齢、ユーザーのIPアドレス、クッキー情報、位置情報、端末の個体識別情報などを指します。
+        </p>
 
-        <div className="text-right mt-16 text-xs text-[#999]">
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第2条（プライバシー情報の収集方法）</h2>
+        <p className="mb-4">
+          当社は、ユーザーが利用登録をする際に氏名、生年月日、住所、電話番号、メールアドレス、銀行口座番号、運転免許証番号などの個人情報をお尋ねすることがあります。また、ユーザー同士もしくはユーザーと提携先などとの間でなされたユーザーの個人情報を含む取引記録や、決済に関する情報を当社の提携先（情報提供元、広告主、広告配信先などを含みます。以下、「提携先」といいます。）などから収集することがあります。
+        </p>
+        <p className="mb-8">
+          当社は、ユーザーについて、利用したサービスやソフトウエア、購入した商品、閲覧したページや広告の履歴、検索した検索キーワード、利用日時、利用方法、利用環境（携帯端末を通じてご利用の場合の当該端末の通信状態、利用に際しての各種設定情報なども含みます）、IPアドレス、クッキー情報、位置情報、端末の個体識別情報などの履歴情報および特性情報を、ユーザーが当社や提携先のサービスを利用しまたはページを閲覧する際に収集します。
+        </p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第3条（個人情報を収集・利用する目的）</h2>
+        <p className="mb-4">当社が個人情報を収集・利用する目的は、以下のとおりです。</p>
+        <p className="mb-2">（1）ユーザーに自分の登録情報の閲覧や修正、利用状況の閲覧を行っていただくために、氏名、住所、連絡先、支払方法などの登録情報、利用されたサービスや購入された商品、およびそれらの代金などに関する情報を表示する目的</p>
+        <p className="mb-2">（2）ユーザーにお知らせや連絡をするためにメールアドレスを利用する場合やユーザーに商品を送付したり必要に応じて連絡したりするため、氏名や住所などの連絡先情報を利用する目的</p>
+        <p className="mb-2">（3）ユーザーの本人確認を行うために、氏名、生年月日、住所、電話番号、銀行口座番号、クレジットカード番号、運転免許証番号、配達証明付き郵便の到達結果などの情報を利用する目的</p>
+        <p className="mb-2">（4）ユーザーに代金を請求するために、購入された商品名や数量、利用されたサービスの種類や期間、回数、請求金額、氏名、住所、銀行口座番号やクレジットカード番号などの支払に関する情報などを利用する目的</p>
+        <p className="mb-2">（5）ユーザーが簡便にデータを入力できるようにするために、当社に登録されている情報を入力画面に表示させたり、ユーザーのご指示に基づいて他のサービスなど（提携先が提供するものも含みます）に転送したりする目的</p>
+        <p className="mb-2">（6）代金の支払を遅滞したり第三者に損害を発生させたりするなど、本サービスの利用規約に違反したユーザーや、不正・不当な目的でサービスを利用しようとするユーザーの利用をお断りするために、利用態様、氏名や住所など個人を特定するための情報を利用する目的</p>
+        <p className="mb-2">（7）ユーザーからのお問い合わせに対応するために、お問い合わせ内容や代金の請求に関する情報など当社がユーザーに対してサービスを提供するにあたって必要となる情報や、ユーザーのサービス利用状況、連絡先情報などを利用する目的</p>
+        <p className="mb-8">（8）上記の利用目的に付随する目的</p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第4条（個人情報の第三者提供）</h2>
+        <p className="mb-4">
+          当社は、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供することはありません。ただし、個人情報保護法その他の法令で認められる場合を除きます。
+        </p>
+        <p className="mb-2">（1）法令に基づく場合</p>
+        <p className="mb-2">（2）人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき</p>
+        <p className="mb-2">（3）公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき</p>
+        <p className="mb-2">（4）国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき</p>
+        <p className="mb-4">（5）予め次の事項を告知あるいは公表をしている場合</p>
+        <div className="pl-6 mb-4">
+          <p className="mb-1">・利用目的に第三者への提供を含むこと</p>
+          <p className="mb-1">・第三者に提供されるデータの項目</p>
+          <p className="mb-1">・第三者への提供の手段または方法</p>
+          <p className="mb-4">・本人の求めに応じて個人情報の第三者への提供を停止すること</p>
+        </div>
+        <p className="mb-4">前項の定めにかかわらず、次に掲げる場合は第三者には該当しないものとします。</p>
+        <p className="mb-2">（1）当社が利用目的の達成に必要な範囲内において個人情報の取扱いの全部または一部を委託する場合</p>
+        <p className="mb-2">（2）合併その他の事由による事業の承継に伴って個人情報が提供される場合</p>
+        <p className="mb-8">（3）本サービスはユーザー同士による情報共有を目的としたサービスであるため、ユーザーが本サービスに投稿した情報は本サービスを通して公開され、検索エンジンなどで検索の対象となったり、他のウェブサイトで再利用される可能性があります。またユーザーが投稿したサービスに申し込みがあった場合や個人情報を特定の者との間で共同して利用する場合であって、その旨並びに共同して利用される個人情報の項目、共同して利用する者の範囲、利用する者の利用目的および当該個人情報の管理について責任を有する者の氏名または名称について、あらかじめ本人に通知し、または本人が容易に知り得る状態に置いているとき</p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第5条（個人情報の開示）</h2>
+        <p className="mb-4">
+          当社は、本人から個人情報の開示を求められたときは、本人に対し、遅滞なくこれを開示します。ただし、開示することにより次のいずれかに該当する場合は、その全部または一部を開示しないこともあり、開示しない決定をした場合には、その旨を遅滞なく通知します。
+        </p>
+        <p className="mb-2">（1）本人または第三者の生命、身体、財産その他の権利利益を害するおそれがある場合</p>
+        <p className="mb-2">（2）当社の業務の適正な実施に著しい支障を及ぼすおそれがある場合</p>
+        <p className="mb-4">（3）その他法令に違反することとなる場合</p>
+        <p className="mb-8">前項の定めにかかわらず、履歴情報および特性情報などの個人情報以外の情報については、原則として開示いたしません。</p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第6条（個人情報の訂正および削除）</h2>
+        <p className="mb-4">
+          ユーザーは、当社の保有する自己の個人情報が誤った情報である場合には、当社が定める手続きにより、当社に対して個人情報の訂正または削除を請求することができます。
+        </p>
+        <p className="mb-8">
+          当社は、ユーザーから前項の請求を受けてその請求に応じる必要があると判断した場合には、遅滞なく、当該個人情報の訂正または削除を行い、これをユーザーに通知します。
+        </p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第7条（個人情報の利用停止等）</h2>
+        <p className="mb-8">
+          当社は、本人から、個人情報が、利用目的の範囲を超えて取り扱われているという理由、または不正の手段により取得されたものであるという理由により、その利用の停止または消去（以下、「利用停止等」といいます。）を求められた場合には、遅滞なく必要な調査を行い、その結果に基づき、個人情報の利用停止等を行い、その旨本人に通知します。ただし、個人情報の利用停止等に多額の費用を有する場合その他利用停止等を行うことが困難な場合であって、本人の権利利益を保護するために必要なこれに代わるべき措置をとれる場合は、この代替策を講じます。
+        </p>
+
+        <h2 className="font-bold text-[16px] md:text-[18px] mb-4 mt-12">第8条（プライバシーポリシーの変更）</h2>
+        <p className="mb-8">
+          本ポリシーの内容は、ユーザーに通知することなく、変更することができるものとします。当社が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。
+        </p>
+
+        <div className="mt-16 pt-8 border-t border-[#D0C8B8]">
+          <p className="mb-2">上記プライバシーポリシーについてのお問合せは下記までメールにてご連絡お願いいたします。</p>
+          <p className="mt-4 font-bold">株式会社STORY&Co. サポートデスク</p>
+          <p>メールアドレス：<a href="mailto:support@storyandco.co" className="text-[#18bed7] hover:underline">support@storyandco.co</a></p>
+        </div>
+
+        <div className="text-right mt-16 text-[12px] text-[#999]">
           <p>制定：2017年4月1日</p>
           <p>改定：2023年3月1日</p>
-          <p>株式会社ストーリーアンドカンパニー 代表取締役 細川拓</p>
+          <p>株式会社STORY&Co. 代表取締役 細川拓</p>
         </div>
       </div>
     </>

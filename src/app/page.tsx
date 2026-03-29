@@ -1,4 +1,10 @@
+import type { Metadata } from 'next'
 import HeroSection from '@/components/HeroSection'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: { url: '/' },
+}
 import AboutSection from '@/components/AboutSection'
 import ClientsSection from '@/components/ClientsSection'
 import ServicesMarqueeSection from '@/components/ServicesMarqueeSection'

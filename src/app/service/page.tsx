@@ -7,6 +7,8 @@ import AndStorySection from '@/components/AndStorySection'
 export const metadata: Metadata = {
   title: '事業のこと',
   description: 'STORY&Co.の3つの事業：プラットフォーム事業（AND STORY）、コミュニティ事業（NewMake・タワーのアワー）、ソリューション事業。',
+  alternates: { canonical: '/service' },
+  openGraph: { url: '/service' },
 }
 
 const services = [

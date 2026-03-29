@@ -22,9 +22,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
       title: data.title,
       description: data.excerpt || data.title,
+      alternates: { canonical: `/news/${id}` },
       openGraph: {
         title: data.title,
         description: data.excerpt || data.title,
+        url: `/news/${id}`,
         ...(data.thumbnail?.url ? { images: [{ url: data.thumbnail.url }] } : {}),
       },
     }

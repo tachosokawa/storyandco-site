@@ -6,6 +6,8 @@ import AndStorySection from '@/components/AndStorySection'
 export const metadata: Metadata = {
   title: '会社のこと',
   description: 'STORY&Co.の会社情報。ミッション・ビジョン・バリュー、代表メッセージ、メンバー紹介、会社概要。',
+  alternates: { canonical: '/company' },
+  openGraph: { url: '/company' },
 }
 
 type MemberItem = {

@@ -30,7 +30,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     })
     const service = data.contents[0]
     if (!service) return { title: 'サービス詳細' }
-    return { title: service.title, description: service.description }
+    return {
+      title: service.title,
+      description: service.description,
+      alternates: { canonical: `/service/${slug}` },
+      openGraph: { url: `/service/${slug}` },
+    }
   } catch {
     return { title: 'サービス詳細' }
   }

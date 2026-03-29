@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: 'https://storyandco.co',
     siteName: 'STORY & Co.',
   },
   twitter: {
@@ -32,9 +31,6 @@ export const metadata: Metadata = {
     title: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
     description:
       'STORY&Co.は体験をデザインすることで人生に出会いと変化をもたらす企業です。AND STORY・NewMake・PATCH&PLAYなどの事業を展開しています。',
-  },
-  alternates: {
-    canonical: 'https://storyandco.co',
   },
   icons: {
     icon: '/favicon.png',

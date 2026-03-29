@@ -12,8 +12,10 @@ type NewsItem = {
 export default function HeroSection() {
   const [newsList, setNewsList] = useState<NewsItem[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     fetch('/api/hero-news')
       .then(res => res.json())
       .then(data => setNewsList(data))
@@ -28,7 +30,7 @@ export default function HeroSection() {
     return () => clearInterval(interval)
   }, [newsList])
 
-  const current = newsList[currentIndex]
+  const current = mounted ? newsList[currentIndex] : undefined
 
   return (
     <section className="relative flex flex-col justify-center overflow-hidden pb-[27px] md:pb-0">

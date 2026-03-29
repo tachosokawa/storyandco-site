@@ -10,6 +10,8 @@ import TabsSection from '@/components/TabsSection'
 export const metadata: Metadata = {
   title: 'お知らせ',
   description: 'STORY&Co.のお知らせ・プレスリリース・イベント情報。',
+  alternates: { canonical: '/news' },
+  openGraph: { url: '/news' },
 }
 
 const tabs = [
