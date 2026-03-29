@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { client } from '@/lib/microcms'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://storyandco.co'
+  const baseUrl = 'https://www.storyandco.co'
 
   // 静的ページ
   const staticPages: MetadataRoute.Sitemap = [

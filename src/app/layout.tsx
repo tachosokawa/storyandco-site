@@ -13,7 +13,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://storyandco.co'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.storyandco.co'),
   title: {
     default: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
     template: '%s | STORY & Co.',
@@ -42,8 +42,8 @@ const jsonLd = {
   '@type': 'Organization',
   name: '株式会社STORY&Co.',
   alternateName: 'ストーリーアンドカンパニー',
-  url: 'https://storyandco.co',
-  logo: 'https://storyandco.co/favicon.png',
+  url: 'https://www.storyandco.co',
+  logo: 'https://www.storyandco.co/favicon.png',
   description:
     'STORY&Co.は体験をデザインすることで人生に出会いと変化をもたらす企業です。',
   sameAs: [
@@ -53,7 +53,7 @@ const jsonLd = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    url: 'https://storyandco.co/contact',
+    url: 'https://www.storyandco.co/contact',
     availableLanguage: 'Japanese',
   },
 }
@@ -62,7 +62,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'STORY & Co.',
-  url: 'https://storyandco.co',
+  url: 'https://www.storyandco.co',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

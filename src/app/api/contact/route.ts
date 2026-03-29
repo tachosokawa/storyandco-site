@@ -3,12 +3,61 @@ import { Resend } from 'resend'
 
 export const runtime = 'nodejs'
 
+// Simple in-memory rate limiter (resets on redeploy)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
+const RATE_LIMIT = 3 // max requests
+const RATE_WINDOW = 60 * 60 * 1000 // per 1 hour
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+
+  if (!entry || now > entry.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW })
+    return false
+  }
+
+  entry.count++
+  return entry.count > RATE_LIMIT
+}
+
 export async function POST(req: Request) {
   try {
+    // Rate limiting by IP
+    const forwarded = req.headers.get('x-forwarded-for')
+    const ip = forwarded?.split(',')[0]?.trim() || 'unknown'
+
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { success: false, error: '送信回数の上限に達しました。しばらく時間をおいてお試しください。' },
+        { status: 429 }
+      )
+    }
+
     const body = await req.json()
     const { name, kana, email, tel, company, category, message } = body
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
+    // Honeypot: if this hidden field is filled, it's a bot
+    if (body.website) {
+      // Silently accept but don't send email
+      return NextResponse.json({ success: true })
+    }
+
+    // Basic validation
+    if (!name || !kana || !email || !category || !message) {
+      return NextResponse.json(
+        { success: false, error: '必須項目を入力してください。' },
+        { status: 400 }
+      )
+    }
+
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not configured')
+      return NextResponse.json({ success: false, error: 'Server configuration error' }, { status: 500 })
+    }
+
+    const resend = new Resend(apiKey)
 
     await resend.emails.send({
       from: 'STORY&Co. <support@storyandco.co>',
@@ -41,6 +90,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error('Contact form error:', error)
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    return NextResponse.json({ success: false, error: errorMessage }, { status: 500 })
+    console.error('Contact form error details:', errorMessage)
+    return NextResponse.json({ success: false, error: 'Failed to send message' }, { status: 500 })
   }
 }

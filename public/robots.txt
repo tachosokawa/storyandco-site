@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://storyandco.co/sitemap.xml
+Sitemap: https://www.storyandco.co/sitemap.xml

@@ -12,7 +12,7 @@ export default function ContactPage() {
     e.preventDefault()
     setSending(true)
     const form = e.currentTarget
-    const data = {
+    const data: Record<string, string> = {
       name: (form.querySelector('#name') as HTMLInputElement).value,
       kana: (form.querySelector('#kana') as HTMLInputElement).value,
       email: (form.querySelector('#email') as HTMLInputElement).value,
@@ -21,6 +21,9 @@ export default function ContactPage() {
       category: (form.querySelector('#category') as HTMLSelectElement).value,
       message: (form.querySelector('#message') as HTMLTextAreaElement).value,
     }
+    // Honeypot field for bot detection
+    const honeypot = (form.querySelector('#website') as HTMLInputElement)?.value
+    if (honeypot) data.website = honeypot
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -67,6 +70,10 @@ export default function ContactPage() {
           </div>
         ) : (
           <form className="space-y-8 px-[20px]" onSubmit={handleSubmit}>
+            {/* Honeypot field - hidden from users, visible to bots */}
+            <div className="absolute opacity-0 top-0 left-0 h-0 w-0 -z-10" aria-hidden="true">
+              <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             {[
               { label: 'お名前', id: 'name', placeholder: '松岡 正剛', required: true },
               { label: 'フリガナ', id: 'kana', placeholder: 'マツオカ セイゴウ', required: true },
