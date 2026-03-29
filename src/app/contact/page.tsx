@@ -34,6 +34,13 @@ export default function ContactPage() {
         throw new Error(`送信エラー: ${res.status}`)
       }
       setSent(true)
+      // GA4 event tracking for form submissions
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'contact_form_submit', {
+          event_category: 'engagement',
+          event_label: data.category,
+        })
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (err) {
       alert('送信に失敗しました。もう一度お試しください。')
@@ -75,22 +82,23 @@ export default function ContactPage() {
               <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
             </div>
             {[
-              { label: 'お名前', id: 'name', placeholder: '松岡 正剛', required: true },
-              { label: 'フリガナ', id: 'kana', placeholder: 'マツオカ セイゴウ', required: true },
-              { label: 'メールアドレス', id: 'email', placeholder: 'monogatari@storyandco.co', required: true, type: 'email' },
-              { label: '電話番号', id: 'tel', placeholder: '00-0000-0000', type: 'tel' },
-              { label: '会社・組織名', id: 'company', placeholder: '株式会社モノガタリ' },
+              { label: 'お名前', id: 'name', placeholder: '松岡 正剛', required: true, autoComplete: 'name' },
+              { label: 'フリガナ', id: 'kana', placeholder: 'マツオカ セイゴウ', required: true, autoComplete: 'off' },
+              { label: 'メールアドレス', id: 'email', placeholder: 'monogatari@storyandco.co', required: true, type: 'email', autoComplete: 'email' },
+              { label: '電話番号', id: 'tel', placeholder: '00-0000-0000', type: 'tel', autoComplete: 'tel' },
+              { label: '会社・組織名', id: 'company', placeholder: '株式会社モノガタリ', autoComplete: 'organization' },
             ].map((field) => (
               <div key={field.id}>
-                <label htmlFor={field.id} className="font-sans block text-[13px] font-bold text-[#2d2a24] leading-[2] tracking-[0.04em] mb-3">
+                <label htmlFor={field.id} className="font-sans block text-[14px] md:text-[16px] font-bold text-[#2d2a24] leading-[2] tracking-[0.04em] mb-3">
                   {field.label}
-                  {field.required && <span className="text-[#EF4444] ml-1 text-[11px]">＊必須</span>}
+                  {field.required && <span className="text-[#EF4444] ml-1 text-[12px]">＊必須</span>}
                 </label>
                 <input
                   id={field.id}
                   type={field.type || 'text'}
                   placeholder={field.placeholder}
                   required={field.required}
+                  autoComplete={field.autoComplete}
                   className="w-full border-b border-[#2d2a24] bg-transparent pb-[24px] text-[16px] font-sana text-medium placeholder-[#C0B8A8] focus:outline-none focus:border-[#1A1A1A] transition-colors"
                 />
               </div>
@@ -136,7 +144,7 @@ export default function ContactPage() {
                 をご覧ください。
               </p>
               <label className="flex items-center gap-3 font-sans font-medium text-[13px] md:text-base lg:text-[16px] leading-[2] tracking-[0.04em] text-[#2d2a24] md:mt-5 text-left md:px-0 mb-10 cursor-pointer">
-                <input type="checkbox" id="contact_checkbox" required className="relative w-[24px] h-[24px] md:w-[32px] md:h-[32px] accent-[#18bed7] border-1 border-[#2d2a24] bg-[#FFF] cursor-pointer" />
+                <input type="checkbox" id="contact_checkbox" required className="relative w-[32px] h-[32px] md:w-[32px] md:h-[32px] min-w-[44px] min-h-[44px] accent-[#18bed7] border-1 border-[#2d2a24] bg-[#FFF] cursor-pointer" />
                 プライバシーポリシーに同意して送信する
               </label>
             </div>

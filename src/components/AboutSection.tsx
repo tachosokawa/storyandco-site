@@ -21,7 +21,7 @@ export default function AboutSection() {
           <CompanyLink className='border-b border-[#2d2a24] md:border-b-0'/>
         </div>
         <div className="flex items-center justify-center py-[80px] px-[20px] md:p-[40px] lg:p-[40px] col-span-1 lg:col-span-5 md:col-span-5">
-          <img src="/images/clients/about.webp" alt="About Us" className='md:w-[846px] w-full' height="auto"/>
+          <img src="/images/clients/about.webp" alt="About Us" className='md:w-[846px] w-full' height="auto" loading="lazy" />
         </div>
       </div>
     </section>

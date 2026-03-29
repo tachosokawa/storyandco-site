@@ -30,6 +30,8 @@ const nextConfig = {
       { source: '/news/media', destination: '/news', permanent: true },
       { source: '/news/event', destination: '/news', permanent: true },
       { source: '/news/category/:slug', destination: '/news', permanent: true },
+      // Old service URL with hyphen
+      { source: '/service/new-make', destination: '/service/newmake', permanent: true },
     ]
   },
 }
