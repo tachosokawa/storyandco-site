@@ -21,10 +21,23 @@ export default function ContactPage() {
       category: (form.querySelector('#category') as HTMLSelectElement).value,
       message: (form.querySelector('#message') as HTMLTextAreaElement).value,
     }
-    await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-    setSending(false)
-    setSent(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      if (!res.ok) {
+        throw new Error(`送信エラー: ${res.status}`)
+      }
+      setSent(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch (err) {
+      alert('送信に失敗しました。もう一度お試しください。')
+      console.error('Contact form error:', err)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
