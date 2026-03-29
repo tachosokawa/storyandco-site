@@ -24,6 +24,7 @@ export default function ContactPage() {
     await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
     setSending(false)
     setSent(true)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
