@@ -11,69 +11,6 @@ export const metadata: Metadata = {
   openGraph: { url: '/service' },
 }
 
-const services = [
-  {
-    num: '01',
-    category: 'プラットフォーム事業',
-    sub: 'STORY &Co.が展開する',
-    color: '#00B8CC',
-    items: [
-      {
-        name: 'AND STORY',
-        href: '/service/andstory',
-        logo: 'AND STORY',
-        desc: 'AND STORYについての短い説明文が入ります。短い説明文が入ります。短い説明文が入ります。（50字程度）',
-      },
-    ],
-  },
-  {
-    num: '02',
-    category: 'コミュニティ事業',
-    sub: 'STORY &Co.が展開する',
-    color: '#8B5CF6',
-    items: [
-      {
-        name: 'NewMake',
-        href: '/service/newmake',
-        logo: 'NM NewMake',
-        desc: 'NewMakeについての短い説明文が入ります。短い説明文が入ります。短い説明文が入ります。（50字程度）',
-      },
-      {
-        name: 'タワーのアワー',
-        href: '/service/tower',
-        logo: 'タワー の アワー HOUR OF TOWER',
-        desc: 'タワーのアワーについての短い説明文が入ります。短い説明文が入ります。（50字程度）',
-      },
-    ],
-  },
-  {
-    num: '03',
-    category: 'ソリューション事業',
-    sub: '課題解決を提供する',
-    color: '#22C55E',
-    items: [
-      {
-        name: 'コミュニティ開発',
-        href: '/service/community',
-        logo: null,
-        desc: 'コミュニティ開発についての短い説明文が入ります。短い説明文が入ります。（50字程度）',
-      },
-      {
-        name: '地域・イベントプロデュース',
-        href: '/service/event',
-        logo: null,
-        desc: '地域・イベントプロデュースについての短い説明文が入ります。（50字程度）',
-      },
-      {
-        name: 'SDGs推進支援',
-        href: '/service/sdgs',
-        logo: null,
-        desc: 'SDGs推進支援についての短い説明文が入ります。短い説明文が入ります。（50字程度）',
-      },
-    ],
-  },
-]
-
 export default function ServicePage() {
   return (
     <>

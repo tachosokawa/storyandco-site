@@ -122,7 +122,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
                 <h2 className="font-sans font-bold text-[20px] md:text-[28px] text-[#2d2a24] leading-[2] tracking-[0.04em] mt-2 sm:mt-4 md:mt-[20px] mb-4 sm:mb-6 md:mb-[40px]">{caseData.title}</h2>
                 <div className="flex flex-wrap items-center gap-2 mt-8">
                   <p className="font-sans text-[12px] md:text-[14px] text-[#2d2a24] font-medium leading-[1]">
-                    {new Date(caseData.publishDate).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                    {(() => { const d = new Date(caseData.publishDate); return `${d.getUTCFullYear()}.${String(d.getUTCMonth()+1).padStart(2,'0')}.${String(d.getUTCDate()).padStart(2,'0')}`; })()}
                   </p>
                   <span className="inline">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                   {(caseData.tags && caseData.tags.length > 0 && caseData.tags.map((tag: string, tagIndex: number) => (

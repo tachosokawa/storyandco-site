@@ -12,6 +12,14 @@ const tabs = [
   { id: 'events', label: 'イベント', category: 'イベント', minWidth: '100px' },
 ]
 
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr)
+  const y = d.getUTCFullYear()
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(d.getUTCDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
 export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
   const [activeTab, setActiveTab] = useState('all')
 
@@ -80,7 +88,7 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
               <div className='col-span-1 md:col-span-1 lg:col-span-3 border-r-0 md:border-r lg:border-r md:border-b md:border-b-0 lg:border-b-0 border-[#2d2a24] items-start justify-start flex flex-col md:flex-row gap-2 md:gap-0 md:px-6 lg:px-[40px] md:pt-10 lg:pt-[78px] md:pb-10 lg:pb-[82px]'>
                 <div className='flex flex-row items-center gap-2 md:gap-0'>
                   <span className="font-poppins font-medium text-xs md:text-sm lg:text-[14px] text-[#2d2a24] shrink-0">
-                    {new Date(n.publishDate).toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.')}
+                    {formatDate(n.publishDate)}
                   </span>
                   <span className='block md:hidden'>&nbsp;|&nbsp;</span>
                   <span className="hidden md:inline">&emsp;|&emsp;</span>
