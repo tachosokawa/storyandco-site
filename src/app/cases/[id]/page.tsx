@@ -97,7 +97,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
                   quality={100}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 66vw, 1200px"
                   priority
-                  unoptimized={true}
+
                   className="w-full rounded-lg mb-6 sm:mb-8" />
               )}
               {/* Rich text content - HTML rendered correctly */}

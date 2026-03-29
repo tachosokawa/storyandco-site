@@ -80,6 +80,7 @@ export default function AndStorySection() {
   const originalColumnCount = clientLogos.length
   const totalColumns = columns.length
   
+  const [mounted, setMounted] = useState(false)
   const [columnsVisible, setColumnsVisible] = useState(COLUMNS_VISIBLE_DESKTOP)
   const [currentColumn, setCurrentColumn] = useState(originalColumnCount)
   const [isTransitioning, setIsTransitioning] = useState(true)
@@ -126,21 +127,27 @@ export default function AndStorySection() {
     }
   }, [currentColumn, originalColumnCount])
 
+  // Set mounted flag after hydration
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Check if we're on mobile and set columns visible accordingly
   useEffect(() => {
+    if (!mounted) return
     const checkMobile = () => {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
       setColumnsVisible(mobile ? COLUMNS_VISIBLE_MOBILE : COLUMNS_VISIBLE_DESKTOP)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile)
     }
-  }, [])
+  }, [mounted])
 
   // Auto-slide functionality - move one column at a time with seamless loop (desktop only)
   useEffect(() => {

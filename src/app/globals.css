@@ -18,6 +18,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Skip navigation link */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #18bed7;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  font-size: 14px;
+  font-weight: bold;
+}
+.skip-nav:focus {
+  top: 0;
+}
+
+/* Accessible focus styles */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #18bed7;
+  outline-offset: 2px;
+}
+
 body {
   background-color: #fffdf7;
   color: #1A1A1A;

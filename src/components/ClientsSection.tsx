@@ -37,6 +37,7 @@ const COLUMNS_VISIBLE_MOBILE = 2.5
 const AUTO_SLIDE_INTERVAL = 3000 // 3 seconds
 
 export default function ClientsSection() {
+  const [mounted, setMounted] = useState(false)
   const [columnsVisible, setColumnsVisible] = useState(COLUMNS_VISIBLE_DESKTOP)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -64,21 +65,27 @@ export default function ClientsSection() {
   const [scrollbarWidth, setScrollbarWidth] = useState(0)
   const THUMB_WIDTH = 12 // Fixed thumb width in pixels
 
+  // Set mounted flag after hydration
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Check if we're on mobile and set columns visible accordingly
   useEffect(() => {
+    if (!mounted) return
     const checkMobile = () => {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
       setColumnsVisible(mobile ? COLUMNS_VISIBLE_MOBILE : COLUMNS_VISIBLE_DESKTOP)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile)
     }
-  }, [])
+  }, [mounted])
 
   const handlePrev = () => {
     setCurrentColumn((prev) => {

@@ -157,7 +157,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
-                  unoptimized={true}
+
                   className="object-contain"
                 />
               </div>
@@ -194,7 +194,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized={true}
+  
                     className="object-cover"
                   />
                 </div>
@@ -209,7 +209,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized={true}
+  
                     className="object-cover"
                   />
                 </div>
@@ -244,7 +244,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   fill
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized={true}
+
                   className="object-cover"
                 />
               </div>
@@ -266,7 +266,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   fill
                   quality={100}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  unoptimized={true}
+
                   className="object-cover"
                 />
               </div>
@@ -308,7 +308,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
+  
                     className="object-contain"
                   />
                 </div>
@@ -378,7 +378,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized={true}
+  
                     className="object-cover"
                   />
                 </div>
@@ -409,7 +409,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
+  
                     className="object-contain"
                   />
                 </div>
@@ -478,7 +478,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized={true}
+  
                     className="object-cover"
                   />
                 </div>
@@ -509,7 +509,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
+  
                     className="object-contain"
                   />
                 </div>
@@ -578,7 +578,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                     fill
                     quality={100}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized={true}
+  
                     className="object-cover"
                   />
                 </div>

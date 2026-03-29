@@ -29,6 +29,7 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
   const [isPrevHovered, setIsPrevHovered] = useState(false)
   const [isNextHovered, setIsNextHovered] = useState(false)
   const autoSlideRef = useRef<NodeJS.Timeout | null>(null)
+  const [mounted, setMounted] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -69,20 +70,26 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
     }
   }, [currentIndex, originalSlideCardCount])
 
+  // Set mounted flag after hydration
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   // Check if we're on mobile
   useEffect(() => {
+    if (!mounted) return
     const checkMobile = () => {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile)
     }
-  }, [])
+  }, [mounted])
 
   // Auto-slide functionality - move one card at a time with seamless loop (desktop only)
   useEffect(() => {

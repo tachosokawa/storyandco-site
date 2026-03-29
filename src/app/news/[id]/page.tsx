@@ -97,7 +97,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
                   quality={100}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 66vw, 1200px"
                   priority
-                  unoptimized={true}
+
                   className="w-full rounded-lg mb-6 sm:mb-8" />
               )}
               <p className="font-medium leading-[2] tracking-[0.08em] mt-10 text-[14px] md:text-[16px] md:mt-[80px] text-[#2d2a24]">{newsData.excerpt}</p>
