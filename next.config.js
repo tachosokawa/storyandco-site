@@ -18,46 +18,18 @@ const nextConfig = {
   async redirects() {
     return [
       // Old STUDIO URLs → New Next.js URLs (301 permanent redirects)
-      // /project (old cases page) → /cases
-      {
-        source: '/project',
-        destination: '/cases',
-        permanent: true,
-      },
-      // /project/:slug (old case detail pages) → /cases
-      {
-        source: '/project/:slug',
-        destination: '/cases',
-        permanent: true,
-      },
-      // /inquiry (old contact page) → /contact
-      {
-        source: '/inquiry',
-        destination: '/contact',
-        permanent: true,
-      },
-      // /policy (old privacy policy) → /privacy
-      {
-        source: '/policy',
-        destination: '/privacy',
-        permanent: true,
-      },
-      // /news/notice, /news/media, /news/event (old news categories) → /news
-      {
-        source: '/news/notice',
-        destination: '/news',
-        permanent: true,
-      },
-      {
-        source: '/news/media',
-        destination: '/news',
-        permanent: true,
-      },
-      {
-        source: '/news/event',
-        destination: '/news',
-        permanent: true,
-      },
+      { source: '/home', destination: '/', permanent: true },
+      { source: '/home/', destination: '/', permanent: true },
+      { source: '/project', destination: '/cases', permanent: true },
+      { source: '/project/category/:slug', destination: '/cases', permanent: true },
+      { source: '/project/:slug', destination: '/cases', permanent: true },
+      { source: '/inquiry', destination: '/contact', permanent: true },
+      { source: '/inquiry/:slug', destination: '/contact', permanent: true },
+      { source: '/policy', destination: '/privacy', permanent: true },
+      { source: '/news/notice', destination: '/news', permanent: true },
+      { source: '/news/media', destination: '/news', permanent: true },
+      { source: '/news/event', destination: '/news', permanent: true },
+      { source: '/news/category/:slug', destination: '/news', permanent: true },
     ]
   },
 }

@@ -10,34 +10,35 @@ interface LoadMoreLinkProps {
   onClick?: () => void
 }
 
-export default function LoadMoreLink({ 
-  linkText, 
+export default function LoadMoreLink({
+  linkText,
   href = '/company',
-  className = 'px-[40px] pt-[28px] pb-[30px] border-t border-[#2d2a24] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer text-[16px]',
+  className = 'border-t border-[#2d2a24] text-[16px]',
   onClick
 }: LoadMoreLinkProps) {
   const [isHovered, setIsHovered] = useState(false)
-  
+
   const content = (
-    <div className="inline-flex w-full items-center transition-colors group transition-all justify-between font-bold">
+    <div className="flex w-full items-center transition-colors group transition-all justify-between font-bold">
       {linkText}
       <img src={isHovered ? "/images/clients/arrow-long-right-white.svg" : "/images/clients/arrow-long-right.svg"} alt="arrow" className="rotate-90"/>
     </div>
   )
-  
+
+  const interactiveClass = "block px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer"
+
   return (
-    <div 
+    <div
       className={className}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={onClick}
     >
       {onClick ? (
-        <div className="cursor-pointer">
+        <div className={interactiveClass} onClick={onClick}>
           {content}
         </div>
       ) : (
-        <Link href={href}>
+        <Link href={href} className={interactiveClass}>
           {content}
         </Link>
       )}
