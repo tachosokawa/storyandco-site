@@ -40,6 +40,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Contact form error:', error)
-    return NextResponse.json({ success: false }, { status: 500 })
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    return NextResponse.json({ success: false, error: errorMessage }, { status: 500 })
   }
 }
