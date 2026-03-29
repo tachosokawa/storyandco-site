@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
 
 const footerLinks = {
   main: [
@@ -10,7 +9,7 @@ const footerLinks = {
     { label: '事業のこと', href: '/service' },
     { label: '事例のご紹介', href: '/cases' },
     { label: 'お知らせ', href: '/news' },
-    { label: '採用情報', href: 'https://www.wantedly.com/companies/storyandco', external: true },
+    { label: '採用情報', href: '/recruit' },
     { label: 'お問い合わせ', href: '/contact' },
     { label: 'プライバシーポリシー', href: '/privacy' },
   ],
@@ -28,14 +27,12 @@ const footerLinks = {
 }
 
 export function Footer() {
-  const [isHovered, setIsHovered] = useState(false)
-
   return (
     <footer className="border-t border-[#2d2a24]">
       <div className='grid grid-cols-2'>
         {/* Logo */}
         <div className='col-span-2 md:col-span-1 border-b md:border-b-0 md:border-r border-[#2d2a24] py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
-          <img src="/images/clients/footer-logo.svg" alt="logo" className='w-[352px] md:w-[68%]'/>
+          <img src="/images/clients/footer-logo.svg" alt="STORY&Co." className='w-[352px] md:w-[68%]'/>
         </div>
         <div className='col-span-2 md:col-span-1 grid grid-cols-2  py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
           {/* Main links */}
@@ -43,30 +40,12 @@ export function Footer() {
             <ul className="space-y-4">
               {footerLinks.main.map((item) => (
                 <li key={item.href}>
-                  {item.external ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
-                    >
-                      {item.label}
-                      <img
-                        src={isHovered ? "/images/clients/arrow-square-blue.svg" : "/images/clients/arrow-square.svg"}
-                        alt="外部リンク"
-                        className="w-4 h-4"
-                      />
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className="font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    className="font-sans font-bold text-[12px] md:text-[14px] leading-[200%] tracking-[0.04em] text-[#2d2a24] hover:text-[#18bed7] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
