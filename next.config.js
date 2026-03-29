@@ -17,33 +17,10 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // ==========================================
-      // Old STUDIO URLs → New Next.js URLs
-      // 301 permanent redirects for site migration
-      // ==========================================
-
-      // /home (old STUDIO home page) → /
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-      // /home/ (with trailing slash)
-      {
-        source: '/home/',
-        destination: '/',
-        permanent: true,
-      },
-
+      // Old STUDIO URLs → New Next.js URLs (301 permanent redirects)
       // /project (old cases page) → /cases
       {
         source: '/project',
-        destination: '/cases',
-        permanent: true,
-      },
-      // /project/category/:slug (old project categories) → /cases
-      {
-        source: '/project/category/:slug',
         destination: '/cases',
         permanent: true,
       },
@@ -53,27 +30,18 @@ const nextConfig = {
         destination: '/cases',
         permanent: true,
       },
-
       // /inquiry (old contact page) → /contact
       {
         source: '/inquiry',
         destination: '/contact',
         permanent: true,
       },
-      // /inquiry/:slug (old inquiry sub-pages like /inquiry/thankyou) → /contact
-      {
-        source: '/inquiry/:slug',
-        destination: '/contact',
-        permanent: true,
-      },
-
       // /policy (old privacy policy) → /privacy
       {
         source: '/policy',
         destination: '/privacy',
         permanent: true,
       },
-
       // /news/notice, /news/media, /news/event (old news categories) → /news
       {
         source: '/news/notice',
@@ -88,25 +56,6 @@ const nextConfig = {
       {
         source: '/news/event',
         destination: '/news',
-        permanent: true,
-      },
-      // /news/category/:slug (old news categories) → /news
-      {
-        source: '/news/category/:slug',
-        destination: '/news',
-        permanent: true,
-      },
-
-      // /service/event (old service page) → /service
-      {
-        source: '/service/event',
-        destination: '/service',
-        permanent: true,
-      },
-      // /service/towernohour (old service page) → /service
-      {
-        source: '/service/towernohour',
-        destination: '/service',
         permanent: true,
       },
     ]
