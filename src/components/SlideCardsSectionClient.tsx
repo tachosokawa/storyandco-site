@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import CommonLink from './CommonLink'
 
@@ -264,10 +265,13 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
                 {card.thumbnail && (
                   <div className="overflow-hidden items-start justify-items-start flex-shrink-0">
                     <Link href={'/'+linkHref+'/'+card.id}>
-                      <img
-                        src={card.thumbnail.url}
+                      <Image
+                        src={`${card.thumbnail.url}?w=560&fm=webp`}
                         alt={card.title}
+                        width={420}
+                        height={240}
                         className="max-h-[180px] md:max-h-[240px] h-auto w-auto object-contain transition-transform duration-500 rounded-lg"
+                        sizes="(max-width: 768px) 180px, 240px"
                       />
                     </Link>
                   </div>
@@ -317,6 +321,9 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
               <img
                 src={isPrevHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
                 className={!isPrevHovered ? 'translate-x-[1px] rotate-180' : ''}
+                width={20}
+                height={20}
+                alt="前へ"
               />
             </button>
             <button
@@ -332,6 +339,9 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
               <img
                 src={isNextHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
                 className={isNextHovered ? 'translate-x-[1px] rotate-180' : ''}
+                width={20}
+                height={20}
+                alt="次へ"
               />
             </button>
           </span>
