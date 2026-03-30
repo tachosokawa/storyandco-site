@@ -1,4 +1,5 @@
 import { client } from '@/lib/microcms'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import SlideCardsSectionClient from '@/components/SlideCardsSectionClient'
@@ -72,11 +73,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     })
     serviceData = data.contents[0]
   } catch {
-    return <div className="pt-[60px] p-24 text-center text-[#999]">サービスが見つかりませんでした</div>
+    notFound()
   }
 
   if (!serviceData) {
-    return <div className="pt-[60px] p-24 text-center text-[#999]">サービスが見つかりませんでした</div>
+    notFound()
   }
 
   const relatedCases = await getRelatedCases(serviceData.tags)

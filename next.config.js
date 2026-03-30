@@ -30,8 +30,14 @@ const nextConfig = {
       { source: '/news/media', destination: '/news', permanent: true },
       { source: '/news/event', destination: '/news', permanent: true },
       { source: '/news/category/:slug', destination: '/news', permanent: true },
-      // Old service URL with hyphen
+      // Old service URLs with different slugs
       { source: '/service/new-make', destination: '/service/newmake', permanent: true },
+      { source: '/service/towernohour', destination: '/service', permanent: true },
+      // Old STUDIO news URLs (IDs don't match new microCMS IDs)
+      { source: '/news/pr001', destination: '/news', permanent: true },
+      { source: '/news/post-:id', destination: '/news', permanent: true },
+      { source: '/news/tokyometro', destination: '/news', permanent: true },
+      { source: '/news/lifefood', destination: '/news', permanent: true },
     ]
   },
 }

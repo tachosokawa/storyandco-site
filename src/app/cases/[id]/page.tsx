@@ -1,5 +1,6 @@
 import { client } from '@/lib/microcms'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import SlideCardsSectionClient from '@/components/SlideCardsSectionClient'
 import ContactSection from '@/components/ContactSection'
@@ -77,7 +78,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
       }
     })
   } catch {
-    return <div className="pt-[60px] p-24 text-center text-[#999]">事例が見つかりませんでした</div>
+    notFound()
   }
 
   return (

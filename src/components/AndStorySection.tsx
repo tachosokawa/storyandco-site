@@ -46,7 +46,7 @@ const clientLogos: ClientLogo[] = [
     src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_5b39c0f9-d966-415d-a066-dd2cbebc6e3a.svg'
   },
   {
-    href: 'https://storyandco.co/news/pr001',
+    href: 'https://www.storyandco.co/news',
     src: 'https://storage.googleapis.com/studio-design-asset-files/projects/V5a7NkzVqR/s-320x240_682ed816-72a0-4cbe-9f9d-3d6efa07034a.svg'
   },
   {
