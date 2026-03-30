@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 type NewsItem = {
   id: string
   publishedAt: string
-  publishDate: string  //
+  publishDate: string
   title: string
 }
 
@@ -17,17 +17,17 @@ function formatDate(dateStr: string): string {
   return `${y}.${m}.${day}`
 }
 
-export default function HeroSection() {
-  const [newsList, setNewsList] = useState<NewsItem[]>([])
+interface HeroSectionProps {
+  initialNews?: NewsItem[]
+}
+
+export default function HeroSection({ initialNews = [] }: HeroSectionProps) {
+  const [newsList] = useState<NewsItem[]>(initialNews)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    fetch('/api/hero-news')
-      .then(res => res.json())
-      .then(data => setNewsList(data))
-      .catch(() => {})
   }, [])
 
   useEffect(() => {

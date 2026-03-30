@@ -27,6 +27,13 @@ type CaseItem = {
   }
 }
 
+type NewsItem = {
+  id: string
+  publishedAt: string
+  publishDate: string
+  title: string
+}
+
 async function getLatestCases(): Promise<CaseItem[]> {
   try {
     const { client } = await import('@/lib/microcms')
@@ -43,11 +50,25 @@ async function getLatestCases(): Promise<CaseItem[]> {
   }
 }
 
+async function getHeroNews(): Promise<NewsItem[]> {
+  try {
+    const { client } = await import('@/lib/microcms')
+    const data = await client.getList({
+      endpoint: 'news',
+      queries: { limit: 3, orders: '-publishDate' },
+      customRequestInit: { next: { revalidate: 60 } }
+    })
+    return data.contents
+  } catch {
+    return []
+  }
+}
+
 export default async function HomePage() {
-  const cases = await getLatestCases()
+  const [cases, heroNews] = await Promise.all([getLatestCases(), getHeroNews()])
   return (
     <>
-      <HeroSection />
+      <HeroSection initialNews={heroNews} />
       <AboutSection />
       <ClientsSection />
       <ServicesMarqueeSection />

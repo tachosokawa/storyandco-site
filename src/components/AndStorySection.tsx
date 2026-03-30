@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 type ClientLogo = {
   href: string
@@ -298,6 +299,9 @@ export default function AndStorySection() {
               <img
                 src={isPrevHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
                 className={!isPrevHovered ? 'translate-x-[1px] rotate-180' : ''}
+                width={20}
+                height={20}
+                alt="前へ"
               />
             </button>
             <button
@@ -313,6 +317,9 @@ export default function AndStorySection() {
               <img
                 src={isNextHovered ? "/images/clients/arrow-left-white.svg" : "/images/clients/arrow-right.svg"}
                 className={isNextHovered ? 'translate-x-[1px] rotate-180' : ''}
+                width={20}
+                height={20}
+                alt="次へ"
               />
             </button>
         </span>
@@ -338,10 +345,13 @@ export default function AndStorySection() {
                   className="w-[152px] md:w-full flex items-center justify-center min-h-[100px] max-h-[200px] md:py-[40px]"
                 >
                   <Link href={logo.href} target='_blank'>
-                    <img
+                    <Image
                       src={logo.src}
                       alt={logo.href}
+                      width={160}
+                      height={120}
                       className="max-w-[112px] md:max-w-[160px] object-contain grayscale hover:grayscale-0 transition-all"
+                      loading="lazy"
                     />
                   </Link>
                 </div>

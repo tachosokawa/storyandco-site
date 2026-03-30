@@ -1,6 +1,5 @@
-'use client'
-
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerLinks = {
   main: [
@@ -32,7 +31,7 @@ export function Footer() {
       <div className='grid grid-cols-2'>
         {/* Logo */}
         <div className='col-span-2 md:col-span-1 border-b md:border-b-0 md:border-r border-[#2d2a24] py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
-          <img src="/images/clients/footer-logo.svg" alt="STORY&Co." className='w-[352px] md:w-[68%]'/>
+          <Image src="/images/clients/footer-logo.svg" alt="STORY&Co." width={352} height={40} className='w-[352px] md:w-[68%] h-auto'/>
         </div>
         <div className='col-span-2 md:col-span-1 grid grid-cols-2  py-[40px] md:py-[80px] px-[20px] md:px-[40px]'>
           {/* Main links */}

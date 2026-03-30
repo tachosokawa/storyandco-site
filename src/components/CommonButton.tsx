@@ -15,8 +15,8 @@ export default function CommonButton({
       className={`${className} group inline-flex w-full items-center transition-all justify-between font-bold`}
     >
       {buttonText}
-      <img src="/images/clients/arrow-long-right.svg" alt="" className='w-[16px] md:w-[20px] group-hover:hidden' loading="lazy" />
-      <img src="/images/clients/arrow-long-right-white.svg" alt="" className='w-[16px] md:w-[20px] hidden group-hover:block' loading="lazy" />
+      <img src="/images/clients/arrow-long-right.svg" alt="" className='w-[16px] md:w-[20px] group-hover:hidden' loading="lazy" width={20} height={12} />
+      <img src="/images/clients/arrow-long-right-white.svg" alt="" className='w-[16px] md:w-[20px] hidden group-hover:block' loading="lazy" width={20} height={12} />
     </button>
   )
 }

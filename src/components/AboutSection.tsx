@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import CompanyLink from '@/components/CompanyLink'
 
 export default function AboutSection() {
@@ -21,7 +22,7 @@ export default function AboutSection() {
           <CompanyLink className='border-b border-[#2d2a24] md:border-b-0'/>
         </div>
         <div className="flex items-center justify-center py-[80px] px-[20px] md:p-[40px] lg:p-[40px] col-span-1 lg:col-span-5 md:col-span-5">
-          <img src="/images/clients/about.webp" alt="About Us" className='md:w-[846px] w-full' height="auto" loading="lazy" />
+          <Image src="/images/clients/about.webp" alt="About Us" width={846} height={920} className='md:w-[846px] w-full h-auto' sizes="(max-width: 768px) 100vw, 846px" />
         </div>
       </div>
     </section>

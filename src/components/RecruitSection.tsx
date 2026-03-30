@@ -14,7 +14,7 @@ export default function RecruitSection() {
       <Link href="/recruit" onClick={handleRecruitClick}>
         <div className="flex gap-4 md:gap-6 lg:gap-8 animate-marquee whitespace-nowrap pt-[32px] md:pt-12 lg:pt-[56px]">
           {['Recruit', 'Recruit', 'Recruit', 'Recruit', 'Recruit', 'Recruit'].map((t, i) => (
-            <span key={i} className="flex font-poppins font-semibold text-[48px] sm:text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] tracking-[-4%] shrink-0 text-[#2d2a24]" style={{ lineHeight: '100%' }}>{t}&nbsp;<img src="/images/clients/recruit.svg" className='max-w-[38.5px] md:max-w-[96px] lg:max-w-[128px] mt-2 md:mt-3 lg:mt-[15px]' alt="Recruit"/></span>
+            <span key={i} className="flex font-poppins font-semibold text-[48px] sm:text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] tracking-[-4%] shrink-0 text-[#2d2a24]" style={{ lineHeight: '100%' }}>{t}&nbsp;<img src="/images/clients/recruit.svg" className='max-w-[38.5px] md:max-w-[96px] lg:max-w-[128px] mt-2 md:mt-3 lg:mt-[15px]' alt="Recruit" width={128} height={128}/></span>
           ))}
         </div>
       </Link>
