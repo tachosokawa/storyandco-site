@@ -41,7 +41,7 @@ async function getLatestCases(): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { limit: 6, orders: '-publishDate' },
       customRequestInit: {
-        cache: 'no-store'
+        next: { revalidate: 60 }
       }
     })
     return data.contents
