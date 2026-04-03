@@ -9,7 +9,7 @@ const navItems = [
   { label: '会社のこと', href: '/company' },
   { label: '事業のこと', href: '/service' },
   { label: '事例のご紹介', href: '/cases' },
-  { label: 'お知らせ', href: '/news' },
+  { label: 'インフォメーション', href: '/news' },
   { label: '採用情報', href: 'https://www.wantedly.com/companies/storyandco', external: true },
 ]
 

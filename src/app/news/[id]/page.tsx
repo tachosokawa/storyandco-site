@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       },
     }
   } catch {
-    return { title: 'お知らせ' }
+    return { title: 'インフォメーション' }
   }
 }
 

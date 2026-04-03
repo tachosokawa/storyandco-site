@@ -13,9 +13,9 @@ async function getLatestNews() {
     const { client } = await import('@/lib/microcms')
     const data = await client.get({
       endpoint: 'news',
-      queries: { limit: 5, orders: '-publishDate' },
+      queries: { limit: 1000, orders: '-publishDate' },
       customRequestInit: {
-        cache: 'no-store'
+        next: { revalidate: 60 }
       }
     })
     return data.contents

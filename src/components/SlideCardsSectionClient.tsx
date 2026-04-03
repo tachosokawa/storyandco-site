@@ -242,13 +242,13 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
                 className={`flex md:w-[55.38%] w-[672px] min-w-[572px] shrink-0 gap-[48px] border-r border-[#2d2a24] overflow-hidden px-[20px] md:px-[40px] py-[56px] md:py-[80px] hover:bg-[#f2f0ea] items-start justify-items-between`}
               >
                 <div className="font-sans text-[#333] min-w-[250px] items-start justify-items-start">
-                  <Link href={'/'+linkHref+'/'+card.id} className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">
+                  <Link href={'/'+linkHref+'/'+card.id} target="_blank" rel="noopener noreferrer" className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">
                     {(() => {
                       const categories = linkHref === 'cases' ? card.serviceCategory : card.category
                       return Array.isArray(categories) && categories.length > 0 ? categories.join(' | ') : ''
                     })()}
                   </Link>
-                  <Link href={'/'+linkHref+'/'+card.id}>
+                  <Link href={'/'+linkHref+'/'+card.id} target="_blank" rel="noopener noreferrer">
                     <h3 className="mt-5 font-bold text-[24px] leading-[150%] tracking-[0.04em] line-clamp-2 text-[#2d2a24]">{card.title}</h3>
                     <p className="mt-5 font-medium text-[16px] leading-[200%] tracking-[0.08em] line-clamp-3">{card.summary}</p>
                   </Link>
@@ -264,7 +264,7 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
                 </div>
                 {card.thumbnail && (
                   <div className="overflow-hidden items-start justify-items-start flex-shrink-0">
-                    <Link href={'/'+linkHref+'/'+card.id}>
+                    <Link href={'/'+linkHref+'/'+card.id} target="_blank" rel="noopener noreferrer">
                       <Image
                         src={`${card.thumbnail.url}?w=560&fm=webp`}
                         alt={card.title}

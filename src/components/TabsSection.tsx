@@ -113,7 +113,7 @@ export default function TabsSection({
                 isLastRowDesktop? 'lg:border-b-0' : 'lg:border-b'
               }`}
             >
-              <Link href={`${itemLink === 'cases' ? '/cases' : '/news'}/${item.id}`} className="font-bold text-[14px] hover:text-[#18bed7]">
+              <Link href={`${itemLink === 'cases' ? '/cases' : '/news'}/${item.id}`} target="_blank" rel="noopener noreferrer" className="font-bold text-[14px] hover:text-[#18bed7]">
                 {item.thumbnail && (
                   <img
                     src={item.thumbnail.url}

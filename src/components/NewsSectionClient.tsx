@@ -6,7 +6,7 @@ import CommonLink from '@/components/CommonLink'
 import type { NewsItem } from './NewsSection'
 const tabs = [
   { id: 'all', label: 'すべて', category: null, minWidth: '86.6px' },
-  { id: 'informations', label: 'お知らせ', category: 'お知らせ', minWidth: '120px' },
+  { id: 'informations', label: 'インフォメーション', category: 'お知らせ', minWidth: '166px' },
   { id: 'reports', label: 'プレス', category: 'プレスリリース', minWidth: '100px' },
   { id: 'medias', label: 'メディア', category: 'メディア掲載', minWidth: '120px' },
   { id: 'events', label: 'イベント', category: 'イベント', minWidth: '100px' },
@@ -66,7 +66,7 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
         ))}
       </div>
       <div className='grid grid-cols-2 md:grid-cols-5 lg:grid-cols-9 border-t md:border-b border-[#2d2a24] px-4 md:px-6 lg:px-[40px] font-sans text-[12px] md:text-sm lg:text-[16px] font-medium text-[#333] leading-[2]'>
-        <div className='col-span-2 md:col-span-1 lg:col-span-4 md:border-r border-b-0 border-[#2d2a24] pt-[12px] md:pt-4 lg:pt-[17px] pb-[16px] md:pb-4 lg:pb-[19px]'><p>お知らせ</p></div>
+        <div className='col-span-2 md:col-span-1 lg:col-span-4 md:border-r border-b-0 border-[#2d2a24] pt-[12px] md:pt-4 lg:pt-[17px] pb-[16px] md:pb-4 lg:pb-[19px]'><p>インフォメーション</p></div>
         {tabs.map((tab, index) => (
           <div
             key={tab.id}
@@ -92,7 +92,7 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
                   </span>
                   <span className='block md:hidden'>&nbsp;|&nbsp;</span>
                   <span className="hidden md:inline">&emsp;|&emsp;</span>
-                  <Link href={`/news/${n.id}`} className="font-sans font-bold text-xs md:text-sm lg:text-[14px] leading-[100%] tracking-[0.08em] py-0.5 shrink-0 h-fit hover:text-[#18bed7]">{n.category || 'お知らせ'}</Link>
+                  <Link href={`/news/${n.id}`} target="_blank" rel="noopener noreferrer" className="font-sans font-bold text-xs md:text-sm lg:text-[14px] leading-[100%] tracking-[0.08em] py-0.5 shrink-0 h-fit hover:text-[#18bed7]">{n.category || 'インフォメーション'}</Link>
                   <span className='block md:hidden'>&nbsp;|&nbsp;</span>
                 </div>
                 {n.tags && n.tags.length > 0 && (
@@ -110,14 +110,14 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
                   </div>
                 )}
               </div>
-              <Link href={`/news/${n.id}`} className='col-span-1 md:col-span-2 lg:col-span-6 md:px-6 lg:px-[40px] md:pt-10 lg:pt-[78px] md:pb-10 lg:pb-[82px] mt-3'>
+              <Link href={`/news/${n.id}`} target="_blank" rel="noopener noreferrer" className='col-span-1 md:col-span-2 lg:col-span-6 md:px-6 lg:px-[40px] md:pt-10 lg:pt-[78px] md:pb-10 lg:pb-[82px] mt-3'>
                 <h3 className='font-sans font-bold text-[14px] md:text-xl lg:text-[24px] leading-[2] tracking-[0.04em]'>{n.title}</h3>
               </Link>
             </div>
           ))}
         </div>
       )}
-      <CommonLink linkText='お知らせをもっとみる' href="/news"/>
+      <CommonLink linkText='インフォメーションをもっとみる' href="/news"/>
     </section>
   )
 }

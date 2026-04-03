@@ -8,8 +8,8 @@ import TabsSection from '@/components/TabsSection'
 
 
 export const metadata: Metadata = {
-  title: 'お知らせ',
-  description: 'STORY&Co.のお知らせ・プレスリリース・イベント情報。',
+  title: 'インフォメーション',
+  description: 'STORY&Co.のインフォメーション・プレスリリース・イベント情報。',
   alternates: { canonical: '/news' },
   openGraph: { url: '/news' },
 }
@@ -24,9 +24,9 @@ const tabs = [
 
 async function getNews() {
   try {
-    const data = await client.getList({ 
-      endpoint: 'news', 
-      queries: { limit: 20, orders: '-publishDate' },
+    const data = await client.getList({
+      endpoint: 'news',
+      queries: { limit: 1000, orders: '-publishDate' },
       customRequestInit: {
         next: { revalidate: 60 }
       }
@@ -50,7 +50,7 @@ export default async function NewsPage() {
           <span id="mv-colorful4" className="tracking-[-0.04em]">w</span>
           <span id="mv-colorful4" className="tracking-[-0.04em]">s</span>
         </h1>
-        <p className="mt-5 text-[18px] sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">お知らせ</p>
+        <p className="mt-5 text-[18px] sm:text-lg md:text-xl lg:text-[20px] font-sans font-bold text-[#2d2a24] leading-[2] tracking-[0.04em]">インフォメーション</p>
       </div>
       <TabsSection items={news} tabs={tabs} itemLink="/news"/>
       <ContactSection />
