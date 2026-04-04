@@ -245,7 +245,7 @@ export default function SlideCardsSectionClient({ slideCards, linkHref, linkText
                   <Link href={'/'+linkHref+'/'+card.id} target="_blank" rel="noopener noreferrer" className="mb-2 font-bold text-[14px] hover:text-[#18bed7]">
                     {(() => {
                       const categories = linkHref === 'cases' ? card.serviceCategory : card.category
-                      return Array.isArray(categories) && categories.length > 0 ? categories.join(' | ') : ''
+                      return Array.isArray(categories) && categories.length > 0 ? categories.map(c => c === 'お知らせ' ? 'インフォメーション' : c).join(' | ') : ''
                     })()}
                   </Link>
                   <Link href={'/'+linkHref+'/'+card.id} target="_blank" rel="noopener noreferrer">

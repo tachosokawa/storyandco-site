@@ -14,6 +14,7 @@ type TabItem = {
 type DisplayItem = {
   id: string | number
   title: string
+  publishDate?: string
   category?: string[]
   serviceCategory?: string[]
   excerpt?: string
@@ -21,6 +22,19 @@ type DisplayItem = {
   thumbnail?: {
     url: string
   }
+}
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr)
+  const y = d.getUTCFullYear()
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0')
+  const day = String(d.getUTCDate()).padStart(2, '0')
+  return `${y}.${m}.${day}`
+}
+
+function mapCategoryLabel(cat: string): string {
+  if (cat === 'お知らせ') return 'インフォメーション'
+  return cat
 }
 
 type TabsSectionProps = {
@@ -121,10 +135,15 @@ export default function TabsSection({
                     className="w-full object-contain transition-transform duration-500 rounded-lg"
                   />
                 )}
-                <p className="mt-5 sm:mt-5 md:mt-8 lg:mt-8 font-bold text-[12px] sm:text-[12px] md:text-[14px] tracking-[0.08em] text-[#2d2a24]">
+                {item.publishDate && (
+                  <p className="mt-5 sm:mt-5 md:mt-8 lg:mt-8 font-poppins font-medium text-[12px] sm:text-[12px] md:text-[14px] tracking-[0.08em] text-[#2d2a24]">
+                    {formatDate(item.publishDate)}
+                  </p>
+                )}
+                <p className={`${item.publishDate ? 'mt-2' : 'mt-5 sm:mt-5 md:mt-8 lg:mt-8'} font-bold text-[12px] sm:text-[12px] md:text-[14px] tracking-[0.08em] text-[#2d2a24]`}>
                   {(() => {
                     const categories = itemLink === 'cases' ? item.serviceCategory : item.category
-                    return Array.isArray(categories) && categories.length > 0 ? categories.join(' | ') : ''
+                    return Array.isArray(categories) && categories.length > 0 ? categories.map(mapCategoryLabel).join(' | ') : ''
                   })()}
                 </p>
                 <h3 className="mt-1 sm:mt-4 md:mt-4 font-bold text-[16px] md:text-[24px] leading-[2] tracking-[0.04em] line-clamp-2 text-[#2d2a24]">{item.title}</h3>

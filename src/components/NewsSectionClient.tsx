@@ -92,7 +92,7 @@ export default function NewsSectionClient({ news }: { news: NewsItem[] }) {
                   </span>
                   <span className='block md:hidden'>&nbsp;|&nbsp;</span>
                   <span className="hidden md:inline">&emsp;|&emsp;</span>
-                  <Link href={`/news/${n.id}`} target="_blank" rel="noopener noreferrer" className="font-sans font-bold text-xs md:text-sm lg:text-[14px] leading-[100%] tracking-[0.08em] py-0.5 shrink-0 h-fit hover:text-[#18bed7]">{n.category || 'インフォメーション'}</Link>
+                  <Link href={`/news/${n.id}`} target="_blank" rel="noopener noreferrer" className="font-sans font-bold text-xs md:text-sm lg:text-[14px] leading-[100%] tracking-[0.08em] py-0.5 shrink-0 h-fit hover:text-[#18bed7]">{n.category === 'お知らせ' ? 'インフォメーション' : (n.category || 'インフォメーション')}</Link>
                   <span className='block md:hidden'>&nbsp;|&nbsp;</span>
                 </div>
                 {n.tags && n.tags.length > 0 && (
