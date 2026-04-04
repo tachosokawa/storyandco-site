@@ -90,15 +90,14 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
             <div className="w-full md:col-span-2 md:border-r border-b-0 border-[#2d2a24] px-[20px] py-[40px] sm:px-6 md:px-[80px] sm:pt-12 md:pt-[80px] md:pb-[260px] font-sans text-[#333] text-sm sm:text-base md:text-[16px] leading-[1.4] order-2 md:order-1">
               {/* Hero image */}
               {caseData.thumbnail && (
-                <Image 
-                  src={`${caseData.thumbnail.url}?w=1920&q=100`}
+                <Image
+                  src={caseData.thumbnail.url}
                   alt={caseData.title}
                   width={1920}
                   height={1440}
-                  quality={100}
+                  quality={90}
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 66vw, 1200px"
                   priority
-
                   className="w-full rounded-lg mb-6 sm:mb-8" />
               )}
               {/* Rich text content - HTML rendered correctly */}
