@@ -26,7 +26,7 @@ async function getNews() {
   try {
     const data = await client.getList({
       endpoint: 'news',
-      queries: { limit: 1000, orders: '-publishDate' },
+      queries: { limit: 100, orders: '-publishDate' },
       customRequestInit: {
         next: { revalidate: 60 }
       }
