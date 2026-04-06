@@ -37,11 +37,19 @@ const nextConfig = {
       // Old service URLs with different slugs
       { source: '/service/new-make', destination: '/service/newmake', permanent: true },
       { source: '/service/towernohour', destination: '/service', permanent: true },
+      // Old service URL variants
+      { source: '/service/and-story', destination: '/service/andstory', permanent: true },
       // Old STUDIO news URLs (IDs don't match new microCMS IDs)
+      { source: '/news/pr', destination: '/news', permanent: true },
       { source: '/news/pr001', destination: '/news', permanent: true },
       { source: '/news/post-:id', destination: '/news', permanent: true },
       { source: '/news/tokyometro', destination: '/news', permanent: true },
       { source: '/news/lifefood', destination: '/news', permanent: true },
+      // Deleted/unpublished microCMS articles → redirect to news list
+      { source: '/news/fhquIl7h', destination: '/news', permanent: true },
+      { source: '/news/D58FhYPK', destination: '/news', permanent: true },
+      { source: '/news/xgO9ESFu', destination: '/news', permanent: true },
+      { source: '/news/UtXwyC6u', destination: '/news', permanent: true },
     ]
   },
 }
