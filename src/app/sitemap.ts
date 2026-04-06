@@ -1,64 +1,103 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 import { client } from '@/lib/microcms'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.storyandco.co'
+const BASE_URL = 'https://www.storyandco.co'
 
-  // 静的ページ
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // --- 静的ページ ---
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${baseUrl}/company`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/service`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/cases`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/news`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
-    { url: `${baseUrl}/recruit`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/company`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/service`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/news`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/cases`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/recruit`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    // サービス詳細ページ
+    ...['andstory', 'newmake', 'patchandplay', 'community', 'event', 'sdgs'].map((slug) => ({
+      url: `${BASE_URL}/service/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
   ]
 
-  // サービス個別ページ
-  const servicePages: MetadataRoute.Sitemap = [
-    'patchandplay', 'andstory', 'newmake', 'community', 'event', 'sdgs'
-  ].map((slug) => ({
-    url: `${baseUrl}/service/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
-
-  // microCMS: 事例ページ
-  let casePages: MetadataRoute.Sitemap = []
-  try {
-    const casesData = await client.get({
-      endpoint: 'cases',
-      queries: { limit: 100, fields: 'id,updatedAt' },
-    })
-    casePages = casesData.contents.map((item: { id: string; updatedAt: string }) => ({
-      url: `${baseUrl}/cases/${item.id}`,
-      lastModified: new Date(item.updatedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    }))
-  } catch (e) {
-    console.error('Sitemap: failed to fetch cases', e)
-  }
-
-  // microCMS: ニュースページ
+  // --- 動的ページ: ニュース ---
   let newsPages: MetadataRoute.Sitemap = []
   try {
-    const newsData = await client.get({
+    const data = await client.getList({
       endpoint: 'news',
       queries: { limit: 100, fields: 'id,updatedAt' },
+      customRequestInit: { next: { revalidate: 3600 } },
     })
-    newsPages = newsData.contents.map((item: { id: string; updatedAt: string }) => ({
-      url: `${baseUrl}/news/${item.id}`,
+    newsPages = data.contents.map((item: { id: string; updatedAt: string }) => ({
+      url: `${BASE_URL}/news/${item.id}`,
       lastModified: new Date(item.updatedAt),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     }))
   } catch (e) {
-    console.error('Sitemap: failed to fetch news', e)
+    console.error('Sitemap: ニュース取得エラー', e)
   }
 
-  return [...staticPages, ...servicePages, ...casePages, ...newsPages]
+  // --- 動的ページ: 事例 ---
+  let casesPages: MetadataRoute.Sitemap = []
+  try {
+    const data = await client.getList({
+      endpoint: 'cases',
+      queries: { limit: 100, fields: 'id,updatedAt' },
+      customRequestInit: { next: { revalidate: 3600 } },
+    })
+    casesPages = data.contents.map((item: { id: string; updatedAt: string }) => ({
+      url: `${BASE_URL}/cases/${item.id}`,
+      lastModified: new Date(item.updatedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }))
+  } catch (e) {
+    console.error('Sitemap: 事例取得エラー', e)
+  }
+
+  return [...staticPages, ...newsPages, ...casesPages]
 }

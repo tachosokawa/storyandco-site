@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 
 interface LoadMoreLinkProps {
@@ -16,23 +15,18 @@ export default function LoadMoreLink({
   className = 'border-t border-[#2d2a24] text-[16px]',
   onClick
 }: LoadMoreLinkProps) {
-  const [isHovered, setIsHovered] = useState(false)
-
   const content = (
     <div className="flex w-full items-center transition-colors group transition-all justify-between font-bold">
       {linkText}
-      <img src={isHovered ? "/images/clients/arrow-long-right-white.svg" : "/images/clients/arrow-long-right.svg"} alt="arrow" className="rotate-90"/>
+      <img src="/images/clients/arrow-long-right.svg" alt="arrow" className="rotate-90 group-hover:hidden" width={20} height={12} />
+      <img src="/images/clients/arrow-long-right-white.svg" alt="arrow" className="rotate-90 hidden group-hover:block" width={20} height={12} />
     </div>
   )
 
-  const interactiveClass = "block px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer"
+  const interactiveClass = "group block px-[40px] pt-[28px] pb-[30px] hover:bg-[#18bed7] text-[#333] hover:text-[#FFF] hover:cursor-pointer"
 
   return (
-    <div
-      className={className}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className={className}>
       {onClick ? (
         <div className={interactiveClass} onClick={onClick}>
           {content}

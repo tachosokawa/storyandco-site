@@ -8,6 +8,7 @@ import RecruitSection from '@/components/RecruitSection'
 import AndStorySection from '@/components/AndStorySection'
 import { processBodyHTML } from '@/lib/html-processor'
 import Image from "next/image";
+import { ArticleJsonLd } from '@/components/JsonLd'
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   try {
@@ -19,13 +20,16 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         next: { revalidate: 3600 }
       }
     })
+    const description = data.summary
+      || (data.content ? data.content.replace(/<[^>]*>/g, '').slice(0, 120) + '...' : '')
+      || `STORY&Co.の事例: ${data.title}`
     return {
       title: data.title,
-      description: data.summary,
+      description,
       alternates: { canonical: `/cases/${id}` },
       openGraph: {
         title: data.title,
-        description: data.summary,
+        description,
         url: `/cases/${id}`,
         ...(data.thumbnail?.url ? { images: [{ url: data.thumbnail.url }] } : {}),
       },
@@ -81,8 +85,19 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
     notFound()
   }
 
+  const caseDescription = caseData.summary
+    || (caseData.body ? caseData.body.replace(/<[^>]*>/g, '').slice(0, 120) : '')
+    || caseData.title
+
   return (
     <>
+      <ArticleJsonLd
+        title={caseData.title}
+        description={caseDescription}
+        url={`https://www.storyandco.co/cases/${id}`}
+        datePublished={caseData.publishDate || caseData.publishedAt || caseData.createdAt}
+        imageUrl={caseData.thumbnail?.url}
+      />
       <section className="w-full mt-[96px] sm:mt-[80px] md:mt-[96px]">
         <div className="w-full">
           <div className="flex flex-col md:grid md:grid-cols-3 border-b border-[#2d2a24] items-start">
