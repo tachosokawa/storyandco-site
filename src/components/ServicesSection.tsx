@@ -13,7 +13,7 @@ export default function ServicesSection() {
           <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
             <h3 className='md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>プラットフォーム事業</h3>
             <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-            <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインとリアルをつなぎ、「体験」と「コミュニティ」を通じた出会いの場を運営。企業・消費者・クリエイターがフラットにつながる仕組みを提供しています。</p>
+            <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインとリアルをつなぎ、「体験」と「コミュニティ」を通じた出会いの場を運営。つくる人、届ける人、届く人が自然と出会い、そこから新しい物語が生まれる場をつくっています。</p>
           </div>
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>

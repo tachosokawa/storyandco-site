@@ -35,7 +35,7 @@ export default function ServicePage() {
             <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
               <h3 className='md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>プラットフォーム事業</h3>
               <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-              <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインでは新しい出会いと発見を、リアルではモノづくりやお直しを通じた体験を。企業・消費者・クリエイターがフラットにつながる場を運営し、出会いが新しい物語に変わるまでの仕組みを提供しています。</p>
+              <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインでは新しい出会いと発見を、リアルではモノづくりやお直しを通じた体験を。つくる人、届ける人、届く人がひとつの場に集まることで、出会いが新しい物語に変わっていく。そんな場をつくり、運営しています。</p>
             </div>
           </div>
           <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
@@ -55,7 +55,7 @@ export default function ServicePage() {
             <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
               <h3 className='pb-1 md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>コミュニティ事業</h3>
               <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-              <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>異なる視点やスキルを持つ人々が集まり、共に考え、共に創る場を提供。一社だけでは解決できない社会課題に、企業と個人が共に向き合い、そこから生まれるつながりを大切にしながら、持続可能なコミュニティの形成を目指しています。</p>
+              <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>異なる視点やスキルを持つ人たちが集まり、一緒に考え、一緒につくる。一社だけでは向き合えない社会の課題も、企業と個人がつながることで新しい答えが見えてくる。そんなコミュニティを育てています。</p>
             </div>
           </div>
           <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24] flex flex-col'>
