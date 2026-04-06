@@ -1,5 +1,6 @@
 import CommonLink from '@/components/CommonLink'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import ContactSection from '@/components/ContactSection'
 import RecruitSection from '@/components/RecruitSection'
 import AndStorySection from '@/components/AndStorySection'
@@ -34,17 +35,17 @@ export default function ServicePage() {
             <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
               <h3 className='md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>プラットフォーム事業</h3>
               <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-              <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>Webでは出会いと変化を生み、リアルでは販売やお直しによって価値を形にするプラットフォームを提供しています。企業・消費者・クリエイターがフラットにつながる機会を創出。顧客管理やデータ取得など多様な機能を備え、企画からお客様価値に至るまでをサポートしています。</p>
+              <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインでは新しい出会いと発見を、リアルではモノづくりやお直しを通じた体験を。企業・消費者・クリエイターがフラットにつながる場を運営し、出会いが新しい物語に変わるまでの仕組みを提供しています。</p>
             </div>
           </div>
           <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] md:border-b border-[#2d2a24]'>
-              <img className="md:w-full w-[120px] md:w-[206px] md:max-w-[206px] h-auto" src="/images/clients/patchplay.webp" alt="PATCH&PLAY"/>
+              <Image className="md:w-full w-[120px] md:w-[206px] md:max-w-[206px] h-auto" src="/images/clients/patchplay.webp" alt="PATCH&PLAY" width={206} height={206} />
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>PATCH&PLAYは、"すき"の気持ちをきっかけに、身のまわりのモノを、もう一度遊ぶようにたのしむ「ワッペンとお直しのお店」です。</p>
             </div>
             <CommonLink linkText="PATCH&PLAYについて知る" href="/service/patchandplay" />
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] border-t md:border-b border-[#2d2a24]'>
-              <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY"/>
+              <Image className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/and_story.webp" alt="AND STORY" width={300} height={100} />
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>目には見えないけれど価値がある「体験」や「コミュニティ」と出会えるWebプラットフォームです。</p>
             </div>
             <CommonLink linkText="AND STORYについて知る" href="/service/andstory" />
@@ -54,12 +55,12 @@ export default function ServicePage() {
             <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
               <h3 className='pb-1 md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>コミュニティ事業</h3>
               <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-              <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業と個人の共創の場を提供し、社会課題の新たなソリューションを生み出しています。異なる視点やスキルを持つ人々が集まり、意見交換や協力して問題解決に取り組むことを支援。新しいアイデアや革新的なアプローチの促進は勿論、そこから生まれるつながりを大切にすることで、持続可能なコミュニティの形成を目指しています。</p>
+              <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>異なる視点やスキルを持つ人々が集まり、共に考え、共に創る場を提供。一社だけでは解決できない社会課題に、企業と個人が共に向き合い、そこから生まれるつながりを大切にしながら、持続可能なコミュニティの形成を目指しています。</p>
             </div>
           </div>
           <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24] flex flex-col'>
             <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:px-[120px] lg:pt-[120px] lg:pb-[250px] md:border-b border-[#2d2a24] flex-1'>
-              <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/newmake.svg" alt="NewMake"/>
+              <img className="md:w-full w-[150px] md:w-[300px] md:max-w-[300px] h-auto" src="/images/clients/newmake.svg" alt="NewMake" width={300} height={60} />
               <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>クリエイティブの力で社会課題を解決するコミュニティです。</p>
             </div>
             <div className='mt-auto'>

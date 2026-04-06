@@ -13,7 +13,7 @@ export default function ServicesSection() {
           <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
             <h3 className='md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>プラットフォーム事業</h3>
             <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-            <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>Webの出会いとリアルの販売・お直しをつなぐ、価値創造型プラットフォーム。企業・個人・クリエイターが対等につながり、価値実現を支援します。</p>
+            <p className='pt-8 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>オンラインとリアルをつなぎ、「体験」と「コミュニティ」を通じた出会いの場を運営。企業・消費者・クリエイターがフラットにつながる仕組みを提供しています。</p>
           </div>
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
@@ -33,7 +33,7 @@ export default function ServicesSection() {
           <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
             <h3 className='pb-1 md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>コミュニティ事業</h3>
             <p className='pt-4 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>STORY &Co.で運営</p>
-            <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業と個人の共創の場づくりを通じて、社会課題の新たなソリューションを生み出しています。</p>
+            <p className='pt-10 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業と個人の共創の場をつくり、クリエイティブの力で社会課題に向き合うコミュニティを育てています。</p>
           </div>
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24] flex flex-col'>
@@ -50,7 +50,7 @@ export default function ServicesSection() {
           <div className='pl-0 md:pl-8 lg:pl-[95px] pt-6 md:pt-10 lg:pt-[80px] md:pb-10 lg:pb-[80px] pr-0 md:pr-8 lg:pr-[80px] font-sans' style={{ lineHeight: '2' }}>
             <h3 className='md:pb-3 lg:pb-4 font-bold text-[22px] md:text-2xl lg:text-[32px] tracking-[0.04em]'>ソリューション事業</h3>
             <p className='pt-5 font-medium text-sm md:text-base lg:text-[16px] text-[#333]'>課題解決を提供</p>
-            <p className='pt-9 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業の課題やニーズに応じて、最適な体験・コミュニティづくりをデザインしています。</p>
+            <p className='pt-9 md:py-6 lg:py-10 font-medium text-sm md:text-base lg:text-[16px] text-[#333]' style={{ lineHeight: '2' }}>企業や自治体の課題に応じて、人の心を動かす体験やコミュニティをデザインしています。</p>
           </div>
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
