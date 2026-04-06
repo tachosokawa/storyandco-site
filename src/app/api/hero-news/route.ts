@@ -6,7 +6,7 @@ export async function GET() {
     const data = await client.getList({
       endpoint: 'news',
       queries: { limit: 3, orders: '-publishDate' },
-      customRequestInit: { next: { revalidate: 60 } }
+      customRequestInit: { next: { revalidate: 3600 } }
     })
     return NextResponse.json(data.contents)
   } catch {

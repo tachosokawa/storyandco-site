@@ -32,7 +32,7 @@ async function getLatestCases(): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { limit: 100, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
     return data.contents

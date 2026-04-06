@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       endpoint: 'news', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
     return {
@@ -56,7 +56,7 @@ async function getLatestNews() {
       endpoint: 'news',
       queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
     return data.contents
@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
       endpoint: 'news', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
   } catch {

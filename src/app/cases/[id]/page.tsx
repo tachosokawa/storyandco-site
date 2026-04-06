@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       endpoint: 'cases', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
     return {
@@ -55,7 +55,7 @@ async function getLatestCases(): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
     return data.contents
@@ -74,7 +74,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ id:
       endpoint: 'cases', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 60 }
+        next: { revalidate: 3600 }
       }
     })
   } catch {
