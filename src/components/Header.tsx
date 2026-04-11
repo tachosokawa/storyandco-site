@@ -7,8 +7,6 @@ import Image from 'next/image'
 
 const navItems = [
   { label: '会社のこと', href: '/company' },
-  { label: 'NewMake', href: '/service/newmake' },
-  { label: 'PATCH&PLAY', href: '/service/patchandplay' },
   { label: '事業のこと', href: '/service' },
   { label: '事例のご紹介', href: '/cases' },
   { label: 'インフォメーション', href: '/news' },
