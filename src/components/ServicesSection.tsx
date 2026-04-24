@@ -18,7 +18,7 @@ export default function ServicesSection() {
         </div>
         <div className='col-span-1 lg:col-span-3 border-b border-[#2d2a24]'>
           <div className='pt-[40px] pb-[56px] px-[20px] md:p-12 lg:p-[120px] md:border-b border-[#2d2a24]'>
-            <Image className="md:w-full w-[120px] md:w-[206px] md:max-w-[206px] h-auto" src="/images/clients/patchplay.webp" alt="PATCH&PLAY" width={206} height={120} sizes="(max-width: 768px) 120px, 206px" />
+            <Image className="md:w-full w-[120px] md:w-[206px] md:max-w-[206px] h-auto" src="https://images.microcms-assets.io/assets/b7173caec40641b9b66105a1a9e7dc30/6d4125664d4942dea31391f598898daf/P%26P_emblem_rgb.png" alt="PATCH&PLAY" width={206} height={227} sizes="(max-width: 768px) 120px, 206px" />
             <p className='pt-6 md:pt-6 lg:pt-10 font-sans text-[12px] md:text-lg lg:text-[20px] font-medium text-[#333]' style={{ lineHeight: '2' }}>PATCH&PLAYは、"すき"の気持ちをきっかけに、身のまわりのモノを、もう一度遊ぶようにたのしむ「ワッペンとお直しのお店」です。</p>
           </div>
           <CommonLink linkText="PATCH&PLAYについて知る" href="/service/patchandplay" />

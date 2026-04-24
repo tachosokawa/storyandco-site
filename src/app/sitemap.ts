@@ -69,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const data = await client.getList({
       endpoint: 'news',
       queries: { limit: 100, fields: 'id,updatedAt' },
-      customRequestInit: { next: { revalidate: 3600 } },
+      customRequestInit: { next: { revalidate: 300 } },
     })
     newsPages = data.contents.map((item: { id: string; updatedAt: string }) => ({
       url: `${BASE_URL}/news/${item.id}`,
@@ -87,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const data = await client.getList({
       endpoint: 'cases',
       queries: { limit: 100, fields: 'id,updatedAt' },
-      customRequestInit: { next: { revalidate: 3600 } },
+      customRequestInit: { next: { revalidate: 300 } },
     })
     casesPages = data.contents.map((item: { id: string; updatedAt: string }) => ({
       url: `${BASE_URL}/cases/${item.id}`,

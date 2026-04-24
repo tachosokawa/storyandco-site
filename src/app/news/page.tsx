@@ -28,7 +28,7 @@ async function getNews() {
       endpoint: 'news',
       queries: { limit: 100, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 3600 }
+        next: { revalidate: 300 }
       }
     })
     return data.contents

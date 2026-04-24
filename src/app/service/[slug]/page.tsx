@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       endpoint: 'services',
       queries: { filters: `slug[equals]${slug}`, limit: 1 },
       customRequestInit: {
-        next: { revalidate: 3600 }
+        next: { revalidate: 300 }
       }
     })
     const service = data.contents[0]
@@ -50,7 +50,7 @@ async function getRelatedCases(tags: string[]): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { filters, limit: 20, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 3600 }
+        next: { revalidate: 300 }
       }
     })
     return data.contents
@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       endpoint: 'services',
       queries: { filters: `slug[equals]${slug}`, limit: 1 },
       customRequestInit: {
-        next: { revalidate: 3600 }
+        next: { revalidate: 300 }
       }
     })
     serviceData = data.contents[0]
