@@ -53,19 +53,19 @@ export function processBodyHTML(html: string): string {
   processed = processTag(
     processed,
     'li',
-    'font-sans font-medium text-[#2d2a24] leading-[2] tracking-[0.04em] text-sm sm:text-base lg:text-[16px] text-left'
+    'font-sans font-medium text-[#2d2a24] leading-[2] tracking-[0.04em] text-left'
   )
 
   processed = processTag(
     processed,
     'h2',
-    'text-lg sm:text-xl md:text-[24px] font-bold leading-[2] tracking-[0.04em] mt-8 sm:mt-12 md:mt-[80px]'
+    'font-bold leading-[2] tracking-[0.04em] mt-8 sm:mt-12 md:mt-[80px]'
   )
 
   processed = processTag(
     processed,
     'h3',
-    'text-lg sm:text-xl md:text-[18px] font-bold leading-[2] tracking-[0.04em] mt-8 sm:mt-12 md:mt-[80px]'
+    'font-bold leading-[2] tracking-[0.04em] mt-8 sm:mt-12 md:mt-[80px]'
   )
 
   // Keep <strong> tags — microCMS bold formatting should be preserved
