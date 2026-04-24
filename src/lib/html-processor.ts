@@ -1,38 +1,37 @@
 /**
- * Processes HTML content and adds/updates className attributes on specific tags
+ * Processes HTML content from microCMS rich editor.
+ * Adds layout/typography classes while preserving microCMS's
+ * inline styles (font-size, color, etc.) and existing classes.
  */
 export function processBodyHTML(html: string): string {
   if (!html) return html
 
   let processed = html
 
-  // Helper function to process a tag
+  // Helper: merge our classes with any existing classes from microCMS
   const processTag = (
     htmlString: string,
     tagName: string,
     className: string
   ) => {
-    // Only match opening tags, not closing tags
     const regex = new RegExp(`<${tagName}(\\s[^>]*)?>`, 'gi')
     return htmlString.replace(regex, (match, attrs = '') => {
-      // Check if className already exists
-      const classNameMatch = attrs.match(/class=["']([^"']*)["']/i)
-      if (classNameMatch) {
-        // Replace existing className (ensure space before class)
+      const classMatch = attrs.match(/class=["']([^"']*)["']/i)
+      if (classMatch) {
+        // Merge: keep microCMS classes + append ours
+        const existing = classMatch[1]
         const newAttrs = attrs.replace(
           /class=["'][^"']*["']/i,
-          ` class="${className}"`
+          ` class="${existing} ${className}"`
         )
         return `<${tagName}${newAttrs}>`
       } else {
-        // Add new className - attrs may be empty or have attributes with leading space
-        // Always add space before class attribute
         return `<${tagName}${attrs} class="${className}">`
       }
     })
   }
 
-  // Process each tag type
+  // Process each tag type (layout & spacing only, no font-size overrides)
   processed = processTag(
     processed,
     'a',
@@ -69,9 +68,7 @@ export function processBodyHTML(html: string): string {
     'text-lg sm:text-xl md:text-[18px] font-bold leading-[2] tracking-[0.04em] mt-8 sm:mt-12 md:mt-[80px]'
   )
 
-  // Remove <strong> and </strong> tags
-  processed = processed.replace(/<strong\s*[^>]*>/gi, '')
-  processed = processed.replace(/<\/strong>/gi, '')
+  // Keep <strong> tags — microCMS bold formatting should be preserved
 
   return processed
 }
