@@ -47,8 +47,8 @@ export default function HeroSection({ initialNews = [] }: HeroSectionProps) {
         <div className="absolute bottom-1/4 right-1/4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-[#8B5CF6] blur-3xl" />
       </div>
       <div className="relative pt-[110px] w-full pt-16 md:pt-32 lg:pt-[224px] md:px-6 lg:px-[40px]">
-        <h1 className="font-sans text-[32px] sm:text-[40px] md:text-[56px] lg:text-[88px] xl:text-[104px] font-bold text-[#2d2a24] leading-[1.05] tracking-[-0.04em] text-right px-6 md:px-0 whitespace-nowrap">
-          体験を、バトンにする。
+        <h1 className="font-sans text-[44px] sm:text-[56px] md:text-[80px] lg:text-[120px] xl:text-[140px] font-bold text-[#2d2a24] leading-[1.05] tracking-[-0.04em] text-right px-6 md:px-0">
+          体験を、<br />バトンにする。
         </h1>
         <h2 className="font-poppins text-[28px] sm:text-[36px] md:text-[48px] lg:text-[72px] xl:text-[88px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-0.02em] text-right mt-4 md:mt-6 px-6 md:px-0">
           <span id="hero-pass1">P</span>
