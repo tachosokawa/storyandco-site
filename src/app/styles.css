@@ -36,6 +36,17 @@
 #mv-colorful24 { animation: colorChange4 30s infinite; }
 #mv-colorful25 { animation: colorChange5 30s infinite; }
 
+/* Hero "Pass it on." — fixed brand-palette colors (no animation) */
+#hero-pass1 { color: #2d2a24; }   /* P — black, with stroke */
+#hero-pass2 { color: #C0FF00; }   /* a — lime/green */
+#hero-pass3 { color: #FF4731; }   /* s — coral */
+#hero-pass4 { color: transparent; } /* s — outline only */
+#hero-pass5 { color: #18BED7; }   /* i — cyan */
+#hero-pass6 { color: transparent; } /* t — outline only */
+#hero-pass7 { color: transparent; } /* o — outline only */
+#hero-pass8 { color: #D0C5FB; }   /* n — lavender */
+#hero-pass9 { color: #FF4731; }   /* . — coral */
+
 
 #create-colorful1 { animation: colorChange1 30s infinite; }
 #create-colorful2 { animation: colorChange2 30s infinite; }

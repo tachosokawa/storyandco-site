@@ -47,35 +47,20 @@ export default function HeroSection({ initialNews = [] }: HeroSectionProps) {
         <div className="absolute bottom-1/4 right-1/4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full bg-[#8B5CF6] blur-3xl" />
       </div>
       <div className="relative pt-[110px] w-full pt-16 md:pt-32 lg:pt-[224px] md:px-6 lg:px-[40px]">
-        <p className="font-sans text-[22px] md:text-[32px] font-bold text-[#333] mb-2 text-right tracking-[0.04em]">体験を通じて、<br className="block md:hidden"/>新しい物語を生み出す。</p>
-        <h1 className="font-poppins text-[60px] sm:text-[60px] md:text-[60px] lg:text-[120px] xl:text-[188px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-4%] text-right md:text-righ px-6 md:px-0">
-          <span id="mv-colorful1">N</span>
-          <span id="mv-colorful2">e</span>
-          <span id="mv-colorful3">w </span>
-          <span id="mv-colorful4">E</span>
-          <span id="mv-colorful5">n</span>
-          <span id="mv-colorful6">c</span>
-          <span id="mv-colorful7">o</span>
-          <span id="mv-colorful8">u</span>
-          <span id="mv-colorful9">n</span>
-          <span id="mv-colorful10">t</span>
-          <span id="mv-colorful11">e</span>
-          <span id="mv-colorful12">r</span>
-          <span id="mv-colorful13">s</span>
-          <span id="mv-colorful14">,</span>
-          <br />
-          <span id="mv-colorful15">N</span>
-          <span id="mv-colorful16">e</span>
-          <span id="mv-colorful17">w </span>
-          <span id="mv-colorful18">S</span>
-          <span id="mv-colorful19">t</span>
-          <span id="mv-colorful20">o</span>
-          <span id="mv-colorful21">r</span>
-          <span id="mv-colorful22">i</span>
-          <span id="mv-colorful23">e</span>
-          <span id="mv-colorful24">s</span>
-          <span id="mv-colorful25">.</span>
+        <h1 className="font-sans text-[32px] sm:text-[40px] md:text-[56px] lg:text-[88px] xl:text-[104px] font-bold text-[#2d2a24] leading-[1.05] tracking-[-0.04em] text-right px-6 md:px-0 whitespace-nowrap">
+          体験を、バトンにする。
         </h1>
+        <h2 className="font-poppins text-[28px] sm:text-[36px] md:text-[48px] lg:text-[72px] xl:text-[88px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-0.02em] text-right mt-4 md:mt-6 px-6 md:px-0">
+          <span id="hero-pass1">P</span>
+          <span id="hero-pass2">a</span>
+          <span id="hero-pass3">s</span>
+          <span id="hero-pass4">s </span>
+          <span id="hero-pass5">i</span>
+          <span id="hero-pass6">t </span>
+          <span id="hero-pass7">o</span>
+          <span id="hero-pass8">n</span>
+          <span id="hero-pass9">.</span>
+        </h2>
       </div>
       <div className="w-full flex flex-col md:flex-row items-left gap-2 md:gap-2 text-sm text-[#2d2a24] mt-[90px] md:mt-16 lg:mt-[172px] pb-8 md:pb-16 lg:pb-[120px] pl-4 md:px-6 lg:px-0">
         <div className="inline-flex items-center gap-2 text-sm md:text-[16px] font-medium pl-0 md:pl-[40px] pt-4 md:pt-12">
