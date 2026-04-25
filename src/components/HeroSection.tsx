@@ -50,7 +50,7 @@ export default function HeroSection({ initialNews = [] }: HeroSectionProps) {
         <h1 className="font-sans text-[44px] sm:text-[56px] md:text-[80px] lg:text-[120px] xl:text-[140px] font-bold text-[#2d2a24] leading-[1.05] tracking-[-0.04em] text-right px-6 md:px-0">
           体験を、<br />バトンにする。
         </h1>
-        <h2 className="font-poppins text-[28px] sm:text-[36px] md:text-[48px] lg:text-[72px] xl:text-[88px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-0.02em] text-right mt-4 md:mt-6 px-6 md:px-0">
+        <h2 className="font-poppins text-[28px] sm:text-[36px] md:text-[48px] lg:text-[72px] xl:text-[88px] [-webkit-text-stroke:1px_#2d2a24] md:[-webkit-text-stroke:2px_#2d2a24] font-semibold leading-[100%] tracking-[-0.02em] text-right mt-4 md:mt-6 px-6 md:px-0 -translate-x-[22px] sm:-translate-x-[28px] md:-translate-x-[40px] lg:-translate-x-[60px] xl:-translate-x-[70px]">
           <span id="hero-pass1">P</span>
           <span id="hero-pass2">a</span>
           <span id="hero-pass3">s</span>
