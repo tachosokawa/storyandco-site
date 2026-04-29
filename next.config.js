@@ -50,6 +50,10 @@ const nextConfig = {
       { source: '/news/D58FhYPK', destination: '/news', permanent: true },
       { source: '/news/xgO9ESFu', destination: '/news', permanent: true },
       { source: '/news/UtXwyC6u', destination: '/news', permanent: true },
+      { source: '/news/aete', destination: '/news', permanent: true },
+      { source: '/news/VHwOTLOt', destination: '/news', permanent: true },
+      { source: '/news/jhRiHCon', destination: '/news', permanent: true },
+      { source: '/news/gxo7g4aE', destination: '/news', permanent: true },
     ]
   },
 }
