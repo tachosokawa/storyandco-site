@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       endpoint: 'news', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     return {
@@ -56,7 +56,7 @@ async function getLatestNews() {
       endpoint: 'news',
       queries: { limit: 20, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     return data.contents
@@ -74,7 +74,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
       endpoint: 'news', 
       contentId: id,
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
   } catch {
@@ -141,6 +141,36 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ id:
                     </>
                   )}
                 </div>
+                {(() => {
+                  const tagToService: Record<string, { slug: string; label: string }> = {
+                    'PATCH&PLAY': { slug: 'patchandplay', label: 'PATCH&PLAY' },
+                    'NewMake': { slug: 'newmake', label: 'NewMake' },
+                    'AND STORY': { slug: 'andstory', label: 'AND STORY' },
+                  }
+                  const related = Array.isArray(newsData.tags)
+                    ? newsData.tags
+                        .map((t: string) => tagToService[t])
+                        .filter((v: { slug: string; label: string } | undefined): v is { slug: string; label: string } => Boolean(v))
+                    : []
+                  if (related.length === 0) return null
+                  return (
+                    <div className="mt-8">
+                      <p className="font-sans text-[12px] md:text-[14px] text-[#2d2a24] font-bold tracking-[0.08em] leading-[2]">関連サービス</p>
+                      <ul className="mt-2 space-y-2">
+                        {related.map((s: { slug: string; label: string }) => (
+                          <li key={s.slug}>
+                            <Link
+                              href={`/service/${s.slug}`}
+                              className="font-sans text-[12px] md:text-[14px] text-[#18bed7] font-medium leading-[2] tracking-[0.08em] hover:underline"
+                            >
+                              {s.label}について詳しく →
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })()}
               </div>
             </div>
           </div>

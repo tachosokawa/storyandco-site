@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       endpoint: 'services',
       queries: { filters: `slug[equals]${slug}`, limit: 1 },
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     const service = data.contents[0]
@@ -50,7 +50,7 @@ async function getRelatedCases(tags: string[]): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { filters, limit: 20, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     return data.contents
@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       endpoint: 'services',
       queries: { filters: `slug[equals]${slug}`, limit: 1 },
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     serviceData = data.contents[0]
@@ -82,8 +82,69 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   const relatedCases = await getRelatedCases(serviceData.tags)
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.storyandco.co'
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'トップ', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: '事業のこと', item: `${siteUrl}/service` },
+      { '@type': 'ListItem', position: 3, name: serviceData.title, item: `${siteUrl}/service/${slug}` },
+    ],
+  }
+
+  const patchandplayJsonLd =
+    slug === 'patchandplay'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'ClothingStore',
+          name: 'PATCH&PLAY',
+          description: serviceData.description,
+          url: `${siteUrl}/service/patchandplay`,
+          ...(serviceData.logo?.url ? { image: serviceData.logo.url } : {}),
+          areaServed: ['原宿', '表参道', '東京'],
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: '東京都',
+            addressLocality: '渋谷区',
+            addressCountry: 'JP',
+          },
+          parentOrganization: {
+            '@type': 'Organization',
+            name: '株式会社STORY&Co.',
+            url: siteUrl,
+          },
+          sameAs: [
+            'https://www.instagram.com/patchandplay_tokyo/',
+            'https://www.tiktok.com/@patchandplay_tokyo',
+          ],
+          hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: 'お直し・カスタムメニュー',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '裾上げ' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'デニムのお直し' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '洋服のお直し' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '刺繍' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ワッペン' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'アップサイクル' } },
+            ],
+          },
+        }
+      : null
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {patchandplayJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(patchandplayJsonLd) }}
+        />
+      )}
       {/* Hero: left info + right main visual */}
       <section className="w-full mt-[96px] sm:mt-[80px] md:mt-[96px]">
         <div className="grid grid-cols-1 md:grid-cols-2 border-b border-[#2d2a24]">

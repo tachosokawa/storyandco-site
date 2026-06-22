@@ -41,7 +41,7 @@ async function getLatestCases(): Promise<CaseItem[]> {
       endpoint: 'cases',
       queries: { limit: 6, orders: '-publishDate' },
       customRequestInit: {
-        next: { revalidate: 300 }
+        next: { revalidate: 86400 }
       }
     })
     return data.contents
@@ -56,7 +56,7 @@ async function getHeroNews(): Promise<NewsItem[]> {
     const data = await client.getList({
       endpoint: 'news',
       queries: { limit: 3, orders: '-publishDate' },
-      customRequestInit: { next: { revalidate: 300 } }
+      customRequestInit: { next: { revalidate: 86400 } }
     })
     return data.contents
   } catch {

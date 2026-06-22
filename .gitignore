@@ -3,3 +3,7 @@ node_modules/
 .env.local
 .env*.local
 *.tgz
+
+# build / local tooling artifacts
+tsconfig.tsbuildinfo
+.claude/
