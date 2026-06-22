@@ -122,14 +122,67 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             '@type': 'OfferCatalog',
             name: 'お直し・カスタムメニュー',
             itemListElement: [
-              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '裾上げ' } },
-              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'デニムのお直し' } },
-              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '洋服のお直し' } },
-              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '刺繍' } },
-              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ワッペン' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ボタン付け（1個）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '500', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'パンツ裾上げ（三つ折り）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '2000', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'パンツ裾上げ（シングル）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '2600', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'パンツ裾上げ（ダブル）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '3100', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ファスナー交換（スラックス）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '3300', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ウエスト調整（紳士スラックス・後ろ中心）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '3900', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '袖丈つめ（ジャケット・筒袖まつり）' }, priceSpecification: { '@type': 'UnitPriceSpecification', price: '3900', priceCurrency: 'JPY', valueAddedTaxIncluded: true } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '刺繡・ワッペン（カスタム）' } },
               { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'アップサイクル' } },
             ],
           },
+        }
+      : null
+
+  const patchandplayFaqJsonLd =
+    slug === 'patchandplay'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'パンツの裾上げはいくらですか？',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: '三つ折り ¥2,000、シングル ¥2,600、ダブル ¥3,100（いずれも税込）が目安です。お品物の状態により変わる場合があります。',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'デニムの裾上げやリペアもお願いできますか？',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'はい。裾上げのほか、ウエスト調整やリペアなど、デニムならではのお直しにも対応しています。風合いを生かした仕上げもご相談いただけます。',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: '料金表にないお直しもできますか？',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'できます。内容によって料金が変わるため、LINEミニアプリから無料でお見積りいただけます。まずはお気軽にお問い合わせください。',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'お直しと一緒に、刺繡やワッペンもできますか？',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'できます。お直し跡を生かしたワンポイント刺繡や、お好みのワッペン付けなど、あなた通りのカスタムをご提案します。',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: '持ち込みでも大丈夫ですか？',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'お気に入りのお洋服をそのままお持ちください。どう直すか・どう活かすかを、スタッフと一緒に決めていけます。',
+              },
+            },
+          ],
         }
       : null
 
@@ -143,6 +196,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(patchandplayJsonLd) }}
+        />
+      )}
+      {patchandplayFaqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(patchandplayFaqJsonLd) }}
         />
       )}
       {/* Hero: left info + right main visual */}
