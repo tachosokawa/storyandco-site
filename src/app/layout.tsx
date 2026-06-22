@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     siteName: 'STORY & Co.',
   },
   twitter: {
+    // title / description はあえて指定しない。
+    // ここでハードコードすると全ページ同一のカードになってしまうため、
+    // 各ページの title / description から自動継承させる。
     card: 'summary_large_image',
-    title: '株式会社STORY&Co.｜ストーリーアンドカンパニー',
-    description:
-      'STORY&Co.は体験をデザインすることで人生に出会いと変化をもたらす企業です。AND STORY・NewMake・PATCH&PLAYなどの事業を展開しています。',
   },
   icons: {
     icon: '/favicon.png',

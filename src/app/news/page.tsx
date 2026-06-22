@@ -8,8 +8,8 @@ import TabsSection from '@/components/TabsSection'
 
 
 export const metadata: Metadata = {
-  title: 'インフォメーション',
-  description: 'STORY&Co.のインフォメーション・プレスリリース・イベント情報。',
+  title: 'お知らせ・プレスリリース',
+  description: 'STORY&Co.のお知らせ・プレスリリース・メディア掲載・イベント情報。PATCH&PLAY・NewMakeの最新情報を掲載しています。',
   alternates: { canonical: '/news' },
   openGraph: { url: '/news' },
 }
