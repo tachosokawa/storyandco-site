@@ -13,7 +13,8 @@ async function getLatestNews() {
     const { client } = await import('@/lib/microcms')
     const data = await client.get({
       endpoint: 'news',
-      queries: { limit: 100, orders: '-publishDate' },
+      // TOPページは最新4件のみ表示（全件表示でページが長くなる問題の修正）
+      queries: { limit: 4, orders: '-publishDate' },
       customRequestInit: {
         next: { revalidate: 86400 }
       }
